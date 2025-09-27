@@ -43,8 +43,8 @@
 	 margin-bottom: 4vh;
 }
  .hero-inner {
-	 margin-top: -60px;
-	 margin-bottom: 30px;
+	 margin-top: auto;
+	 margin-bottom: 12vh;
 	 position: relative;
 	 z-index: 2;
 	 padding: 0 20px;
