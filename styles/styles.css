@@ -93,7 +93,7 @@
 }
 /* Social Icons */
  .social-icons {
-	 margin-top: 0.0em;
+	 margin-top: -3.3em;
 	 display:flex;
 	 justify-content:center;
 	 gap:16px;
@@ -119,206 +119,343 @@
 	 filter: invert(1) opacity(1) drop-shadow(0 0 8px rgba(107,77,242,.45));
 	 transform: translateY(-1px);
 }
-
 /* ===== GIGS – OVERLAY VARIANT (transparent, gläsern) ===== */
-.gigs{
-  position: relative;
-  padding: clamp(28px, 5vw, 56px) 20px;
-  /* KEIN deckender Hintergrund mehr */
-  background: transparent;
-  border-top: 0;
-  z-index: 3; /* über dem Hero-Bild */
+ .gigs{
+	 position: relative;
+	 padding: clamp(28px, 5vw, 56px) 20px;
+	/* KEIN deckender Hintergrund mehr */
+	 background: transparent;
+	 border-top: 0;
+	 z-index: 3;
+	/* über dem Hero-Bild */
 }
-
 /* zieht die Gigs leicht in den Hero rein, ohne das Bild zu verdecken */
-.gigs--overlay{
-  margin-top: clamp(-80px, -10vh, -40px);
+ .gigs--overlay{
+	 margin-top: clamp(-80px, -10vh, -40px);
 }
-
-.gigs__inner{
-  max-width: 1100px;
-  margin: 0 auto;
+ .gigs__inner{
+	 max-width: 1100px;
+	 margin: 0 auto;
 }
-
-.gigs__head{
-  text-align: center;
-  margin-bottom: 18px;
+ .gigs__head{
+	 text-align: center;
+	 margin-bottom: 18px;
 }
-.gigs__head h2{
-  font-family: "Cinzel", serif;
-  font-size: clamp(1.3rem, 2vw, 2rem);
-  letter-spacing: .02em;
-  margin: 0 0 6px;
-  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+ .gigs__head h2{
+	 font-family: "Cinzel", serif;
+	 font-size: clamp(1.3rem, 2vw, 2rem);
+	 letter-spacing: .02em;
+	 margin: 0 0 6px;
+	 text-shadow: 0 2px 12px rgba(0,0,0,.5);
 }
-.gigs__sub{
-  color: var(--muted);
-  margin: 0;
+ .gigs__sub{
+	 color: var(--muted);
+	 margin: 0;
 }
-
 /* Liste */
-.gigs__list{
-  list-style: none; margin: 0; padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 14px;
+ .gigs__list{
+	 list-style: none;
+	 margin: 0;
+	 padding: 0;
+	 display: grid;
+	 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	 gap: 14px;
 }
-
 /* Card – gläsern & kompakt */
-.gig{
-  grid-template-columns: 90px 1fr auto;
-  align-items: center;
-  gap: 14px;
-  padding: 12px;
-  background: rgba(12,12,18,.48);              /* halbtransparent */
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 14px;
-  backdrop-filter: blur(6px);                   /* Glass */
-  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+ .gig{
+	 grid-template-columns: 90px 1fr auto;
+	 align-items: center;
+	 gap: 14px;
+	 padding: 12px;
+	 background: rgba(12,12,18,.48);
+	/* halbtransparent */
+	 border: 1px solid rgba(255,255,255,.08);
+	 border-radius: 14px;
+	 backdrop-filter: blur(6px);
+	/* Glass */
+	 box-shadow: 0 8px 28px rgba(0,0,0,.35);
 }
-@media (max-width: 640px){
-  .gig{
-    grid-template-columns: 80px 1fr;
-    grid-template-areas:
-      "date meta"
-      "cta  cta";
-  }
+ @media (max-width: 640px){
+	 .gig{
+		 grid-template-columns: 80px 1fr;
+		 grid-template-areas: "date meta" "cta cta";
+	}
 }
-
 /* Datum – kleiner, edler */
-.gig__date{
-  grid-area: date;
-  display: grid; 
-  align-items: center; 
-  justify-items: center;
-  gap: 2px; width: 100%;
-  padding: 10px 6px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(178,12,27,.15), rgba(107,77,242,.15));
-  border: 1px solid rgba(255,255,255,.12);
-  color: #eae8f5;
-  text-shadow: 0 1px 8px rgba(0,0,0,.5);
+ .gig__date{
+	 grid-area: date;
+	 display: grid;
+	 align-items: center;
+	 justify-items: center;
+	 gap: 2px;
+	 width: 100%;
+	 padding: 10px 6px;
+	 border-radius: 10px;
+	 background: linear-gradient(135deg, rgba(178,12,27,.15), rgba(107,77,242,.15));
+	 border: 1px solid rgba(255,255,255,.12);
+	 color: #eae8f5;
+	 text-shadow: 0 1px 8px rgba(0,0,0,.5);
 }
-.gig__day   { font-size: 1.4rem; font-weight: 700; line-height: 1; }
-.gig__month { text-transform: uppercase; letter-spacing: .08em; opacity: .9; font-size:.8rem; }
-.gig__year  { font-size: .75rem; color: var(--muted); }
-
+ .gig__day {
+	 font-size: 1.4rem;
+	 font-weight: 700;
+	 line-height: 1;
+}
+ .gig__month {
+	 text-transform: uppercase;
+	 letter-spacing: .08em;
+	 opacity: .9;
+	 font-size:.8rem;
+}
+ .gig__year {
+	 font-size: .75rem;
+	 color: var(--muted);
+}
 /* Meta */
-.gig__meta{ grid-area: meta; min-width: 0; }
-.gig__city{
-  margin: 20px 0px 2px;
-  font-size: 1rem; letter-spacing:.01em;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+ .gig__meta{
+	 grid-area: meta;
+	 min-width: 0;
 }
-.gig__venue{
-  font-weight: 600; color: #e8e6f2; opacity:.9;
-  display: inline-block; margin-left: .35ch;
+ .gig__city{
+	 margin: 20px 0px 2px;
+	 font-size: 1rem;
+	 letter-spacing:.01em;
+	 white-space: nowrap;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
 }
-.gig__note{
-  margin: 0; color: var(--muted); font-size: .9rem;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+ .gig__venue{
+	 font-weight: 600;
+	 color: #e8e6f2;
+	 opacity:.9;
+	 display: inline-block;
+	 margin-left: .35ch;
 }
-.gig__tags{ margin-top: 6px; display:flex; gap: 8px; flex-wrap: wrap; }
-.tag{
-  padding: 3px 8px; font-size: .7rem;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 999px; color: #e8e6f2; opacity:.9;
-  background: rgba(255,255,255,.03);
+ .gig__note{
+	 margin: 0;
+	 color: var(--muted);
+	 font-size: .9rem;
+	 white-space: nowrap;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
 }
-.tag--new { border-color: rgba(107,77,242,.55); box-shadow: inset 0 0 14px rgba(107,77,242,.25); }
-.tag--sold{ border-color: rgba(178,12,27,.6); color:#ffb8c0; }
-
-/* CTA rechts; mobil mittig */
-.gig__cta{
-  display: flex; gap: 8px; align-items: center; justify-content: flex-end;
+ .gig__tags{
+	 margin-top: 6px;
+	 display:flex;
+	 gap: 8px;
+	 flex-wrap: wrap;
 }
-@media (max-width: 640px){ .gig__cta{ grid-area: cta; justify-content: center; } }
-
+ .tag{
+	 padding: 3px 8px;
+	 font-size: .7rem;
+	 border: 1px solid rgba(255,255,255,.18);
+	 border-radius: 999px;
+	 color: #e8e6f2;
+	 opacity:.9;
+	 background: rgba(255,255,255,.03);
+}
+ .tag--new {
+	 border-color: rgba(107,77,242,.55);
+	 box-shadow: inset 0 0 14px rgba(107,77,242,.25);
+}
+ .tag--sold{
+	 border-color: rgba(178,12,27,.6);
+	 color:#ffb8c0;
+}
+/* CTA rechts;
+ mobil mittig */
+ .gig__cta{
+	 display: flex;
+	 gap: 8px;
+	 align-items: center;
+	 justify-content: flex-end;
+}
+ @media (max-width: 640px){
+	 .gig__cta{
+		 grid-area: cta;
+		 justify-content: center;
+	}
+}
 /* Buttons – glasige Varianten */
-.btn--ghost{
-  border-color: rgba(255,255,255,.2);
-  background: rgba(255,255,255,.04);
+ .btn--ghost{
+	 border-color: rgba(255,255,255,.2);
+	 background: rgba(255,255,255,.04);
 }
-
 /* Ausverkauft – dezenter */
-.gig.is-soldout{
-  opacity: .8;
-  background: rgba(178,12,27,.08);
-  border-color: rgba(178,12,27,.25);
+ .gig.is-soldout{
+	 opacity: .8;
+	 background: rgba(178,12,27,.08);
+	 border-color: rgba(178,12,27,.25);
 }
-
 /* ===== Mobile Polish (<= 600px) ===== */
-@media (max-width: 600px){
-
-  /* mehr Luft rund um Notch/Statusbar */
-  body { padding-top: env(safe-area-inset-top, 0); }
-
-  /* Logo kleiner + etwas mehr Abstand darunter */
-  .hero-logo{
-    width: min(78vw, 380px);
-    filter:
-      drop-shadow(0 0 10px rgba(255,255,255,.6))
-      drop-shadow(0 0 18px rgba(107,77,242,.35));
-  }
-  .hero-logo-wrap{ margin-bottom: 3vh; }
-
-  /* Social Icons kompakter */
-  .social-icons{ gap: 10px; margin-top: 1.2em; }
-  .social-icons a{ width: 38px; height: 38px; }
-  .social-icons a img{ width: 18px; height: 18px; }
-
-  /* CTA-Buttons kleiner */
-  .btn{ padding:10px 16px; font-size: .95rem; }
-
-  /* Hero-Text weniger Zeilenhöhe + etwas nach oben,
-     damit darunter Platz für die Gigs bleibt */
-  .hero-inner{
-    margin-bottom: 8vh;  /* vorher 10–14vh */
-  }
-
-  /* ===== Gigs-Panel – „breit & luftig“, nicht gedrungen ===== */
-  .gigs-panel{
-    position: static;                /* unter dem Hero, volle Breite */
-    width: min(94vw, 560px);
-    margin: 12px auto 0;
-  }
-  .gigs-panel__list{ gap: 12px; }
-
-  /* Card kompakter, weniger Blur/Shadow */
-  .gig{
-    grid-template-columns: 72px 1fr auto;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 12px;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 6px 18px rgba(0,0,0,.28);
-  }
-
-  /* Datumsfeld kleiner */
-  .gig__date{
-    padding: 8px 4px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(178,12,27,.16), rgba(107,77,242,.16));
-  }
-  .gig__date b{ font-size: 1.2rem; }
-  .gig__date span{ font-size: .72rem; letter-spacing: .06em; }
-  .gig__date i{ font-size: .68rem; }
-
-  /* Texte kürzer/lesbarer */
-  .gig__city{ font-size: .98rem; }
-  .gig__note{ font-size: .86rem; }
-  .gig__tags{ margin-top: 4px; }
-  .tag{ padding: 2px 7px; font-size: .68rem; }
-
-  /* CTA-Button schmaler */
-  .gig__cta{ padding: 8px 12px; font-size: .9rem; }
-
-  /* mehr Abstand unterhalb des Blocks, damit Footer/Socials nicht kollidieren */
-  .gigs{ padding: 20px 14px 28px; }
+ @media (max-width: 600px){
+	/* mehr Luft rund um Notch/Statusbar */
+	 body {
+		 padding-top: env(safe-area-inset-top, 0);
+	}
+	/* Logo kleiner + etwas mehr Abstand darunter */
+	 .hero-logo{
+		 width: min(78vw, 380px);
+		 filter: drop-shadow(0 0 10px rgba(255,255,255,.6)) drop-shadow(0 0 18px rgba(107,77,242,.35));
+	}
+	 .hero-logo-wrap{
+		 margin-bottom: 3vh;
+	}
+	/* Social Icons kompakter */
+	 .social-icons{
+		 gap: 10px;
+		 margin-top: 1.2em;
+	}
+	 .social-icons a{
+		 width: 38px;
+		 height: 38px;
+	}
+	 .social-icons a img{
+		 width: 18px;
+		 height: 18px;
+	}
+	/* CTA-Buttons kleiner */
+	 .btn{
+		 padding:10px 16px;
+		 font-size: .95rem;
+	}
+	/* Hero-Text weniger Zeilenhöhe + etwas nach oben, damit darunter Platz für die Gigs bleibt */
+	 .hero-inner{
+		 margin-bottom: 8vh;
+		/* vorher 10–14vh */
+	}
+	/* ===== Gigs-Panel – „breit & luftig“, nicht gedrungen ===== */
+	 .gigs-panel{
+		 position: static;
+		/* unter dem Hero, volle Breite */
+		 width: min(94vw, 560px);
+		 margin: 12px auto 0;
+	}
+	 .gigs-panel__list{
+		 gap: 12px;
+	}
+	/* Card kompakter, weniger Blur/Shadow */
+	 .gig{
+		 grid-template-columns: 72px 1fr auto;
+		 gap: 10px;
+		 padding: 10px;
+		 border-radius: 12px;
+		 backdrop-filter: blur(4px);
+		 box-shadow: 0 6px 18px rgba(0,0,0,.28);
+	}
+	/* Datumsfeld kleiner */
+	 .gig__date{
+		 padding: 8px 4px;
+		 border-radius: 10px;
+		 background: linear-gradient(135deg, rgba(178,12,27,.16), rgba(107,77,242,.16));
+	}
+	 .gig__date b{
+		 font-size: 1.2rem;
+	}
+	 .gig__date span{
+		 font-size: .72rem;
+		 letter-spacing: .06em;
+	}
+	 .gig__date i{
+		 font-size: .68rem;
+	}
+	/* Texte kürzer/lesbarer */
+	 .gig__city{
+		 font-size: .98rem;
+	}
+	 .gig__note{
+		 font-size: .86rem;
+	}
+	 .gig__tags{
+		 margin-top: 4px;
+	}
+	 .tag{
+		 padding: 2px 7px;
+		 font-size: .68rem;
+	}
+	/* CTA-Button schmaler */
+	 .gig__cta{
+		 padding: 8px 12px;
+		 font-size: .9rem;
+	}
+	/* mehr Abstand unterhalb des Blocks, damit Footer/Socials nicht kollidieren */
+	 .gigs{
+		 padding: 20px 14px 28px;
+	}
+}
+/* ===== sehr kleine Geräte (<= 360px) – Extraschrumpfung ===== */
+ @media (max-width: 360px){
+	 .gig{
+		 grid-template-columns: 64px 1fr;
+	}
+	 .gig__cta{
+		 grid-column: 1 / -1;
+		 justify-self: center;
+		 margin-top: 6px;
+	}
 }
 
-/* ===== sehr kleine Geräte (<= 360px) – Extraschrumpfung ===== */
-@media (max-width: 360px){
-  .gig{ grid-template-columns: 64px 1fr; }
-  .gig__cta{ grid-column: 1 / -1; justify-self: center; margin-top: 6px; }
+/* ---------- Social Slider — CSS only ---------- */
+.social{
+  display:flex; justify-content:center; margin-top:1.25rem;
+}
+
+/* Sichtfenster */
+.social__viewport{
+  position: relative;
+  max-width: 92vw;            /* Mobile: begrenzen */
+  overflow: hidden;           /* Ränder „maskieren“ */
+}
+
+/* weiches Fade an den Seiten (immer leicht sichtbar) */
+.social__viewport::before,
+.social__viewport::after{
+  content:"";
+  position:absolute; top:0; bottom:0; width:26px; z-index:2; pointer-events:none;
+  background: linear-gradient(to right, rgba(11,11,18,1), rgba(11,11,18,0));
+}
+.social__viewport::after{ right:0; transform:scaleX(-1); }
+.social__viewport::before{ left:0; }
+
+/* Track: horizontal scroll + Snap */
+.social__track{
+  display:flex; align-items:center; gap:14px;
+  padding:4px 12px;
+  overflow-x:auto; overflow-y:hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* smooth auf iOS */
+  scroll-behavior: smooth;
+  scrollbar-width: none;                 /* Firefox: ausblenden */
+}
+.social__track::-webkit-scrollbar{ display:none; }  /* WebKit/Chromium */
+
+/* Jedes Icon snappt zentriert ein */
+.social__track > a{
+  flex:0 0 auto;
+  scroll-snap-align: center;
+}
+
+/* Icon-Optik (deine vorhandenen Werte, leicht gestrafft) */
+.social a{
+  width:50px; height:50px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%;
+  background: rgba(255,255,255,.08);
+}
+.social a img{
+  width:30px; height:30px; object-fit:contain;
+  filter: invert(1) opacity(.75);
+  transition: filter .2s ease, transform .2s ease;
+}
+.social a:hover img{
+  filter: invert(1) opacity(1) drop-shadow(0 0 8px rgba(107,77,242,.45));
+  transform: translateY(-1px);
+}
+
+/* Desktop: wenn genug Platz, nicht beschneiden */
+@media (min-width: 500px){
+  .social__viewport{ overflow: visible; max-width:none; }
+  .social__viewport::before,
+  .social__viewport::after{ display:none; }
+  .social__track{ overflow: visible; }
 }
