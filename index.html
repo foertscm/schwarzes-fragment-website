@@ -15,15 +15,6 @@
           class="hero-logo">
       </div>
       <div class="hero-inner">
-        <p>Dark • Electro • E.B.M. • Gothic</p>
-        <!-- Buttons mit Glitch -->
-        <a class="btn btn--primary" href="https://schwarzesfragment.bandcamp.com/" target="_blank">
-        <span class="glitch" data-text="Hören">Hören</span>
-        </a>
-        <a class="btn" href="#live">
-        <span class="glitch" data-text="Termine">Termine</span>
-        </a>
-        <!-- Social Media -->
         <div class="social-icons">
           <a href="https://schwarzesfragment.bandcamp.com/" target="_blank" title="Bandcamp">
           <img src="images/logos/logo-bandcamp.png" alt="Bandcamp">
@@ -50,7 +41,79 @@
           <img src="images/logos/logo-spotify.png" alt="Spotify">
           </a>
         </div>
+        <p>Dark • Electro • E.B.M. • Gothic</p>
+        <!-- Buttons mit Glitch -->
+        <a class="btn btn--primary" href="https://schwarzesfragment.bandcamp.com/" target="_blank">
+        <span class="glitch" data-text="Listen">Listen</span>
+        </a>
+		<br/><br/><br/><br/>
+		<a class="btn btn" href="https://schwarzesfragment.bandcamp.com/" target="_blank">
+			<span class="glitch" data-text="Listen">Termine</span>
+        </a>
+        <!-- Social Media -->
       </div>
+	  
+	<!-- LIVE / TERMINE -->
+<section id="live" class="gigs gigs--overlay" aria-labelledby="gigs-title">
+  <div class="gigs__inner">
+
+    <ul class="gigs__list" id="gigs-list">
+      <!-- BEISPIEL-EINTRÄGE – einfach duplizieren/ändern -->
+      <li class="gig" data-date="2025-12-05">
+        <time class="gig__date">
+          <span class="gig__day">05</span><span class="gig__month">Dez</span><span class="gig__year">2025</span>
+        </time>
+        <div class="gig__meta">
+          <h3 class="gig__city">Online <span class="gig__venue">Weirdsville</span></h3>
+          <p class="gig__note">EBM Night w/ Guests</p>
+          <div class="gig__tags">
+            <span class="tag tag--new">Neu</span>
+          </div>
+        </div>
+        <nav class="gig__cta">
+          <a class="btn btn--ghost" href="https://www.facebook.com/groups/535851926132171" target="_blank" rel="noopener">Info</a>
+        </nav>
+      </li>
+	  
+      <li class="gig" data-date="2025-11-22">
+        <time class="gig__date">
+          <span class="gig__day">22</span>
+          <span class="gig__month">Nov</span>
+          <span class="gig__year">2025</span>
+        </time>
+        <div class="gig__meta">
+          <h3 class="gig__city">München <span class="gig__venue">Szenerie Drehleier</span></h3>
+          <p class="gig__note">Dunkelstrom Doppelkonzertnacht mit Irrlicht</p>
+          <div class="gig__tags">
+            <span class="tag tag--new">Neu</span>
+          </div>
+        </div>
+        <nav class="gig__cta">
+          <a class="btn btn--ghost" href="https://www.facebook.com/events/529023986692303" target="_blank" rel="noopener">Info</a>
+        </nav>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Optionales kleines Script: sortiert Gigs nach Datum & blendet Vergangenes aus -->
+<script>
+  (function(){
+    const list = document.getElementById('gigs-list');
+    if(!list) return;
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    const items = Array.from(list.querySelectorAll('.gig'));
+    items.sort((a,b)=> new Date(a.dataset.date) - new Date(b.dataset.date));
+
+    // entfernen, wenn du vergangene Termine sichtbar behalten willst:
+    const upcoming = items.filter(li => new Date(li.dataset.date) >= today);
+
+    list.innerHTML = '';
+    (upcoming.length ? upcoming : items).forEach(li => list.appendChild(li));
+  })();
+</script>
+
     </header>
   </body>
 </html>
