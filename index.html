@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schwarzes Fragment — Hero</title>
+    <title>Schwarzes Fragment Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
   </head>
@@ -16,6 +16,9 @@
       </div>
       <div class="hero-inner">
         <div class="social-icons">
+          <a href="mailto:booking@schwarzes-fragment.de" title="Spotify">
+          <img src="images/logos/logo-mail.png" alt="E-Mail">
+          </a>
           <a href="https://schwarzesfragment.bandcamp.com/" target="_blank" title="Bandcamp">
           <img src="images/logos/logo-bandcamp.png" alt="Bandcamp">
           </a>
@@ -48,68 +51,47 @@
         </a>
         <!-- Social Media -->
       </div>
-	  
-	<!-- LIVE / TERMINE -->
-<section id="live" class="gigs gigs--overlay" aria-labelledby="gigs-title">
-  <div class="gigs__inner">
-	<b>LIVE</b>
-    <ul class="gigs__list" id="gigs-list">
-      <!-- BEISPIEL-EINTRÄGE – einfach duplizieren/ändern -->
-      <li class="gig" data-date="2025-12-05">
-        <time class="gig__date">
-          <span class="gig__day">05</span><span class="gig__month">Dez</span><span class="gig__year">2025</span>
-        </time>
-        <div class="gig__meta">
-          <h3 class="gig__city">Online <span class="gig__venue">Weirdsville</span></h3>
-          <p class="gig__note">EBM Night w/ Guests</p>
-          <div class="gig__tags">
-            <span class="tag tag--new">Neu</span>
-          </div>
+      <!-- LIVE / TERMINE -->
+      <section id="live" class="gigs gigs--overlay" aria-labelledby="gigs-title">
+        <div class="gigs__inner">
+          <h1>LIVE DATES</h1>
+          <ul class="gigs__list" id="gigs-list">
+            <!-- BEISPIEL-EINTRÄGE – einfach duplizieren/ändern -->
+            <li class="gig" data-date="2025-12-05">
+              <time class="gig__date">
+              <span class="gig__day">24 - 25</span><span class="gig__month">Oct</span><span class="gig__year">2025</span>
+              </time>
+              <div class="gig__meta">
+                <h3 class="gig__city"><span class="gig__venue">Weirdsville Music Festival</span></h3>
+                <p class="gig__note">Online Worldwide Underground Music Festival</p>
+                <div class="gig__tags">
+                  <span class="tag tag--new">NEW</span>
+                </div>
+              </div>
+              <nav class="gig__cta">
+                <a class="btn btn--ghost" href="https://www.facebook.com/groups/535851926132171" target="_blank" rel="noopener">Info</a>
+              </nav>
+            </li>
+            <li class="gig" data-date="2025-11-22">
+              <time class="gig__date">
+              <span class="gig__day">22</span>
+              <span class="gig__month">Nov</span>
+              <span class="gig__year">2025</span>
+              </time>
+              <div class="gig__meta">
+                <h3 class="gig__city">München <span class="gig__venue">Szenerie Drehleier</span></h3>
+                <p class="gig__note">Dunkelstrom Doppelkonzertnacht mit Irrlicht</p>
+                <div class="gig__tags">
+                  <span class="tag tag--new">NEW</span>
+                </div>
+              </div>
+              <nav class="gig__cta">
+                <a class="btn btn--ghost" href="https://www.facebook.com/events/529023986692303" target="_blank" rel="noopener">Info</a>
+              </nav>
+            </li>
+          </ul>
         </div>
-        <nav class="gig__cta">
-          <a class="btn btn--ghost" href="https://www.facebook.com/groups/535851926132171" target="_blank" rel="noopener">Info</a>
-        </nav>
-      </li>
-	  
-      <li class="gig" data-date="2025-11-22">
-        <time class="gig__date">
-          <span class="gig__day">22</span>
-          <span class="gig__month">Nov</span>
-          <span class="gig__year">2025</span>
-        </time>
-        <div class="gig__meta">
-          <h3 class="gig__city">München <span class="gig__venue">Szenerie Drehleier</span></h3>
-          <p class="gig__note">Dunkelstrom Doppelkonzertnacht mit Irrlicht</p>
-          <div class="gig__tags">
-            <span class="tag tag--new">Neu</span>
-          </div>
-        </div>
-        <nav class="gig__cta">
-          <a class="btn btn--ghost" href="https://www.facebook.com/events/529023986692303" target="_blank" rel="noopener">Info</a>
-        </nav>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- Optionales kleines Script: sortiert Gigs nach Datum & blendet Vergangenes aus -->
-<script>
-  (function(){
-    const list = document.getElementById('gigs-list');
-    if(!list) return;
-    const today = new Date(); today.setHours(0,0,0,0);
-
-    const items = Array.from(list.querySelectorAll('.gig'));
-    items.sort((a,b)=> new Date(a.dataset.date) - new Date(b.dataset.date));
-
-    // entfernen, wenn du vergangene Termine sichtbar behalten willst:
-    const upcoming = items.filter(li => new Date(li.dataset.date) >= today);
-
-    list.innerHTML = '';
-    (upcoming.length ? upcoming : items).forEach(li => list.appendChild(li));
-  })();
-</script>
-
+      </section>
     </header>
   </body>
 </html>

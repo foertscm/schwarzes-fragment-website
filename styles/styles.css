@@ -93,7 +93,7 @@
 }
 /* Social Icons */
  .social-icons {
-	 margin-top: 2em;
+	 margin-top: 0.0em;
 	 display:flex;
 	 justify-content:center;
 	 gap:16px;
@@ -245,4 +245,80 @@
   opacity: .8;
   background: rgba(178,12,27,.08);
   border-color: rgba(178,12,27,.25);
+}
+
+/* ===== Mobile Polish (<= 600px) ===== */
+@media (max-width: 600px){
+
+  /* mehr Luft rund um Notch/Statusbar */
+  body { padding-top: env(safe-area-inset-top, 0); }
+
+  /* Logo kleiner + etwas mehr Abstand darunter */
+  .hero-logo{
+    width: min(78vw, 380px);
+    filter:
+      drop-shadow(0 0 10px rgba(255,255,255,.6))
+      drop-shadow(0 0 18px rgba(107,77,242,.35));
+  }
+  .hero-logo-wrap{ margin-bottom: 3vh; }
+
+  /* Social Icons kompakter */
+  .social-icons{ gap: 10px; margin-top: 1.2em; }
+  .social-icons a{ width: 38px; height: 38px; }
+  .social-icons a img{ width: 18px; height: 18px; }
+
+  /* CTA-Buttons kleiner */
+  .btn{ padding:10px 16px; font-size: .95rem; }
+
+  /* Hero-Text weniger Zeilenhöhe + etwas nach oben,
+     damit darunter Platz für die Gigs bleibt */
+  .hero-inner{
+    margin-bottom: 8vh;  /* vorher 10–14vh */
+  }
+
+  /* ===== Gigs-Panel – „breit & luftig“, nicht gedrungen ===== */
+  .gigs-panel{
+    position: static;                /* unter dem Hero, volle Breite */
+    width: min(94vw, 560px);
+    margin: 12px auto 0;
+  }
+  .gigs-panel__list{ gap: 12px; }
+
+  /* Card kompakter, weniger Blur/Shadow */
+  .gig{
+    grid-template-columns: 72px 1fr auto;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  }
+
+  /* Datumsfeld kleiner */
+  .gig__date{
+    padding: 8px 4px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(178,12,27,.16), rgba(107,77,242,.16));
+  }
+  .gig__date b{ font-size: 1.2rem; }
+  .gig__date span{ font-size: .72rem; letter-spacing: .06em; }
+  .gig__date i{ font-size: .68rem; }
+
+  /* Texte kürzer/lesbarer */
+  .gig__city{ font-size: .98rem; }
+  .gig__note{ font-size: .86rem; }
+  .gig__tags{ margin-top: 4px; }
+  .tag{ padding: 2px 7px; font-size: .68rem; }
+
+  /* CTA-Button schmaler */
+  .gig__cta{ padding: 8px 12px; font-size: .9rem; }
+
+  /* mehr Abstand unterhalb des Blocks, damit Footer/Socials nicht kollidieren */
+  .gigs{ padding: 20px 14px 28px; }
+}
+
+/* ===== sehr kleine Geräte (<= 360px) – Extraschrumpfung ===== */
+@media (max-width: 360px){
+  .gig{ grid-template-columns: 64px 1fr; }
+  .gig__cta{ grid-column: 1 / -1; justify-self: center; margin-top: 6px; }
 }
