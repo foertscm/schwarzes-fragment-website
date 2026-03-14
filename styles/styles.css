@@ -27,8 +27,8 @@
 	 z-index: -1;
 	 background-color: #090910;
 	 background-image: var(--overlay-1), var(--overlay-2), var(--bg-image);
-	 background-size: auto, auto, cover;
-	 background-position: top, top, center;
+	 background-size: auto, auto, auto, cover;
+	 background-position: top, top, top, center;
 	 background-repeat: no-repeat;
 }
 /* Hero Layout */
