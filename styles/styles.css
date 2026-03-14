@@ -11,13 +11,25 @@
 	 box-sizing: border-box 
 }
  html,body {
-	 height:100% 
+	 min-height:100%
 }
  body {
 	 margin:0;
 	 font-family:'Orbitron',system-ui,Segoe UI,Roboto,Arial,sans-serif;
 	 color:var(--ink);
 	 background:#090910;
+}
+/* Single fixed background layer covering the full page — no seams */
+ body::before {
+	 content: "";
+	 position: fixed;
+	 inset: 0;
+	 z-index: -1;
+	 background-color: #090910;
+	 background-image: var(--overlay-1), var(--overlay-2), var(--bg-image);
+	 background-size: auto, auto, cover;
+	 background-position: top, top, center;
+	 background-repeat: no-repeat;
 }
 /* Hero Layout */
  .hero {
@@ -28,16 +40,11 @@
 	 align-items: center;
 	 text-align: center;
 	 overflow: hidden;
-	 background: #090910 center/cover no-repeat;
-	 background-image: var(--bg-image);
+	 background: transparent;
 	 padding-top: 6vh;
 }
  .hero::after {
-	 content: "";
-	 position: absolute;
-	 inset: 0;
-	 background: var(--overlay-1), var(--overlay-2);
-	 pointer-events: none;
+	 display: none;
 }
  .hero-logo-wrap {
 	 position: relative;
@@ -282,6 +289,11 @@
  .btn--ghost{
 	 border-color: rgba(255,255,255,.2);
 	 background: rgba(255,255,255,.04);
+}
+/* Vergangen – ausgegraut */
+ .gig.is-past{
+	 opacity: .4;
+	 filter: grayscale(.6);
 }
 /* Ausverkauft – dezenter */
  .gig.is-soldout{
@@ -950,4 +962,162 @@
   opacity: 0.5;
   filter: blur(5px);
   background-size: cover;
+}
+
+/* Main content area — background handled by body::before */
+main {
+	position: relative;
+	text-align: center;
+}
+
+/* --------- MUSIC & VIDEO SECTIONS --------- */
+.section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) 20px;
+}
+
+.music-section,
+.video-section {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+
+/* Audio Player */
+.player {
+  background: rgba(12,12,18,.6);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 24px;
+  backdrop-filter: blur(6px);
+}
+
+.player__info {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.player__track-name {
+  font-size: clamp(14px, 2.5vw, 18px);
+  color: #eae8f5;
+  letter-spacing: .08em;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.player__btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(107,77,242,.2);
+  color: #eae8f5;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background .2s ease, transform .15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player__btn:hover {
+  background: rgba(107,77,242,.45);
+  transform: scale(1.08);
+}
+
+.player__progress-wrap {
+  flex: 1;
+}
+
+.player__progress {
+  height: 4px;
+  background: rgba(255,255,255,.12);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.player__progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #b20c1b, #6b4df2);
+  border-radius: 2px;
+  transition: width .1s linear;
+  pointer-events: none;
+}
+
+.player__time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255,255,255,.4);
+  font-family: 'Orbitron', monospace;
+}
+
+.player__tracklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.player__track {
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  border: 1px solid transparent;
+  transition: color .2s, background .2s, border-color .2s;
+  counter-increment: tracklist;
+}
+
+.player__track::before {
+  content: counter(tracklist, decimal-leading-zero) ".  ";
+  color: rgba(255,255,255,.25);
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+}
+
+.player__tracklist {
+  counter-reset: tracklist;
+}
+
+.player__track:hover {
+  color: #eae8f5;
+  background: rgba(255,255,255,.05);
+}
+
+.player__track.is-active {
+  color: #eae8f5;
+  background: linear-gradient(135deg, rgba(178,12,27,.15), rgba(107,77,242,.15));
+  border-color: rgba(107,77,242,.35);
+}
+
+/* Video */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
