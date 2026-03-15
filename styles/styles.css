@@ -252,9 +252,10 @@
 	 grid-area: meta;
 	 min-width: 0;
 }
- .gig__city{
+ .gig__name{
 	 margin: 20px 0px 2px;
 	 font-size: 1rem;
+	 font-weight: bold;
 	 letter-spacing:.01em;
 	 white-space: nowrap;
 	 overflow: hidden;
@@ -401,7 +402,7 @@
 		 font-size: .68rem;
 	}
 	/* Texte kürzer/lesbarer */
-	 .gig__city{
+	 .gig__name{
 		 font-size: .98rem;
 	}
 	 .gig__note{
@@ -1133,9 +1134,9 @@ main {
 
 /* Video */
 @keyframes video-glow {
-  0%   { box-shadow: 0 0 18px 4px rgba(107,77,242,.4), 0 0 40px 8px rgba(178,12,27,.2); }
-  50%  { box-shadow: 0 0 32px 8px rgba(107,77,242,.7), 0 0 60px 16px rgba(178,12,27,.35); }
-  100% { box-shadow: 0 0 18px 4px rgba(107,77,242,.4), 0 0 40px 8px rgba(178,12,27,.2); }
+  0%   { box-shadow: 0 0 18px 4px rgba(255,255,255,.4), 0 0 40px 8px rgba(255,255,255,.2); }
+  50%  { box-shadow: 0 0 32px 8px rgba(255,255,255,.7), 0 0 60px 16px rgba(255,255,255,.35); }
+  100% { box-shadow: 0 0 18px 4px rgba(255,255,255,.4), 0 0 40px 8px rgba(255,255,255,.2); }
 }
 
 .video-wrap {
