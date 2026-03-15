@@ -1132,13 +1132,20 @@ main {
 }
 
 /* Video */
+@keyframes video-glow {
+  0%   { box-shadow: 0 0 18px 4px rgba(107,77,242,.4), 0 0 40px 8px rgba(178,12,27,.2); }
+  50%  { box-shadow: 0 0 32px 8px rgba(107,77,242,.7), 0 0 60px 16px rgba(178,12,27,.35); }
+  100% { box-shadow: 0 0 18px 4px rgba(107,77,242,.4), 0 0 40px 8px rgba(178,12,27,.2); }
+}
+
 .video-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(107,77,242,.35);
+  animation: video-glow 3s ease-in-out infinite;
 }
 
 .video-wrap iframe {
