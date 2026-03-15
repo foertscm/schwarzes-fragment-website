@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@400;600;700&family=Orbitron:wght@400;700&family=Quantico:wght@400;700&family=Rajdhani:wght@400;600;700&family=Teko:wght@400;600;700&display=swap');
+/* Self-hosted fonts — no external requests */
+@font-face {
+	font-family: 'Orbitron';
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+	src: url('../fonts/orbitron-latin.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Cinzel';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('../fonts/cinzel-700-latin-ext.woff2') format('woff2');
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Cinzel';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('../fonts/cinzel-700-latin.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
 	 --bg-image: image-set(url('../images/band/band-picture-1920.webp') type('image/webp'), url('../images/band/band-picture-1920.png') type('image/png'));
@@ -12,6 +36,9 @@
 }
  html,body {
 	 min-height:100%
+}
+ html {
+	 scroll-behavior: smooth;
 }
  body {
 	 margin:0;
@@ -1120,4 +1147,38 @@ main {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* --------- FOOTER --------- */
+.site-footer {
+	position: relative;
+	z-index: 3;
+	text-align: center;
+	padding: 40px 20px;
+	border-top: 1px solid rgba(255,255,255,.08);
+	color: var(--muted);
+	font-size: .8rem;
+	letter-spacing: .04em;
+}
+.site-footer a {
+	color: var(--muted);
+	text-decoration: none;
+	border-bottom: 1px solid rgba(255,255,255,.2);
+	transition: color .2s, border-color .2s;
+}
+.site-footer a:hover {
+	color: var(--ink);
+	border-color: var(--ink);
+}
+.site-footer__copy {
+	margin-top: 8px;
+	font-size: .72rem;
+	opacity: .5;
+}
+.site-footer__impressum {
+	margin-top: 16px;
+	padding-top: 16px;
+	border-top: 1px solid rgba(255,255,255,.06);
+	font-size: .68rem;
+	opacity: .4;
 }
