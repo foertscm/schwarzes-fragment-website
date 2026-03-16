@@ -154,6 +154,7 @@
       <a href="#music">Music</a>
       <a href="#video">Video</a>
       <a href="#about">About</a>
+      <a href="#highlights">Highlights</a>
       <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">Book</a>
     </nav>
     <header class="hero" aria-label="Band-Wallpaper">
@@ -200,12 +201,9 @@
         </div>
         <p class="hero-subtitle">Club-driven melodic dark electro<br>from Leipzig &amp; Munich</p>
         <!-- Buttons mit Glitch -->
-        <a class="btn btn--primary" href="#music">
-          <span class="glitch" data-text="Listen">Listen</span>
-        </a>
+        <a class="btn btn--primary hero-listen-btn" href="#music">&#9654; Listen</a>
         <a class="btn btn--primary" href="#video">Watch</a>
-        <a class="btn btn--ghost" href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer">Book us!</a>
-        <a class="btn btn--ghost hero-listen-btn" href="#music">&#9654; Listen: Digital Phantom</a>
+        <a class="btn btn--ghost" href="https://epk.schwarzes-fragment.de/index_en.html" target="_blank" rel="noopener noreferrer">Book us!</a>
         <!-- Social Media -->
       </div>
     </header>
@@ -224,31 +222,32 @@
                 <span class="gig__day">27</span>
                 <span class="gig__month">Mar</span>
                 <span class="gig__year">2026</span>
+                <div class="gig__tags">
+                  <span class="tag tag--new">LOCAL</span>
+                </div>
               </time>
               <div class="gig__meta">
                 <h3 class="gig__name">DUNKELSTROM III</h3>
                 <p class="gig__note">München, Szenerie Drehleier<br/>Phantom Belgrad &<br/>Schwarzes Fragment Live!</p>
-                <div class="gig__tags">
-                  <span class="tag tag--new">NEW</span>
-                </div>
+                <span class="gig__curator">Curated by Schwarzes Fragment</span>
               </div>
-              <nav class="gig__cta">
+              <div class="gig__cta">
                 <a class="btn btn--ghost" href="images/flyer/20260327-schwarzes-fragment-flyer-drehleier.png" target="_blank" rel="noopener noreferrer">Flyer</a>
                 <a class="btn btn--ghost" href="https://www.facebook.com/events/832539002998617" target="_blank" rel="noopener noreferrer">Info</a>
-              </nav>
+              </div>
             </li>
             <li class="gig" data-date="2026-05-23">
               <time class="gig__date" datetime="2026-05-23">
                 <span class="gig__day">23</span>
                 <span class="gig__month">May</span>
                 <span class="gig__year">2026</span>
+                <div class="gig__tags">
+                  <span class="tag tag--new">NEW</span>
+                </div>
               </time>
               <div class="gig__meta">
                 <h3 class="gig__name">World Goth Day Online Festival</h3>
                 <p class="gig__note">Schwarzes Fragment<br/>Prerecorded Live!</p>
-                <div class="gig__tags">
-                  <span class="tag tag--new">NEW</span>
-                </div>
               </div>
             </li>
             <li class="gig" data-date="2026-05-25">
@@ -256,13 +255,16 @@
                 <span class="gig__day">25</span>
                 <span class="gig__month">May</span>
                 <span class="gig__year">2026</span>
+                <div class="gig__tags">
+                  <span class="tag tag--new">NEW</span>
+                </div>
               </time>
               <div class="gig__meta">
                 <h3 class="gig__name">Dark Affair Festival</h3>
                 <p class="gig__note">Leipzig, Augustusplatz</p>
-                <div class="gig__tags">
-                  <span class="tag tag--new">NEW</span>
-                </div>
+              </div>
+			  <div class="gig__cta">
+                <a class="btn btn--ghost" href="https://www.dark-affair.com" target="_blank" rel="noopener noreferrer">Info</a>
               </div>
             </li>
             <li class="gig" data-date="2026-10-10">
@@ -270,13 +272,14 @@
                 <span class="gig__day">10</span>
                 <span class="gig__month">Oct</span>
                 <span class="gig__year">2026</span>
+                <div class="gig__tags">
+                  <span class="tag tag--new">NEW</span>
+                </div>
               </time>
               <div class="gig__meta">
                 <h3 class="gig__name">DUNKELSTROM IV</h3>
                 <p class="gig__note">München, Szenerie Drehleier<br/>Irrlicht &<br/>Schwarzes Fragment Live!</p>
-                <div class="gig__tags">
-                  <span class="tag tag--new">NEW</span>
-                </div>
+                <span class="gig__curator">Curated by Schwarzes Fragment</span>
               </div>
             </li>
             <li class="gig" data-date="2026-11-07">
@@ -284,13 +287,13 @@
                 <span class="gig__day">07</span>
                 <span class="gig__month">Nov</span>
                 <span class="gig__year">2026</span>
+                <div class="gig__tags">
+                  <span class="tag tag--new">NEW</span>
+                </div>
               </time>
               <div class="gig__meta">
                 <h3 class="gig__name">Echoes of the Factory</h3>
                 <p class="gig__note">Leipzig, Bandhaus</p>
-                <div class="gig__tags">
-                  <span class="tag tag--new">NEW</span>
-                </div>
               </div>
             </li>
           </ul>
@@ -304,10 +307,11 @@
             <div class="environment"></div>
             <h2 id="music-title" class="hero-glitch glitch layers" data-text="MUSIC"><span>MUSIC</span></h2>
           </div>
+          <div class="player__featured">
+            <span class="player__featured-label">FEATURED TRACK</span>
+            <span class="player__featured-name">Digital Phantom</span>
+          </div>
           <div class="player">
-            <div class="player__info">
-              <span class="player__track-name">Digital Phantom</span>
-            </div>
             <audio id="audio-player" src="audio/Schwarzes_Fragment_-_Digital_Phantom.mp3" preload="none"></audio>
             <div class="player__controls">
               <button class="player__btn" id="play-pause-btn" aria-label="Play">&#9654;</button>
@@ -326,10 +330,13 @@
               <li class="player__track" data-src="audio/Schwarzes_Fragment_-_Phoenix_Circuit.mp3" data-title="Phoenix Circuit">Phoenix Circuit</li>
               <li class="player__track" data-src="audio/Schwarzes_Fragment_-_Schwachstromliebe.mp3" data-title="Schwachstromliebe">Schwachstromliebe</li>
             </ul>
-            <div class="player__links">
-              <a href="https://schwarzesfragment.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-              <a href="https://open.spotify.com/intl-de/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer">Spotify</a>
-              <a href="https://www.youtube.com/@SchwarzesFragmentOfficial" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+          <div class="stream-links">
+            <span class="stream-links__label">Support the project</span>
+            <div class="stream-links__list">
+              <a href="https://schwarzesfragment.bandcamp.com/track/digital-phantom" target="_blank" rel="noopener noreferrer" class="stream-links__item stream-links__item--primary">Buy on Bandcamp</a>
+              <a href="https://www.youtube.com/@SchwarzesFragmentOfficial" target="_blank" rel="noopener noreferrer" class="stream-links__item">Watch on YouTube</a>
+              <a href="https://open.spotify.com/intl-de/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer" class="stream-links__item stream-links__item--muted">Listen on Spotify</a>
             </div>
           </div>
         </div>
@@ -381,6 +388,48 @@
         </div>
       </section>
 
+      <!-- SCENE ACTIVITY -->
+      <section id="scene-activity" class="scene-activity-section" aria-labelledby="scene-activity-title">
+        <div class="section-inner">
+          <div class="hero-container">
+            <div class="environment"></div>
+            <h2 id="scene-activity-title" class="hero-glitch glitch layers" data-text="SCENE ACTIVITY"><span>SCENE ACTIVITY</span></h2>
+          </div>
+          <div class="scene-activity-content">
+            <p class="scene-activity__intro">Founder and organizer of the Munich dark electro event series</p>
+            <p class="scene-activity__name">DUNKELSTROM</p>
+            <p class="scene-activity__desc">Electronic live acts (Dark Electro / EBM / Industrial)<br>followed by an aftershow party featuring<br>Dark Electro, Goth Rock and 80s classics</p>
+            <p class="scene-activity__stat">3 editions hosted &bull; 4th edition upcoming</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIVE HIGHLIGHTS -->
+      <section id="highlights" class="highlights-section" aria-labelledby="highlights-title">
+        <div class="section-inner">
+          <div class="hero-container">
+            <div class="environment"></div>
+            <h2 id="highlights-title" class="hero-glitch glitch layers" data-text="LIVE HIGHLIGHTS"><span>LIVE HIGHLIGHTS</span></h2>
+          </div>
+          <div class="highlights-content">
+            <dl class="highlights__list">
+              <div class="highlights__row">
+                <dt>Shared stages with</dt>
+                <dd>Das Ich &bull; Welle:Erdball &bull; Cephalgy &bull; Frozen Plasma &bull; Kontrast &bull; Klangstabil &bull; and many more!</dd>
+              </div>
+              <div class="highlights__row">
+                <dt>Scene recognition</dt>
+                <dd><span class="highlight-badge">Top 6</span> Sonic Seducer Battle of the Bands</dd>
+              </div>
+              <div class="highlights__row">
+                <dt>Festival appearances</dt>
+                <dd>Elekktroshokk Festival</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
     </main>
     <footer class="site-footer">
       <p>Booking &amp; Contact: <a href="mailto:booking@schwarzes-fragment.de">booking@schwarzes-fragment.de</a></p>
@@ -401,7 +450,7 @@
       const progressFill = document.getElementById('progress-fill');
       const currentTimeEl = document.getElementById('current-time');
       const durationEl = document.getElementById('duration');
-      const trackNameEl = document.querySelector('.player__track-name');
+      const trackNameEl = document.querySelector('.player__featured-name');
       const tracks = document.querySelectorAll('.player__track');
 
       function fmt(s) {
