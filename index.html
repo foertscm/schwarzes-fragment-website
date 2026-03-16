@@ -149,6 +149,12 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
+    <!-- Background video — muted autoplay loop, falls back to static poster image -->
+    <video class="bg-video" autoplay muted loop playsinline
+           poster="images/band/band-picture-1920.webp"
+           aria-hidden="true">
+      <source src="video/schwarzes-fragment-background-video.mp4" type="video/mp4">
+    </video>
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#live">Live</a>
       <a href="#music">Music</a>
