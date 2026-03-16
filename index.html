@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schwarzes Fragment - Dark Electro | E.B.M. | Gothic</title>
-    <meta name="description" content="Schwarzes Fragment — Dark Electro, E.B.M. and Gothic from Munich. Listen on Bandcamp and Spotify. Live dates and booking info.">
+    <title>Schwarzes Fragment – Melodic Dark Electro from Leipzig &amp; Munich</title>
+    <meta name="description" content="Schwarzes Fragment is a club-driven melodic dark electro project between Leipzig and Munich, transforming dark emotions into dancefloor energy. Listen to the music, watch live performances and find upcoming shows.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Schwarzes Fragment — Dark Electro | E.B.M. | Gothic">
-    <meta property="og:description" content="Dark Electro, E.B.M. and Gothic from Munich. Listen on Bandcamp and Spotify. Live dates and booking info.">
+    <meta property="og:site_name" content="Schwarzes Fragment">
+    <meta property="og:title" content="Schwarzes Fragment – Melodic Dark Electro from Leipzig &amp; Munich">
+    <meta property="og:description" content="Schwarzes Fragment is a club-driven melodic dark electro project between Leipzig and Munich, transforming dark emotions into dancefloor energy. Listen to the music, watch live performances and find upcoming shows.">
     <meta property="og:url" content="https://schwarzes-fragment.de/">
     <meta property="og:image" content="https://schwarzes-fragment.de/images/band/band-picture.png">
     <meta property="og:locale" content="de_DE">
@@ -40,6 +41,21 @@
           ]
         },
         {
+          "@type": "MusicRecording",
+          "name": "Digital Phantom",
+          "byArtist": { "@id": "https://schwarzes-fragment.de/#band" }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "Phoenix Circuit",
+          "byArtist": { "@id": "https://schwarzes-fragment.de/#band" }
+        },
+        {
+          "@type": "MusicRecording",
+          "name": "Schwachstromliebe",
+          "byArtist": { "@id": "https://schwarzes-fragment.de/#band" }
+        },
+        {
           "@type": "MusicEvent",
           "name": "DUNKELSTROM III",
           "startDate": "2026-03-27",
@@ -55,7 +71,8 @@
               "addressCountry": "DE"
             }
           },
-          "performer": { "@id": "https://schwarzes-fragment.de/#band" },
+          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
+          "offers": { "@type": "Offer", "url": "https://www.facebook.com/events/832539002998617", "availability": "https://schema.org/InStock" },
           "url": "https://www.facebook.com/events/832539002998617"
         },
         {
@@ -69,7 +86,7 @@
             "@type": "VirtualLocation",
             "url": "https://schwarzes-fragment.de"
           },
-          "performer": { "@id": "https://schwarzes-fragment.de/#band" }
+          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
         },
         {
           "@type": "MusicEvent",
@@ -87,7 +104,7 @@
               "addressCountry": "DE"
             }
           },
-          "performer": { "@id": "https://schwarzes-fragment.de/#band" }
+          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
         },
         {
           "@type": "MusicEvent",
@@ -105,7 +122,7 @@
               "addressCountry": "DE"
             }
           },
-          "performer": { "@id": "https://schwarzes-fragment.de/#band" }
+          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
         },
         {
           "@type": "MusicEvent",
@@ -123,7 +140,7 @@
               "addressCountry": "DE"
             }
           },
-          "performer": { "@id": "https://schwarzes-fragment.de/#band" }
+          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
         }
       ]
     }
@@ -132,6 +149,13 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#live">Live</a>
+      <a href="#music">Music</a>
+      <a href="#video">Video</a>
+      <a href="#about">About</a>
+      <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">Book</a>
+    </nav>
     <header class="hero" aria-label="Band-Wallpaper">
       <div class="hero-logo-wrap">
         <img src="images/logos/schwarzes-fragment-logo-and-bandname-with-brackets.png"
@@ -174,13 +198,14 @@
             </div>
           </div>
         </div>
-        <p>Dark • Electro • E.B.M. • Gothic</p>
+        <p class="hero-subtitle">Club-driven melodic dark electro<br>from Leipzig &amp; Munich</p>
         <!-- Buttons mit Glitch -->
         <a class="btn btn--primary" href="#music">
           <span class="glitch" data-text="Listen">Listen</span>
         </a>
         <a class="btn btn--primary" href="#video">Watch</a>
         <a class="btn btn--ghost" href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer">Book us!</a>
+        <a class="btn btn--ghost hero-listen-btn" href="#music">&#9654; Listen: Digital Phantom</a>
         <!-- Social Media -->
       </div>
     </header>
@@ -301,6 +326,11 @@
               <li class="player__track" data-src="audio/Schwarzes_Fragment_-_Phoenix_Circuit.mp3" data-title="Phoenix Circuit">Phoenix Circuit</li>
               <li class="player__track" data-src="audio/Schwarzes_Fragment_-_Schwachstromliebe.mp3" data-title="Schwachstromliebe">Schwachstromliebe</li>
             </ul>
+            <div class="player__links">
+              <a href="https://schwarzesfragment.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+              <a href="https://open.spotify.com/intl-de/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer">Spotify</a>
+              <a href="https://www.youtube.com/@SchwarzesFragmentOfficial" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
           </div>
         </div>
       </section>
@@ -312,14 +342,41 @@
             <div class="environment"></div>
             <h2 id="video-title" class="hero-glitch glitch layers" data-text="VIDEO"><span>VIDEO</span></h2>
           </div>
-          <div class="video-wrap">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/QL2kf7_cwSM?si=mP4m-UNbo9Y4p5T6&amp;start=1146"
-              title="Schwarzes Fragment Live"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+          <div class="video-grid">
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/fI_ev_k5Pbw"
+                title="Schwarzes Fragment – Official Music Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/QL2kf7_cwSM?start=1146"
+                title="Schwarzes Fragment – Festival Live Recording"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about-section" aria-labelledby="about-title">
+        <div class="section-inner">
+          <div class="hero-container">
+            <div class="environment"></div>
+            <h2 id="about-title" class="hero-glitch glitch layers" data-text="ABOUT"><span>ABOUT</span></h2>
+          </div>
+          <div class="about-content">
+            <p>Schwarzes Fragment is a club-driven melodic dark electro project between Leipzig and Munich.</p>
+            <p>Born from fragments of early poetry, the project transforms darkness, isolation and inner conflict into melodic synth-driven energy for the dancefloor.</p>
+            <p>Live, Schwarzes Fragment delivers a high-energy dark electro performance where heavy emotions meet relentless club rhythms.</p>
+            <p class="about-fans">For fans of: Blutengel &bull; Solitary Experiments &bull; VNV Nation</p>
           </div>
         </div>
       </section>
