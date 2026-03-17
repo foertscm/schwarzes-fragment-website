@@ -1207,6 +1207,13 @@ main {
 	font-size: .72rem;
 	opacity: .5;
 }
+.footer-contact-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: .75rem;
+  letter-spacing: .1em;
+}
+
 .site-footer__impressum {
 	margin-top: 16px;
 	padding-top: 16px;
@@ -1340,6 +1347,47 @@ html {
   color: rgba(232,230,242,.5) !important;
   font-size: .82rem !important;
   letter-spacing: .06em;
+}
+
+.about-press-quote {
+  margin: 1.5em 0 0;
+  padding: 14px 18px;
+  border-left: 2px solid rgba(107,77,242,.6);
+  background: rgba(107,77,242,.07);
+  border-radius: 0 8px 8px 0;
+}
+.about-press-quote p {
+  margin: 0 0 6px;
+  font-style: italic;
+  color: var(--ink);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+.about-press-quote cite {
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(107,77,242,.8);
+  font-style: normal;
+}
+
+/* --------- MUSIC LAYOUT (cover + player) --------- */
+.music-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.music-cover {
+  width: 180px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 8px 28px rgba(0,0,0,.5);
+}
+
+.music-player-wrap {
+  width: 100%;
 }
 
 /* --------- FEATURED TRACK LABEL --------- */
