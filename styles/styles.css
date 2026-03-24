@@ -244,6 +244,8 @@ body::before {
 	 display: flex;
 	 flex-direction: column;
 	 gap: 8px;
+	 width: 100%;
+	 box-sizing: border-box;
 }
 /* Datum – kleiner, edler */
  .gig__date{
@@ -328,6 +330,8 @@ body::before {
 	 gap: 4px;
 	 align-items: stretch;
 	 align-self: start;
+	 width: 100%;
+	 box-sizing: border-box;
 }
  .gig__cta .btn{
 	 padding: 4px 6px;
@@ -335,6 +339,7 @@ body::before {
 	 border-radius: 999px;
 	 text-align: center;
 	 width: 100%;
+	 margin: 0;
 }
  @media (max-width: 640px){
 	 .gig__cta{
@@ -1186,7 +1191,8 @@ main {
 /* --------- CALENDAR DROPDOWN --------- */
 .cal-drop {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
 }
 
 .gig__cal-btn {
