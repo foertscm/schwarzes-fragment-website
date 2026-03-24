@@ -223,7 +223,7 @@
           </div>
 
           <ul class="gigs__list" id="gigs-list">
-            <li class="gig" data-date="2026-03-27">
+            <li class="gig" data-date="2026-03-27" data-event-name="DUNKELSTROM III" data-event-location="Szenerie Drehleier, München" data-event-desc="Phantom Belgrad &amp; Schwarzes Fragment Live!">
               <time class="gig__date" datetime="2026-03-27">
                 <span class="gig__day">27</span>
                 <span class="gig__month">Mar</span>
@@ -242,7 +242,7 @@
                 <a class="btn btn--ghost" href="https://www.facebook.com/events/832539002998617" target="_blank" rel="noopener noreferrer">Info</a>
               </div>
             </li>
-            <li class="gig" data-date="2026-05-23">
+            <li class="gig" data-date="2026-05-23" data-event-name="World Goth Day Online Festival" data-event-location="Online" data-event-desc="Schwarzes Fragment – Prerecorded Live!">
               <time class="gig__date" datetime="2026-05-23">
                 <span class="gig__day">23</span>
                 <span class="gig__month">May</span>
@@ -256,7 +256,7 @@
                 <p class="gig__note">Schwarzes Fragment<br/>Prerecorded Live!</p>
               </div>
             </li>
-            <li class="gig" data-date="2026-05-25">
+            <li class="gig" data-date="2026-05-25" data-event-name="Dark Affair" data-event-location="Augustusplatz, Leipzig" data-event-desc="Dark Affair Festival – Schwarzes Fragment Live!">
               <time class="gig__date" datetime="2026-05-25">
                 <span class="gig__day">25</span>
                 <span class="gig__month">May</span>
@@ -273,7 +273,7 @@
                 <a class="btn btn--ghost" href="https://www.dark-affair.com" target="_blank" rel="noopener noreferrer">Info</a>
               </div>
             </li>
-            <li class="gig" data-date="2026-10-10">
+            <li class="gig" data-date="2026-10-10" data-event-name="DUNKELSTROM IV" data-event-location="Szenerie Drehleier, München" data-event-desc="Irrlicht &amp; Schwarzes Fragment Live!">
               <time class="gig__date" datetime="2026-10-10">
                 <span class="gig__day">10</span>
                 <span class="gig__month">Oct</span>
@@ -288,7 +288,7 @@
                 <span class="gig__curator">Curated by Schwarzes Fragment</span>
               </div>
             </li>
-            <li class="gig" data-date="2026-11-07">
+            <li class="gig" data-date="2026-11-07" data-event-name="Echoes of the Factory" data-event-location="Bandhaus, Leipzig" data-event-desc="Echoes of the Factory – Schwarzes Fragment Live!">
               <time class="gig__date" datetime="2026-11-07">
                 <span class="gig__day">07</span>
                 <span class="gig__month">Nov</span>
@@ -514,6 +514,89 @@
           progressFill.style.width = '0';
           currentTimeEl.textContent = '0:00';
           durationEl.textContent = '0:00';
+        });
+      });
+      // ── Calendar add buttons ──────────────────────────────────────────────────
+      function icsContent(name, date, location, desc) {
+        const d = date.replace(/-/g, '');
+        const next = date.replace(/(\d{4})-(\d{2})-(\d{2})/, (_, y, m, day) => {
+          const nd = new Date(+y, +m - 1, +day + 1);
+          return `${nd.getFullYear()}${String(nd.getMonth()+1).padStart(2,'0')}${String(nd.getDate()).padStart(2,'0')}`;
+        });
+        return [
+          'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Schwarzes Fragment//EN',
+          'BEGIN:VEVENT',
+          `DTSTART;VALUE=DATE:${d}`,
+          `DTEND;VALUE=DATE:${next}`,
+          `SUMMARY:${name}`,
+          `LOCATION:${location}`,
+          `DESCRIPTION:${desc}`,
+          'END:VEVENT', 'END:VCALENDAR'
+        ].join('\r\n');
+      }
+
+      function googleCalUrl(name, date, location, desc) {
+        const d = date.replace(/-/g, '');
+        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name)}&dates=${d}/${d}&location=${encodeURIComponent(location)}&details=${encodeURIComponent(desc)}`;
+      }
+
+      // Inject "+ Calendar" button into every gig card
+      document.querySelectorAll('.gig[data-event-name]').forEach(gig => {
+        const name     = gig.dataset.eventName;
+        const date     = gig.dataset.date;
+        const location = gig.dataset.eventLocation;
+        const desc     = gig.dataset.eventDesc;
+
+        // Ensure gig__cta exists
+        let cta = gig.querySelector('.gig__cta');
+        if (!cta) {
+          cta = document.createElement('div');
+          cta.className = 'gig__cta';
+          gig.appendChild(cta);
+        }
+
+        const drop = document.createElement('div');
+        drop.className = 'cal-drop';
+        drop.innerHTML = `
+          <button class="btn btn--ghost gig__cal-btn" aria-haspopup="true" aria-expanded="false">&#128197; Calendar</button>
+          <div class="cal-drop__menu" role="menu">
+            <p class="cal-drop__label">Add to calendar</p>
+            <button class="cal-drop__item" data-action="ics">Apple / Outlook / iCal (.ics)</button>
+            <button class="cal-drop__item" data-action="google">Google Calendar</button>
+          </div>`;
+        cta.appendChild(drop);
+
+        const btn  = drop.querySelector('.gig__cal-btn');
+        const menu = drop.querySelector('.cal-drop__menu');
+
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const open = menu.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open);
+        });
+
+        drop.querySelector('[data-action="ics"]').addEventListener('click', () => {
+          const blob = new Blob([icsContent(name, date, location, desc)], { type: 'text/calendar;charset=utf-8' });
+          const url  = URL.createObjectURL(blob);
+          const a    = Object.assign(document.createElement('a'), { href: url, download: name.replace(/\s+/g, '-') + '.ics' });
+          a.click();
+          URL.revokeObjectURL(url);
+          menu.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+
+        drop.querySelector('[data-action="google"]').addEventListener('click', () => {
+          window.open(googleCalUrl(name, date, location, desc), '_blank', 'noopener');
+          menu.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Close any open calendar dropdown when clicking outside
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.cal-drop__menu.is-open').forEach(m => {
+          m.classList.remove('is-open');
+          m.closest('.cal-drop').querySelector('.gig__cal-btn').setAttribute('aria-expanded', 'false');
         });
       });
     </script>

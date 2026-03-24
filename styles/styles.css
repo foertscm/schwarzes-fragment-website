@@ -214,6 +214,7 @@ body::before {
 	 display: grid;
 	 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	 gap: 14px;
+	 justify-content: center;
 }
 /* Card – gläsern & kompakt */
  .gig{
@@ -276,9 +277,6 @@ body::before {
 	 font-size: 1rem;
 	 font-weight: bold;
 	 letter-spacing:.01em;
-	 white-space: nowrap;
-	 overflow: hidden;
-	 text-overflow: ellipsis;
 }
  .gig__venue{
 	 font-weight: 600;
@@ -1180,6 +1178,73 @@ main {
   height: 100%;
   border: 0;
 }
+
+/* --------- CALENDAR DROPDOWN --------- */
+.cal-drop {
+  position: relative;
+  display: inline-block;
+}
+
+.gig__cal-btn {
+  padding: 4px 10px;
+  font-size: .7rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.cal-drop__menu {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  min-width: 210px;
+  background: rgba(9,9,16,.97);
+  border: 1px solid rgba(107,77,242,.45);
+  border-radius: 10px;
+  padding: 12px;
+  z-index: 300;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.7);
+}
+
+.cal-drop__menu.is-open {
+  display: block;
+}
+
+.cal-drop__label {
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-size: .6rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(107,77,242,.9);
+}
+
+.cal-drop__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-family: 'Orbitron', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background .2s;
+}
+
+.cal-drop__item:hover {
+  background: rgba(255,255,255,.07);
+}
+
+.cal-drop__item[data-action="ics"]::before    { content: "📅"; }
+.cal-drop__item[data-action="google"]::before { content: "📆"; }
 
 /* --------- FOOTER --------- */
 .site-footer {
