@@ -113,9 +113,12 @@ body::before {
 /* Buttons */
  .btn {
 	 position: relative;
-	 display:inline-block;
+	 display: inline-flex;
+	 align-items: center;
+	 gap: 4px;
 	 margin:.25em;
 	 padding:12px 22px;
+	 font-family: inherit;
 	 text-decoration:none;
 	 color:var(--ink);
 	 border:1px solid rgba(255,255,255,.25);
@@ -220,7 +223,6 @@ body::before {
  .gig{
 	 display: grid;
 	 grid-template-columns: 90px 1fr;
-	 grid-template-areas: "date meta" "cta cta";
 	 align-items: start;
 	 gap: 14px;
 	 padding: 12px;
@@ -237,9 +239,14 @@ body::before {
 		 grid-template-columns: 80px 1fr;
 	}
 }
+/* Left column: date + CTA stacked */
+ .gig__left{
+	 display: flex;
+	 flex-direction: column;
+	 gap: 8px;
+}
 /* Datum – kleiner, edler */
  .gig__date{
-	 grid-area: date;
 	 display: grid;
 	 align-items: center;
 	 justify-items: center;
@@ -269,7 +276,6 @@ body::before {
 }
 /* Meta */
  .gig__meta{
-	 grid-area: meta;
 	 min-width: 0;
 }
  .gig__name{
@@ -296,7 +302,7 @@ body::before {
 	 display:flex;
 	 gap: 8px;
 	 flex-wrap: wrap;
-	 justify-content: center;
+	 justify-content: flex-start;
 }
  .tag{
 	 padding: 3px 8px;
@@ -315,24 +321,24 @@ body::before {
 	 border-color: rgba(178,12,27,.6);
 	 color:#ffb8c0;
 }
-/* CTA rechts;
- mobil mittig */
+/* CTA unterhalb Datum – vertikale Spalte */
  .gig__cta{
-	 grid-area: cta;
 	 display: flex;
-	 gap: 6px;
-	 align-items: center;
-	 justify-content: flex-end;
+	 flex-direction: column;
+	 gap: 4px;
+	 align-items: stretch;
+	 align-self: start;
 }
  .gig__cta .btn{
-	 padding: 4px 10px;
-	 font-size: .7rem;
+	 padding: 4px 6px;
+	 font-size: .68rem;
 	 border-radius: 999px;
+	 text-align: center;
+	 width: 100%;
 }
  @media (max-width: 640px){
 	 .gig__cta{
-		 grid-area: cta;
-		 justify-content: center;
+		 align-items: stretch;
 	}
 }
 /* Buttons – glasige Varianten */
@@ -437,10 +443,10 @@ body::before {
 		 padding: 2px 7px;
 		 font-size: .68rem;
 	}
-	/* CTA-Button schmaler */
-	 .gig__cta{
-		 padding: 8px 12px;
-		 font-size: .9rem;
+	/* CTA-Button kleiner */
+	 .gig__cta .btn{
+		 padding: 3px 6px;
+		 font-size: .65rem;
 	}
 	/* mehr Abstand unterhalb des Blocks, damit Footer/Socials nicht kollidieren */
 	 .gigs{
@@ -453,9 +459,7 @@ body::before {
 		 grid-template-columns: 64px 1fr;
 	}
 	 .gig__cta{
-		 grid-column: 1 / -1;
-		 justify-self: center;
-		 margin-top: 6px;
+		 align-items: stretch;
 	}
 }
 
@@ -1196,7 +1200,7 @@ main {
   display: none;
   position: absolute;
   bottom: calc(100% + 6px);
-  right: 0;
+  left: 0;
   min-width: 210px;
   background: rgba(9,9,16,.97);
   border: 1px solid rgba(107,77,242,.45);
@@ -1245,6 +1249,77 @@ main {
 
 .cal-drop__item[data-action="ics"]::before    { content: "📅"; }
 .cal-drop__item[data-action="google"]::before { content: "📆"; }
+
+/* --------- FLYER HOVER PREVIEW --------- */
+.flyer-link {
+  overflow: visible;
+}
+.flyer-preview {
+  display: block;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+  transform: translateX(-50%) translateY(6px);
+  z-index: 500;
+}
+.flyer-link:hover .flyer-preview {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.flyer-preview img {
+  display: block;
+  width: 160px;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.8);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* --------- FLYER LIGHTBOX --------- */
+.flyer-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(0,0,0,.88);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+}
+.flyer-modal.is-open {
+  display: flex;
+}
+.flyer-modal__img {
+  max-width: min(92vw, 640px);
+  max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.8);
+  object-fit: contain;
+}
+.flyer-modal__close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  color: #fff;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .2s;
+}
+.flyer-modal__close:hover {
+  background: rgba(255,255,255,.22);
+}
 
 /* --------- FOOTER --------- */
 .site-footer {
