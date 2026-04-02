@@ -194,21 +194,6 @@ body::before {
 	 max-width: 1100px;
 	 margin: 0 auto;
 }
- .gigs__head{
-	 text-align: center;
-	 margin-bottom: 18px;
-}
- .gigs__head h2{
-	 font-family: "Cinzel", serif;
-	 font-size: clamp(1.3rem, 2vw, 2rem);
-	 letter-spacing: .02em;
-	 margin: 0 0 6px;
-	 text-shadow: 0 2px 12px rgba(0,0,0,.5);
-}
- .gigs__sub{
-	 color: var(--muted);
-	 margin: 0;
-}
 /* Liste */
  .gigs__list{
 	 list-style: none;
@@ -399,16 +384,6 @@ body::before {
 		 margin-bottom: 8vh;
 		/* vorher 10–14vh */
 	}
-	/* ===== Gigs-Panel – „breit & luftig“, nicht gedrungen ===== */
-	 .gigs-panel{
-		 position: static;
-		/* unter dem Hero, volle Breite */
-		 width: min(94vw, 560px);
-		 margin: 12px auto 0;
-	}
-	 .gigs-panel__list{
-		 gap: 12px;
-	}
 	/* Card kompakter, weniger Blur/Shadow */
 	 .gig{
 		 grid-template-columns: 72px 1fr;
@@ -424,15 +399,9 @@ body::before {
 		 border-radius: 10px;
 		 background: linear-gradient(135deg, rgba(178,12,27,.16), rgba(107,77,242,.16));
 	}
-	 .gig__date b{
-		 font-size: 1.2rem;
-	}
 	 .gig__date span{
 		 font-size: .72rem;
 		 letter-spacing: .06em;
-	}
-	 .gig__date i{
-		 font-size: .68rem;
 	}
 	/* Texte kürzer/lesbarer */
 	 .gig__name{
@@ -547,11 +516,6 @@ body::before {
   filter: drop-shadow(10px 10px 30px);
 }
 
-.demo {
-  height: 100px;
-  background: #fff;
-}
-
 .layers {
   position: relative;
 }
@@ -574,63 +538,6 @@ body::before {
   top: 5px;
   left: -10px;
   color: #1bc7fb;
-}
-
-.single-path {
-  clip-path: polygon(
-    0% 12%,
-    53% 12%,
-    53% 26%,
-    25% 26%,
-    25% 86%,
-    31% 86%,
-    31% 0%,
-    53% 0%,
-    53% 84%,
-    92% 84%,
-    92% 82%,
-    70% 82%,
-    70% 29%,
-    78% 29%,
-    78% 65%,
-    69% 65%,
-    69% 66%,
-    77% 66%,
-    77% 45%,
-    85% 45%,
-    85% 26%,
-    97% 26%,
-    97% 28%,
-    84% 28%,
-    84% 34%,
-    54% 34%,
-    54% 89%,
-    30% 89%,
-    30% 58%,
-    83% 58%,
-    83% 5%,
-    68% 5%,
-    68% 36%,
-    62% 36%,
-    62% 1%,
-    12% 1%,
-    12% 34%,
-    60% 34%,
-    60% 57%,
-    98% 57%,
-    98% 83%,
-    1% 83%,
-    1% 53%,
-    91% 53%,
-    91% 84%,
-    8% 84%,
-    8% 83%,
-    4% 83%
-  );
-}
-
-.paths {
-  animation: paths 5s step-end infinite;
 }
 
 @keyframes paths {
@@ -885,12 +792,6 @@ body::before {
   }
 }
 
-.movement {
-  /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
-  position: relative;
-  animation: movement 8s step-end infinite;
-}
-
 @keyframes movement {
   0% {
     top: 0px;
@@ -916,10 +817,6 @@ body::before {
     top: 10px;
     left: 5px;
   }
-}
-
-.opacity {
-  animation: opacity 5s step-end infinite;
 }
 
 @keyframes opacity {
@@ -955,10 +852,6 @@ body::before {
   93% {
     opacity: 0;
   }
-}
-
-.font {
-  animation: font 7s step-end infinite;
 }
 
 @keyframes font {
@@ -1050,17 +943,6 @@ main {
   border-radius: 14px;
   padding: 24px;
   backdrop-filter: blur(6px);
-}
-
-.player__info {
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.player__track-name {
-  font-size: clamp(14px, 2.5vw, 18px);
-  color: #eae8f5;
-  letter-spacing: .08em;
 }
 
 .player__controls {
