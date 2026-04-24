@@ -40,7 +40,7 @@
   padding: 0;
   cursor: pointer;
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 3;
 }
 
 .comic-thumb:hover {

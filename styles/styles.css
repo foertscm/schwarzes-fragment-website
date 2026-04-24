@@ -1233,7 +1233,7 @@ main {
 	border-radius: 8px;
 	overflow: hidden;
 	border: 1px solid rgba(255,255,255,.08);
-	aspect-ratio: 1 / 1;
+	aspect-ratio: 2 / 3;
 	transition: transform .2s, border-color .2s;
 }
 .comics-teaser__grid a:hover {
