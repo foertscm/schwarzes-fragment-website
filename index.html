@@ -207,7 +207,8 @@
       <a href="#video">Video</a>
       <a href="#about">Band</a>
       <a href="#highlights">Highlights</a>
-      <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">Book</a>
+      <a href="goth-and-gaga.html">Comics</a>
+      <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
     </nav>
     <header class="hero" aria-label="Band-Wallpaper">
       <div class="hero-logo-wrap">
@@ -255,7 +256,7 @@
         <!-- Buttons mit Glitch -->
         <a class="btn btn--primary hero-listen-btn" href="#music">&#9654; Listen</a>
         <a class="btn btn--primary" href="#video">Watch</a>
-        <a class="btn btn--ghost" href="https://epk.schwarzes-fragment.de/index_en.html" target="_blank" rel="noopener noreferrer">Book us!</a>
+        <a class="btn btn--ghost" href="https://epk.schwarzes-fragment.de/index_en.html" target="_blank" rel="noopener noreferrer">EPK</a>
         <!-- Social Media -->
       </div>
     </header>
@@ -475,7 +476,7 @@
           </div>
           <div class="about-content">
             <p>Schwarzes Fragment is the dark electro project of Martin, composer, synthesizer player, programmer, and lyricist. It started the way all good stories begin: with a broken keyboard rescued from a relative before the year 2003. What began as raw, wordless experiments found its true voice in 2008, when the project was reborn with club-ready rhythms, melodic synth lines, and lyrics forged from fragments of poetry and inner conflict.</p>
-            <p>The debut album <em>Seelenkiller</em> entered the Top 10 of the German Electronic Webcharts in December 2008. A year later, Schwarzes Fragment won <strong>6th place worldwide</strong> at the Sonic Seducer Battle of the Bands, a result that opened festival stages, including Elekktroshokk, sharing the bill with Das Ich, Welle:Erdball, Frozen Plasma, Cephalgy, and many more.</p>
+            <p>The debut album <em>Seelenkiller</em> entered the Top 10 of the German Electronic Webcharts in December 2008. A year later, Schwarzes Fragment won <strong>6th place worldwide</strong> at the Sonic Seducer Battle of the Bands, a result that opened festival stages, including Elekktroshokk, sharing the bill with Das Ich, Welle:Erdball, Klangstabil, and many more.</p>
             <p>The music blends dark electro, EBM, darkwave, and synth-pop into something vivid, melodic, and built for the dancefloor. Based between Leipzig and Munich, the project has been active across the German dark scene for over two decades.</p>
             <p>Live, Schwarzes Fragment performs as a full band: <strong>Dirk</strong> on synthesizer, <strong>Loki</strong> adding his unmistakable touch on a vintage keytar, and <strong>Kathy</strong> as dancer and light show artist, turning every performance into a full sensory experience.</p>
           </div>
@@ -541,7 +542,7 @@
             <dl class="highlights__list">
               <div class="highlights__row">
                 <dt>Shared stages with</dt>
-                <dd>Das Ich &bull; Welle:Erdball &bull; Cephalgy &bull; Frozen Plasma &bull; Kontrast &bull; Klangstabil &bull; and many more!</dd>
+                <dd>Kirlian Camera &bull; Das Ich &bull; Welle:Erdball &bull; Cephalgy &bull; Kontrast &bull; Klangstabil &bull; and many more!</dd>
               </div>
               <div class="highlights__row">
                 <dt>Scene recognition</dt>
@@ -553,6 +554,18 @@
               </div>
             </dl>
           </div>
+        </div>
+      </section>
+
+      <!-- Comics teaser -->
+      <section class="section comics-teaser" id="comics">
+        <div class="section-head">
+          <h2 class="section-title glitch" data-text="GOTH &amp; GAGA"><span>GOTH &amp; GAGA</span></h2>
+        </div>
+        <p class="comics-teaser__sub">Single-panel comics from the dark side of life.</p>
+        <div class="comics-teaser__grid" id="comics-teaser-grid"></div>
+        <div style="text-align:center;margin-top:32px">
+          <a class="btn btn--ghost" href="goth-and-gaga.html">Read all comics &rarr;</a>
         </div>
       </section>
 
@@ -657,6 +670,13 @@
         return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name)}&dates=${d}/${d}&location=${encodeURIComponent(location)}&details=${encodeURIComponent(desc)}`;
       }
 
+      // Hide gig cards more than 7 days past their event date
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      document.querySelectorAll('.gig[data-date]').forEach(gig => {
+        if (new Date(gig.dataset.date) < oneWeekAgo) gig.hidden = true;
+      });
+
       // Inject "+ Calendar" button into every gig card
       document.querySelectorAll('.gig[data-event-name]').forEach(gig => {
         const name     = gig.dataset.eventName;
@@ -742,6 +762,23 @@
       document.getElementById('flyer-modal-close').addEventListener('click', closeFlyer);
       flyerModal.addEventListener('click', e => { if (e.target === flyerModal) closeFlyer(); });
       document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFlyer(); });
+
+      // Comics teaser — show 4 latest from manifest
+      const teaserGrid = document.getElementById('comics-teaser-grid');
+      if (teaserGrid) {
+        fetch('images/comics/manifest.json')
+          .then(r => r.json())
+          .then(files => {
+            files.slice(-4).reverse().forEach(file => {
+              const a = document.createElement('a');
+              a.href = 'goth-and-gaga.html';
+              a.innerHTML = `<img src="images/comics/${file}" alt="Goth &amp; Gaga" loading="lazy">`;
+              teaserGrid.appendChild(a);
+            });
+            if (!files.length) teaserGrid.closest('section').style.display = 'none';
+          })
+          .catch(() => { teaserGrid.closest('section').style.display = 'none'; });
+      }
     </script>
   </body>
 </html>

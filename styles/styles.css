@@ -1209,6 +1209,44 @@ main {
   background: rgba(255,255,255,.22);
 }
 
+/* --------- COMICS TEASER --------- */
+.comics-teaser__sub {
+	text-align: center;
+	color: var(--muted);
+	font-size: .8rem;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	margin: -8px 0 32px;
+}
+.comics-teaser__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 12px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+@media (max-width: 600px) {
+	.comics-teaser__grid { grid-template-columns: repeat(2, 1fr); }
+}
+.comics-teaser__grid a {
+	display: block;
+	border-radius: 8px;
+	overflow: hidden;
+	border: 1px solid rgba(255,255,255,.08);
+	aspect-ratio: 1 / 1;
+	transition: transform .2s, border-color .2s;
+}
+.comics-teaser__grid a:hover {
+	transform: translateY(-3px);
+	border-color: rgba(255,255,255,.25);
+}
+.comics-teaser__grid img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
 /* --------- FOOTER --------- */
 .site-footer {
 	position: relative;

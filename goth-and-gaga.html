@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Goth &amp; Gaga – Comics by Schwarzes Fragment</title>
+    <meta name="description" content="Goth &amp; Gaga – a single-panel comic series from the dark side of life. By Schwarzes Fragment.">
+    <meta name="author" content="Schwarzes Fragment">
+    <meta name="theme-color" content="#0c0c12">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Schwarzes Fragment">
+    <meta property="og:title" content="Goth &amp; Gaga – Comics by Schwarzes Fragment">
+    <meta property="og:description" content="A single-panel comic series from the dark side of life.">
+    <meta property="og:url" content="https://schwarzes-fragment.de/goth-and-gaga.html">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://schwarzes-fragment.de/goth-and-gaga.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/comics.css">
+  </head>
+  <body>
+    <video class="bg-video" autoplay muted loop playsinline
+           poster="images/band/band-picture-1920.webp"
+           aria-hidden="true">
+      <source src="video/schwarzes-fragment-background-video.mp4" type="video/mp4">
+    </video>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html#live">Live</a>
+      <a href="index.html#music">Music</a>
+      <a href="index.html#video">Video</a>
+      <a href="index.html#about">Band</a>
+      <a href="index.html#highlights">Highlights</a>
+      <a href="goth-and-gaga.html" class="site-nav__active">Comics</a>
+      <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
+    </nav>
+
+    <main>
+      <section class="comics-section">
+        <div class="section-head">
+          <h2 class="section-title glitch" data-text="GOTH &amp; GAGA"><span>GOTH &amp; GAGA</span></h2>
+          <p class="comics-subtitle">Single-panel comics from the dark side of life.</p>
+        </div>
+
+        <div class="comics-grid" id="comics-grid">
+          <p class="comics-loading" id="comics-loading">Loading comics…</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Comic lightbox -->
+    <div id="comic-modal" class="comic-modal" role="dialog" aria-modal="true" aria-label="Comic panel">
+      <button id="comic-modal-close" class="comic-modal__close" aria-label="Close">✕</button>
+      <button id="comic-modal-prev" class="comic-modal__nav comic-modal__prev" aria-label="Previous">&#8592;</button>
+      <img id="comic-modal-img" class="comic-modal__img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Comic panel">
+      <button id="comic-modal-next" class="comic-modal__nav comic-modal__next" aria-label="Next">&#8594;</button>
+      <p id="comic-modal-counter" class="comic-modal__counter"></p>
+    </div>
+
+    <footer class="site-footer">
+      <a href="index.html" class="btn btn--ghost">&#8592; Back to main site</a>
+      <p class="site-footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Schwarzes Fragment. All rights reserved.</p>
+      <p class="site-footer__impressum">Impressum: Martin Förtsch &mdash; <a href="mailto:info@schwarzes-fragment.de">info@schwarzes-fragment.de</a></p>
+    </footer>
+
+    <script>
+      let comics = [];
+      let current = 0;
+
+      const grid    = document.getElementById('comics-grid');
+      const loading = document.getElementById('comics-loading');
+      const modal   = document.getElementById('comic-modal');
+      const modalImg  = document.getElementById('comic-modal-img');
+      const modalPrev = document.getElementById('comic-modal-prev');
+      const modalNext = document.getElementById('comic-modal-next');
+      const modalCounter = document.getElementById('comic-modal-counter');
+
+      fetch('images/comics/manifest.json')
+        .then(r => r.json())
+        .then(files => {
+          loading.remove();
+          if (!files.length) {
+            grid.innerHTML = '<p class="comics-empty">No comics yet — check back soon.</p>';
+            return;
+          }
+          comics = files;
+          files.forEach((file, i) => {
+            const item = document.createElement('button');
+            item.className = 'comic-thumb';
+            item.setAttribute('aria-label', `Open comic ${i + 1}`);
+            item.innerHTML = `<img src="images/comics/${file}" alt="Goth &amp; Gaga #${i + 1}" loading="lazy">
+                              <span class="comic-thumb__num">#${i + 1}</span>`;
+            item.addEventListener('click', () => openComic(i));
+            grid.appendChild(item);
+          });
+        })
+        .catch(() => {
+          loading.textContent = 'Could not load comics.';
+        });
+
+      function openComic(index) {
+        current = index;
+        modalImg.src = `images/comics/${comics[index]}`;
+        modalImg.alt = `Goth & Gaga #${index + 1}`;
+        modalCounter.textContent = `${index + 1} / ${comics.length}`;
+        modalPrev.disabled = index === 0;
+        modalNext.disabled = index === comics.length - 1;
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeComic() {
+        modal.classList.remove('is-open');
+        modalImg.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('comic-modal-close').addEventListener('click', closeComic);
+      modal.addEventListener('click', e => { if (e.target === modal) closeComic(); });
+      modalPrev.addEventListener('click', () => { if (current > 0) openComic(current - 1); });
+      modalNext.addEventListener('click', () => { if (current < comics.length - 1) openComic(current + 1); });
+
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape')      closeComic();
+        if (e.key === 'ArrowLeft'  && current > 0)                openComic(current - 1);
+        if (e.key === 'ArrowRight' && current < comics.length - 1) openComic(current + 1);
+      });
+    </script>
+  </body>
+</html>
