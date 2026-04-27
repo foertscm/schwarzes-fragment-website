@@ -31,7 +31,10 @@
 	 --muted:#b8b5c8;
 }
  * {
-	 box-sizing: border-box 
+	 box-sizing: border-box
+}
+[hidden] {
+	display: none !important;
 }
  html,body {
 	 min-height:100%
@@ -103,12 +106,69 @@ body::before {
 	 z-index: 2;
 	 padding: 0 20px;
 }
-/* Logo Glow */
+/* Logo Glow + Electric effect */
+.logo-arcs {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
  .hero-logo {
 	 max-width: clamp(220px, 38vw, 720px);
 	 width: 100%;
 	 height: auto;
 	 filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255,255,255,.75)) drop-shadow(0 0 24px rgba(107,77,242,.45));
+	 animation: electric-surge 5s ease-in-out infinite;
+}
+@keyframes electric-surge {
+	0%, 100% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 14px rgba(255,255,255,.75))
+		        drop-shadow(0 0 24px rgba(107,77,242,.45));
+	}
+	/* surge 1 */
+	22% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 26px rgba(255,255,255,1))
+		        drop-shadow(0 0 55px rgba(107,77,242,.95))
+		        drop-shadow(0 0 85px rgba(107,77,242,.5));
+	}
+	/* voltage drop */
+	23.5% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 8px rgba(255,255,255,.45))
+		        drop-shadow(0 0 16px rgba(107,77,242,.25));
+	}
+	/* recover */
+	38% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 14px rgba(255,255,255,.75))
+		        drop-shadow(0 0 24px rgba(107,77,242,.45));
+	}
+	/* surge 2 — bigger */
+	72% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 34px rgba(255,255,255,1))
+		        drop-shadow(0 0 70px rgba(107,77,242,1))
+		        drop-shadow(0 0 110px rgba(178,12,27,.55));
+	}
+	/* voltage drop */
+	74% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 6px rgba(255,255,255,.35))
+		        drop-shadow(0 0 12px rgba(107,77,242,.2));
+	}
+	/* recover */
+	88% {
+		filter: brightness(0) invert(1)
+		        drop-shadow(0 0 14px rgba(255,255,255,.75))
+		        drop-shadow(0 0 24px rgba(107,77,242,.45));
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.hero-logo  { animation: none; }
+	.logo-arcs  { display: none; }
 }
 /* Buttons */
  .btn {
