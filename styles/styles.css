@@ -103,65 +103,10 @@ body::before {
 	 width: 100%;
 	 height: auto;
 	 filter: brightness(0) invert(1) drop-shadow(0 0 14px rgba(255,255,255,.75)) drop-shadow(0 0 24px rgba(107,77,242,.45));
-	 animation: electric-surge 5s ease-in-out infinite;
-}
-@keyframes electric-surge {
-	0%, 100% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 14px rgba(255,255,255,.75))
-		        drop-shadow(0 0 24px rgba(107,77,242,.45));
-	}
-	/* build up */
-	18% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 18px rgba(255,255,255,.85))
-		        drop-shadow(0 0 36px rgba(107,77,242,.6));
-	}
-	/* surge 1 */
-	22% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 26px rgba(255,255,255,1))
-		        drop-shadow(0 0 55px rgba(107,77,242,.95))
-		        drop-shadow(0 0 85px rgba(107,77,242,.5));
-	}
-	/* slow fade down */
-	32% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 18px rgba(255,255,255,.8))
-		        drop-shadow(0 0 36px rgba(107,77,242,.55));
-	}
-	42% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 14px rgba(255,255,255,.75))
-		        drop-shadow(0 0 24px rgba(107,77,242,.45));
-	}
-	/* build up 2 */
-	65% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 20px rgba(255,255,255,.9))
-		        drop-shadow(0 0 44px rgba(107,77,242,.7));
-	}
-	/* surge 2 — bigger */
-	72% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 34px rgba(255,255,255,1))
-		        drop-shadow(0 0 70px rgba(107,77,242,1))
-		        drop-shadow(0 0 110px rgba(178,12,27,.55));
-	}
-	/* slow fade down */
-	82% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 20px rgba(255,255,255,.82))
-		        drop-shadow(0 0 42px rgba(107,77,242,.58));
-	}
-	92% {
-		filter: brightness(0) invert(1)
-		        drop-shadow(0 0 14px rgba(255,255,255,.75))
-		        drop-shadow(0 0 24px rgba(107,77,242,.45));
-	}
+	 transition: filter .4s ease;
 }
 @media (prefers-reduced-motion: reduce) {
-	.hero-logo  { animation: none; }
+	.hero-logo  { transition: none; }
 	.logo-arcs  { display: none; }
 }
 /* Buttons */
