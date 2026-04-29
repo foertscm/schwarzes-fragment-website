@@ -35,11 +35,19 @@
     <nav class="site-nav" aria-label="Main navigation">
       <a href="index.html#live">Live</a>
       <a href="index.html#music">Music</a>
+      <a href="index.html#releases">Releases</a>
       <a href="index.html#video">Video</a>
       <a href="index.html#about">Band</a>
-      <a href="index.html#highlights">Highlights</a>
-      <a href="goth-and-gaga.html" class="site-nav__active">Comics</a>
       <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
+      <div class="nav-more-wrap">
+        <button class="site-nav__burger" aria-label="More" aria-expanded="false" aria-controls="nav-more-overlay">
+          <span></span><span></span><span></span>
+        </button>
+        <div id="nav-more-overlay" class="nav-more" aria-hidden="true">
+          <a href="index.html#highlights" class="nav-more__item">Highlights</a>
+          <a href="goth-and-gaga.html" class="nav-more__item site-nav__active">Comics</a>
+        </div>
+      </div>
     </nav>
 
     <main>
@@ -132,6 +140,28 @@
         if (e.key === 'Escape')      closeComic();
         if (e.key === 'ArrowLeft'  && current > 0)                openComic(current - 1);
         if (e.key === 'ArrowRight' && current < comics.length - 1) openComic(current + 1);
+      });
+
+      // Hamburger "more" menu
+      const burger  = document.querySelector('.site-nav__burger');
+      const overlay = document.getElementById('nav-more-overlay');
+      burger.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = overlay.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', open);
+        overlay.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', () => {
+        overlay.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        overlay.setAttribute('aria-hidden', 'true');
+      });
+      overlay.querySelectorAll('.nav-more__item').forEach(a => {
+        a.addEventListener('click', () => {
+          overlay.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          overlay.setAttribute('aria-hidden', 'true');
+        });
       });
     </script>
   </body>

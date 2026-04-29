@@ -29,6 +29,11 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- Resource hints -->
+    <link rel="preload" href="fonts/orbitron-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="images/logos/schwarzes-fragment-logo-and-bandname-with-brackets.svg" as="image">
+    <link rel="preload" href="images/band/band-picture-1920.webp" as="image">
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -85,7 +90,7 @@
               "addressCountry": "DE"
             }
           },
-          "image": "https://schwarzes-fragment.de/images/flyer/20260327-schwarzes-fragment-flyer-drehleier.png",
+          "image": "https://schwarzes-fragment.de/images/flyer/20260327-schwarzes-fragment-flyer-drehleier.webp",
           "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
           "offers": { "@type": "Offer", "url": "https://www.facebook.com/events/832539002998617", "availability": "https://schema.org/InStock" },
           "url": "https://www.facebook.com/events/832539002998617"
@@ -183,7 +188,7 @@
               "addressCountry": "DE"
             }
           },
-          "image": "https://schwarzes-fragment.de/images/flyer/20261107-schwarzes-fragment-bandhaus.jpeg",
+          "image": "https://schwarzes-fragment.de/images/flyer/20261107-schwarzes-fragment-bandhaus.webp",
           "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
           "offers": { "@type": "Offer", "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig", "availability": "https://schema.org/InStock" },
           "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig"
@@ -204,18 +209,27 @@
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#live">Live</a>
       <a href="#music">Music</a>
+      <a href="#releases">Releases</a>
       <a href="#video">Video</a>
       <a href="#about">Band</a>
-      <a href="#highlights">Highlights</a>
-      <a href="goth-and-gaga.html">Comics</a>
       <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
+      <div class="nav-more-wrap">
+        <button class="site-nav__burger" aria-label="More" aria-expanded="false" aria-controls="nav-more-overlay">
+          <span></span><span></span><span></span>
+        </button>
+        <div id="nav-more-overlay" class="nav-more" aria-hidden="true">
+          <a href="#highlights" class="nav-more__item">Highlights</a>
+          <a href="goth-and-gaga.html" class="nav-more__item">Comics</a>
+        </div>
+      </div>
     </nav>
     <header class="hero" aria-label="Band-Wallpaper">
       <div class="hero-logo-wrap">
         <canvas id="logo-arcs" class="logo-arcs" aria-hidden="true"></canvas>
-        <img src="images/logos/schwarzes-fragment-logo-and-bandname-with-brackets.png"
+        <img src="images/logos/schwarzes-fragment-logo-and-bandname-with-brackets.svg"
           alt="Schwarzes Fragment Bandlogo"
-          class="hero-logo">
+          class="hero-logo"
+          fetchpriority="high">
       </div>
       <div class="hero-inner">
         <div class="social">
@@ -223,31 +237,31 @@
             <div class="social__track">
               <div class="social-icons">
                 <a href="mailto:booking@schwarzes-fragment.de" title="E-Mail">
-                  <img src="images/logos/logo-mail.png" alt="E-Mail">
+                  <img src="images/logos/logo-mail.webp" alt="E-Mail">
                 </a>
                 <a href="https://schwarzesfragment.bandcamp.com/" target="_blank" rel="noopener noreferrer" title="Bandcamp">
-                  <img src="images/logos/logo-bandcamp.png" alt="Bandcamp">
+                  <img src="images/logos/logo-bandcamp.webp" alt="Bandcamp">
                 </a>
                 <a href="https://www.youtube.com/@SchwarzesFragmentOfficial" target="_blank" rel="noopener noreferrer" title="YouTube">
-                  <img src="images/logos/logo-youtube.png" alt="YouTube">
+                  <img src="images/logos/logo-youtube.webp" alt="YouTube">
                 </a>
                 <a href="https://www.facebook.com/schwarzesfragment" target="_blank" rel="noopener noreferrer" title="Facebook">
-                  <img src="images/logos/logo-facebook.png" alt="Facebook">
+                  <img src="images/logos/logo-facebook.webp" alt="Facebook">
                 </a>
                 <a href="https://www.instagram.com/schwarzes_fragment/" target="_blank" rel="noopener noreferrer" title="Instagram">
-                  <img src="images/logos/logo-instagram.png" alt="Instagram">
+                  <img src="images/logos/logo-instagram.webp" alt="Instagram">
                 </a>
                 <a href="https://tiktok.com/@schwarzes_fragment" target="_blank" rel="noopener noreferrer" title="TikTok">
-                  <img src="images/logos/logo-tiktok.png" alt="TikTok">
+                  <img src="images/logos/logo-tiktok.webp" alt="TikTok">
                 </a>
                 <a href="https://www.threads.com/@schwarzes_fragment" target="_blank" rel="noopener noreferrer" title="Threads">
-                  <img src="images/logos/logo-threads.png" alt="Threads">
+                  <img src="images/logos/logo-threads.webp" alt="Threads">
                 </a>
                 <a href="https://soundcloud.com/schwarzes-fragment" target="_blank" rel="noopener noreferrer" title="Soundcloud">
-                  <img src="images/logos/logo-soundcloud.png" alt="Soundcloud">
+                  <img src="images/logos/logo-soundcloud.webp" alt="Soundcloud">
                 </a>
                 <a href="https://open.spotify.com/intl-de/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer" title="Spotify">
-                  <img src="images/logos/logo-spotify.png" alt="Spotify">
+                  <img src="images/logos/logo-spotify.webp" alt="Spotify">
                 </a>
               </div>
             </div>
@@ -282,7 +296,7 @@
                   </span>
                 </time>
                 <div class="gig__cta">
-                  <a class="btn btn--ghost flyer-link" href="images/flyer/20260327-schwarzes-fragment-flyer-drehleier.png">📄 Flyer<span class="flyer-preview"><img src="images/flyer/20260327-schwarzes-fragment-flyer-drehleier.png" alt="Flyer preview"></span></a>
+                  <a class="btn btn--ghost flyer-link" href="images/flyer/20260327-schwarzes-fragment-flyer-drehleier.webp">📄 Flyer<span class="flyer-preview"><img src="images/flyer/20260327-schwarzes-fragment-flyer-drehleier.webp" alt="Flyer preview" loading="lazy"></span></a>
                   <a class="btn btn--ghost" href="https://www.facebook.com/events/832539002998617" target="_blank" rel="noopener noreferrer">🎟️ Event</a>
                 </div>
               </div>
@@ -303,7 +317,7 @@
                   </span>
                 </time>
                 <div class="gig__cta">
-                  <a class="btn btn--ghost flyer-link" href="images/flyer/20260418-Schwarzes-Fragment-supporting-Kirlian-Camera-Club-from-Hell-Erfurt.jpg">📄 Flyer<span class="flyer-preview"><img src="images/flyer/20260418-Schwarzes-Fragment-supporting-Kirlian-Camera-Club-from-Hell-Erfurt.jpg" alt="Flyer preview"></span></a>
+                  <a class="btn btn--ghost flyer-link" href="images/flyer/20260418-Schwarzes-Fragment-supporting-Kirlian-Camera-Club-from-Hell-Erfurt.jpg">📄 Flyer<span class="flyer-preview"><img src="images/flyer/20260418-Schwarzes-Fragment-supporting-Kirlian-Camera-Club-from-Hell-Erfurt.jpg" alt="Flyer preview" loading="lazy"></span></a>
                   <a class="btn btn--ghost" href="https://nocturnalempire-mailorder.de/tickets-kartenvorverkauf/18-04-2026-kirlian-camera-im-from-hell-in-erfurt.html" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
                 </div>
               </div>
@@ -378,7 +392,7 @@
                   </span>
                 </time>
                 <div class="gig__cta">
-                  <a class="btn btn--ghost flyer-link" href="images/flyer/20261107-schwarzes-fragment-bandhaus.jpeg">📄 Flyer<span class="flyer-preview"><img src="images/flyer/20261107-schwarzes-fragment-bandhaus.jpeg" alt="Flyer preview"></span></a>
+                  <a class="btn btn--ghost flyer-link" href="images/flyer/20261107-schwarzes-fragment-bandhaus.webp">📄 Flyer<span class="flyer-preview"><img src="images/flyer/20261107-schwarzes-fragment-bandhaus.webp" alt="Flyer preview" loading="lazy"></span></a>
                   <a class="btn btn--ghost" href="https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
                 </div>
               </div>
@@ -399,7 +413,7 @@
             <h2 id="music-title" class="hero-glitch glitch layers" data-text="MUSIC"><span>MUSIC</span></h2>
           </div>
           <div class="music-layout">
-          <img src="images/misc/fragments-cd.webp" alt="Schwarzes Fragment – Fragments EP cover art" class="music-cover">
+          <img src="images/misc/fragments-cd.webp" alt="Schwarzes Fragment – Fragments EP cover art" class="music-cover" loading="lazy">
           <div class="music-player-wrap">
           <div class="player__featured">
             <span class="player__featured-label">FEATURED TRACK</span>
@@ -438,6 +452,52 @@
         </div>
       </section>
 
+      <!-- RELEASES -->
+      <section id="releases" class="releases-section" aria-labelledby="releases-title">
+        <div class="section-inner">
+          <div class="hero-container">
+            <div class="environment"></div>
+            <h2 id="releases-title" class="hero-glitch glitch layers" data-text="RELEASES"><span>RELEASES</span></h2>
+          </div>
+          <div class="releases-grid">
+
+            <article class="release-card">
+              <div class="release-card__cover-wrap">
+                <img src="images/misc/fragments-album-cover.webp" alt="Fragments – Schwarzes Fragment" class="release-card__cover" loading="lazy">
+                <a href="#live" class="release-card__sticker">Buy at<br>our shows!</a>
+              </div>
+              <div class="release-card__info">
+                <h3 class="release-card__title">Fragments</h3>
+                <p class="release-card__meta">2026 &middot; EP</p>
+              </div>
+            </article>
+
+            <article class="release-card">
+              <div class="release-card__cover-wrap">
+                <img src="images/misc/the-lack-of-yourself-cd-cover.webp" alt="The Lack of Yourself – Schwarzes Fragment" class="release-card__cover" loading="lazy">
+              </div>
+              <div class="release-card__info">
+                <h3 class="release-card__title">The Lack of Yourself</h3>
+                <p class="release-card__meta">2021 &middot; Remix Album</p>
+                <a class="btn btn--ghost release-card__btn" href="https://schwarzesfragment.bandcamp.com/album/the-lack-of-yourself-the-remix-album" target="_blank" rel="noopener noreferrer">Buy on Bandcamp</a>
+              </div>
+            </article>
+
+            <article class="release-card">
+              <div class="release-card__cover-wrap">
+                <img src="images/misc/seelenkiller-cd-cover.webp" alt="Seelenkiller – Schwarzes Fragment" class="release-card__cover" loading="lazy">
+              </div>
+              <div class="release-card__info">
+                <h3 class="release-card__title">Seelenkiller</h3>
+                <p class="release-card__meta">2008 &middot; LP</p>
+                <a class="btn btn--ghost release-card__btn" href="https://schwarzesfragment.bandcamp.com/album/seelenkiller" target="_blank" rel="noopener noreferrer">Buy on Bandcamp</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
       <!-- VIDEO -->
       <section id="video" class="video-section" aria-labelledby="video-title">
         <div class="section-inner">
@@ -446,10 +506,19 @@
             <h2 id="video-title" class="hero-glitch glitch layers" data-text="VIDEO"><span>VIDEO</span></h2>
           </div>
           <div class="video-grid">
-            <div class="video-wrap">
+            <div class="video-wrap video-wrap--featured">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/fI_ev_k5Pbw"
                 title="Schwarzes Fragment – Official Music Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/9CCGHegWC6Q"
+                title="Schwarzes Fragment – Live Performance"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
@@ -794,7 +863,7 @@
           // Spawn inside the logo area (centre 80% of canvas)
           const sx = w * .1 + Math.random() * w * .8;
           const sy = h * .1 + Math.random() * h * .8;
-          const len   = 12 + Math.random() * 36;
+          const len   = 30 + Math.random() * 80;
           const angle = Math.random() * Math.PI * 2;
           const pts   = bolt(sx, sy, sx + Math.cos(angle) * len, sy + Math.sin(angle) * len, len * .45, 3);
           const white = Math.random() > .45;
@@ -814,7 +883,7 @@
             ctx.moveTo(a.pts[0][0], a.pts[0][1]);
             for (let j = 1; j < a.pts.length; j++) ctx.lineTo(a.pts[j][0], a.pts[j][1]);
             ctx.strokeStyle  = `rgba(${a.color},${a.alpha})`;
-            ctx.lineWidth    = 1.5;
+            ctx.lineWidth    = 3;
             ctx.shadowColor  = `rgba(${a.color},${a.alpha})`;
             ctx.shadowBlur   = 7;
             ctx.stroke();
@@ -828,14 +897,36 @@
         function schedule() {
           spawnArc();
           // Simultaneous extra arcs
-          setTimeout(spawnArc, 20 + Math.random() * 40);
-          if (Math.random() > .3) setTimeout(spawnArc, 50 + Math.random() * 50);
-          if (Math.random() > .5) setTimeout(spawnArc, 80 + Math.random() * 60);
-          if (Math.random() > .75) setTimeout(spawnArc, 110 + Math.random() * 60);
-          setTimeout(schedule, 60 + Math.random() * 180);
+          setTimeout(spawnArc, 60 + Math.random() * 100);
+          if (Math.random() > .3) setTimeout(spawnArc, 140 + Math.random() * 120);
+          if (Math.random() > .5) setTimeout(spawnArc, 220 + Math.random() * 140);
+          if (Math.random() > .75) setTimeout(spawnArc, 300 + Math.random() * 140);
+          setTimeout(schedule, 500 + Math.random() * 900);
         }
         schedule();
       })();
+
+      // Hamburger "more" menu
+      const burger  = document.querySelector('.site-nav__burger');
+      const overlay = document.getElementById('nav-more-overlay');
+      burger.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = overlay.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', open);
+        overlay.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', () => {
+        overlay.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        overlay.setAttribute('aria-hidden', 'true');
+      });
+      overlay.querySelectorAll('.nav-more__item').forEach(a => {
+        a.addEventListener('click', () => {
+          overlay.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          overlay.setAttribute('aria-hidden', 'true');
+        });
+      });
 
       // Comics teaser — show 4 latest from manifest
       const teaserGrid = document.getElementById('comics-teaser-grid');
