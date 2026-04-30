@@ -1069,6 +1069,70 @@ main {
   border: 0;
 }
 
+/* Consent wrapper (replaces iframe until user clicks) */
+.video-consent {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-consent__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.55);
+  transition: filter .3s;
+}
+.video-consent:hover .video-consent__thumb {
+  filter: brightness(.4);
+}
+.video-consent__overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  text-align: center;
+}
+.video-consent__btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.85);
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.video-consent:hover .video-consent__btn {
+  background: rgba(107,77,242,.7);
+  border-color: #fff;
+  transform: scale(1.08);
+}
+.video-consent__notice {
+  margin: 0;
+  font-size: .65rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.5;
+  max-width: 200px;
+  pointer-events: none;
+}
+.video-consent__notice a {
+  color: rgba(190,165,255,.9);
+  pointer-events: all;
+}
+
 /* --------- CALENDAR DROPDOWN --------- */
 .cal-drop {
   position: relative;
@@ -1941,4 +2005,31 @@ html {
   .highlights__list dd {
     padding-top: 0;
   }
+}
+
+/* --------- PRESS QUOTE STRIP --------- */
+.press-quote-strip {
+  padding: 48px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(107,77,242,.08) 0%, rgba(178,12,27,.06) 100%);
+  border-top: 1px solid rgba(107,77,242,.15);
+  border-bottom: 1px solid rgba(107,77,242,.15);
+}
+.press-quote-strip__blockquote {
+  margin: 0 auto;
+  max-width: 680px;
+}
+.press-quote-strip__blockquote p {
+  margin: 0 0 12px;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.press-quote-strip__blockquote cite {
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(107,77,242,.9);
+  font-style: normal;
 }

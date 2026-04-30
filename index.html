@@ -209,8 +209,8 @@
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#live">Live</a>
       <a href="#music">Music</a>
-      <a href="#releases">Releases</a>
       <a href="#video">Video</a>
+      <a href="#releases">Releases</a>
       <a href="#about">Band</a>
       <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
       <div class="nav-more-wrap">
@@ -219,6 +219,7 @@
         </button>
         <div id="nav-more-overlay" class="nav-more" aria-hidden="true">
           <a href="#highlights" class="nav-more__item">Highlights</a>
+          <a href="#scene-activity" class="nav-more__item">Scene Activity</a>
           <a href="goth-and-gaga.html" class="nav-more__item">Comics</a>
         </div>
       </div>
@@ -442,7 +443,7 @@
           <div class="stream-links">
             <span class="stream-links__label">Support the project</span>
             <div class="stream-links__list">
-              <a href="https://schwarzesfragment.bandcamp.com/track/digital-phantom" target="_blank" rel="noopener noreferrer" class="stream-links__item stream-links__item--primary">Buy on Bandcamp</a>
+              <a href="https://schwarzesfragment.bandcamp.com/track/digital-phantom" target="_blank" rel="noopener noreferrer" class="stream-links__item stream-links__item--primary">Get it on Bandcamp</a>
               <a href="https://www.youtube.com/@SchwarzesFragmentOfficial" target="_blank" rel="noopener noreferrer" class="stream-links__item">Watch on YouTube</a>
               <a href="https://open.spotify.com/intl-de/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer" class="stream-links__item stream-links__item--muted">Listen on Spotify</a>
             </div>
@@ -452,7 +453,68 @@
         </div>
       </section>
 
-      <!-- RELEASES -->
+      <!-- PRESS QUOTE -->
+      <section class="press-quote-strip" aria-label="Press quote">
+        <blockquote class="press-quote-strip__blockquote">
+          <p>"No brash barker – Schwarzes Fragment convinces with precision, radiance, and expertly crafted electro dark wave."</p>
+          <cite>— Sonic Seducer</cite>
+        </blockquote>
+      </section>
+
+      <!-- VIDEO -->
+      <section id="video" class="video-section" aria-labelledby="video-title">
+        <div class="section-inner">
+          <div class="hero-container">
+            <div class="environment"></div>
+            <h2 id="video-title" class="hero-glitch glitch layers" data-text="VIDEO"><span>VIDEO</span></h2>
+          </div>
+          <div class="video-grid">
+            <div class="video-wrap video-wrap--featured">
+              <div class="video-consent"
+                   data-src="https://www.youtube-nocookie.com/embed/EXpThg7_ILw?autoplay=1"
+                   data-title="Schwarzes Fragment – Official Music Video">
+                <img class="video-consent__thumb"
+                     src="images/misc/yt-thumb-EXpThg7_ILw.jpg"
+                     alt="Schwarzes Fragment – Official Music Video thumbnail"
+                     loading="lazy">
+                <div class="video-consent__overlay">
+                  <button class="video-consent__btn" aria-label="Load video">&#9654;</button>
+                  <p class="video-consent__notice">By clicking you accept YouTube's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="video-wrap">
+              <div class="video-consent"
+                   data-src="https://www.youtube-nocookie.com/embed/9CCGHegWC6Q?autoplay=1"
+                   data-title="Schwarzes Fragment – Live Performance">
+                <img class="video-consent__thumb"
+                     src="images/misc/yt-thumb-9CCGHegWC6Q.jpg"
+                     alt="Schwarzes Fragment – Live Performance thumbnail"
+                     loading="lazy">
+                <div class="video-consent__overlay">
+                  <button class="video-consent__btn" aria-label="Load video">&#9654;</button>
+                  <p class="video-consent__notice">By clicking you accept YouTube's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="video-wrap">
+              <div class="video-consent"
+                   data-src="https://www.youtube-nocookie.com/embed/QL2kf7_cwSM?start=1146&autoplay=1"
+                   data-title="Schwarzes Fragment – Festival Live Recording">
+                <img class="video-consent__thumb"
+                     src="images/misc/yt-thumb-QL2kf7_cwSM.jpg"
+                     alt="Schwarzes Fragment – Festival Live Recording thumbnail"
+                     loading="lazy">
+                <div class="video-consent__overlay">
+                  <button class="video-consent__btn" aria-label="Load video">&#9654;</button>
+                  <p class="video-consent__notice">By clicking you accept YouTube's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="releases" class="releases-section" aria-labelledby="releases-title">
         <div class="section-inner">
           <div class="hero-container">
@@ -464,7 +526,7 @@
             <article class="release-card">
               <div class="release-card__cover-wrap">
                 <img src="images/misc/fragments-album-cover.webp" alt="Fragments – Schwarzes Fragment" class="release-card__cover" loading="lazy">
-                <a href="#live" class="release-card__sticker">Buy at<br>our shows!</a>
+                <a href="#live" class="release-card__sticker">Get it at<br>our shows!</a>
               </div>
               <div class="release-card__info">
                 <h3 class="release-card__title">Fragments</h3>
@@ -479,7 +541,7 @@
               <div class="release-card__info">
                 <h3 class="release-card__title">The Lack of Yourself</h3>
                 <p class="release-card__meta">2021 &middot; Remix Album</p>
-                <a class="btn btn--ghost release-card__btn" href="https://schwarzesfragment.bandcamp.com/album/the-lack-of-yourself-the-remix-album" target="_blank" rel="noopener noreferrer">Buy on Bandcamp</a>
+                <a class="btn btn--ghost release-card__btn" href="https://schwarzesfragment.bandcamp.com/album/the-lack-of-yourself-the-remix-album" target="_blank" rel="noopener noreferrer">Get it on Bandcamp</a>
               </div>
             </article>
 
@@ -490,49 +552,10 @@
               <div class="release-card__info">
                 <h3 class="release-card__title">Seelenkiller</h3>
                 <p class="release-card__meta">2008 &middot; LP</p>
-                <a class="btn btn--ghost release-card__btn" href="https://schwarzesfragment.bandcamp.com/album/seelenkiller" target="_blank" rel="noopener noreferrer">Buy on Bandcamp</a>
+                <a class="btn btn--ghost release-card__btn" href="https://schwarzesfragment.bandcamp.com/album/seelenkiller" target="_blank" rel="noopener noreferrer">Get it on Bandcamp</a>
               </div>
             </article>
 
-          </div>
-        </div>
-      </section>
-
-      <!-- VIDEO -->
-      <section id="video" class="video-section" aria-labelledby="video-title">
-        <div class="section-inner">
-          <div class="hero-container">
-            <div class="environment"></div>
-            <h2 id="video-title" class="hero-glitch glitch layers" data-text="VIDEO"><span>VIDEO</span></h2>
-          </div>
-          <div class="video-grid">
-            <div class="video-wrap video-wrap--featured">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/EXpThg7_ILw"
-                title="Schwarzes Fragment – Official Music Video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="video-wrap">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/9CCGHegWC6Q"
-                title="Schwarzes Fragment – Live Performance"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <div class="video-wrap">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/QL2kf7_cwSM?start=1146"
-                title="Schwarzes Fragment – Festival Live Recording"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
           </div>
         </div>
       </section>
@@ -576,10 +599,6 @@
           </div>
 
           <div class="about-content about-content--closing">
-            <blockquote class="about-press-quote">
-              <p>"No brash barker – Schwarzes Fragment convinces with precision, radiance, and expertly crafted electro dark wave."</p>
-              <cite>— Sonic Seducer</cite>
-            </blockquote>
             <p class="about-fans">For fans of: Apoptygma Berzerk &bull; Blutengel &bull; Cephalgy &bull; Solitary Experiments &bull; Terminal Choice</p>
           </div>
         </div>
@@ -651,7 +670,7 @@
       <a href="mailto:info@schwarzes-fragment.de" class="btn btn--ghost footer-contact-btn">&#9993; Get in Touch</a>
       <p>Booking &amp; Contact: <a href="mailto:booking@schwarzes-fragment.de">booking@schwarzes-fragment.de</a></p>
       <p class="site-footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Schwarzes Fragment. All rights reserved.</p>
-      <p class="site-footer__impressum">Impressum: Martin Förtsch &mdash; <a href="mailto:info@schwarzes-fragment.de">info@schwarzes-fragment.de</a></p>
+      <p class="site-footer__impressum">Impressum: Martin Förtsch &mdash; <a href="mailto:info@schwarzes-fragment.de">info@schwarzes-fragment.de</a> &mdash; <a href="datenschutz.html">Datenschutz</a></p>
     </footer>
     <script>
       // Past gig auto-fade
@@ -1057,6 +1076,19 @@
           overlay.classList.remove('is-open');
           burger.setAttribute('aria-expanded', 'false');
           overlay.setAttribute('aria-hidden', 'true');
+        });
+      });
+
+      // Video consent wrappers — replace with iframe on click
+      document.querySelectorAll('.video-consent').forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+          const iframe = document.createElement('iframe');
+          iframe.src = wrapper.dataset.src;
+          iframe.title = wrapper.dataset.title;
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          wrapper.replaceWith(iframe);
         });
       });
 
