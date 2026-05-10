@@ -1128,14 +1128,19 @@ main {
 }
 .video-consent__notice {
   margin: 0;
-  font-size: .65rem;
-  color: rgba(255,255,255,.7);
-  line-height: 1.5;
-  max-width: 200px;
+  font-size: .72rem;
+  color: rgba(255,255,255,.95);
+  line-height: 1.45;
+  max-width: 240px;
+  padding: 6px 10px;
+  background: rgba(0,0,0,.6);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   pointer-events: none;
 }
 .video-consent__notice a {
-  color: rgba(190,165,255,.9);
+  color: rgba(210,190,255,1);
   pointer-events: all;
 }
 
