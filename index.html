@@ -205,6 +205,10 @@
           alt="Schwarzes Fragment Bandlogo"
           class="hero-logo"
           fetchpriority="high">
+        <span class="hero-sticker" role="img" aria-label="Full Voltage Live">
+          <span class="hero-sticker__line">Full Voltage</span>
+          <span class="hero-sticker__line"><svg class="hero-sticker__bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8H7z"/></svg> Live</span>
+        </span>
       </div>
       <div class="hero-inner">
         <div class="social">
@@ -536,17 +540,29 @@
 
             <div class="members__grid">
               <figure class="member">
-                <img class="member__photo" src="images/band/martin.webp" alt="Martin – Mastermind of Schwarzes Fragment" loading="lazy" width="800" height="1000">
+                <video class="member__photo"
+                       width="400" height="500"
+                       poster="images/band/martin.webp"
+                       autoplay muted loop playsinline preload="metadata"
+                       aria-label="Martin – Mastermind of Schwarzes Fragment">
+                  <source src="images/band/martin.mp4" type="video/mp4">
+                </video>
                 <figcaption class="member__caption">
                   <span class="member__name">Martin</span>
                   <span class="member__role">Mastermind · Composer · Lyrics · Production · Design</span>
                 </figcaption>
               </figure>
               <figure class="member">
-                <img class="member__photo" src="images/band/dirk.webp" alt="Dirk on synthesizer" loading="lazy" width="800" height="1000">
+                <video class="member__photo"
+                       width="400" height="500"
+                       poster="images/band/dirk.webp"
+                       autoplay muted loop playsinline preload="metadata"
+                       aria-label="Dirk on synthesizer">
+                  <source src="images/band/dirk.mp4" type="video/mp4">
+                </video>
                 <figcaption class="member__caption">
                   <span class="member__name">Dirk</span>
-                  <span class="member__role">Synthesizer Live Support</span>
+                  <span class="member__role">Synthesizer Live Support · Electrician by trade</span>
                 </figcaption>
               </figure>
             </div>
