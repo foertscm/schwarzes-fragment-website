@@ -3,3 +3,5 @@ gig_scanner.py
 .gig_cache.json
 gigs.csv
 AGENT.md
+chatgpt-epk-feedback.txt
+__pycache__/

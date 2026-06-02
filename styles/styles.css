@@ -1448,6 +1448,16 @@ a.release-card__sticker:hover {
   letter-spacing: .1em;
 }
 
+.site-footer__official {
+	margin-top: 8px;
+	font-size: .7rem;
+	opacity: .5;
+	font-style: italic;
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 1.5;
+}
 .site-footer__impressum {
 	margin-top: 16px;
 	padding-top: 16px;
