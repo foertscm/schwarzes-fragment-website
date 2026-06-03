@@ -119,12 +119,12 @@ body::before {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 8px 14px;
+	padding: .6em 1em;
 	background: #d6202c;
 	color: #fff;
 	font-family: 'Orbitron', system-ui, sans-serif;
 	font-weight: 900;
-	font-size: clamp(.65rem, 1.1vw, .95rem);
+	font-size: clamp(.5rem, 1.6vw, .95rem);
 	letter-spacing: .08em;
 	text-transform: uppercase;
 	line-height: 1.15;
@@ -193,6 +193,34 @@ body::before {
 	.hero-sticker,
 	.hero-sticker::after { animation: none; }
 	.hero-sticker::after { display: none; }
+}
+/* Mobile sticker scaling — phones below ~600px.
+   The .hero-logo-wrap is sized to the logo (~220px on mobile), so we
+   push the sticker laterally by ~30% of that (~70px) to land it in
+   the side margin OUTSIDE the logo text, and shrink it to fit. */
+@media (max-width: 600px) {
+	.hero-sticker {
+		font-size: .5rem;
+		padding: .35em .7em;
+		letter-spacing: .04em;
+		top: -10%;
+		right: -28%;
+	}
+}
+@media (max-width: 430px) {
+	.hero-sticker {
+		font-size: .46rem;
+		padding: .3em .6em;
+		top: -12%;
+		right: -32%;
+	}
+}
+@media (max-width: 360px) {
+	.hero-sticker {
+		font-size: .42rem;
+		padding: .25em .5em;
+		right: -28%;
+	}
 }
 .hero-sticker__line { display: block; }
 .hero-sticker__bolt {
@@ -1215,8 +1243,14 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 4px;
+  padding: 0;
   transition: background .2s, border-color .2s, transform .2s;
+}
+.video-consent__play {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+  display: block;
 }
 .video-consent:hover .video-consent__btn {
   background: rgba(107,77,242,.7);
