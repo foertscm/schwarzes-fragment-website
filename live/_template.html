@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+EVENT-PAGE TEMPLATE — Schwarzes Fragment
+=====================================================================
+HOW TO USE:
+  1. Copy this file to /live/<event-slug>.html
+     (slug = short, dash-separated, e.g. "dunkelstrom-iv" or
+      "from-hell-erfurt-2026-04" for one-offs that may repeat)
+  2. Search for "REPLACE:" and fill in every spot
+  3. Delete sections that don't apply for this gig
+     (e.g. no Songkick page → delete that share-grid item)
+  4. Add the new page to /live/index.html under Anstehend/Vergangen
+  5. QR code on flyer → https://schwarzes-fragment.de/live/<slug>
+
+KEEP THE JSON-LD AT THE BOTTOM ACCURATE — Google reads it for the
+Knowledge Panel and event carousel. Wrong dates here = wrong dates
+in Google search results.
+=====================================================================
+-->
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- REPLACE: title (format: "<Event name> · <city> · <date> – Schwarzes Fragment") -->
+    <title>EVENT NAME · CITY · DD MMM YYYY – Schwarzes Fragment</title>
+    <!-- REPLACE: short description, 1 sentence, used by Google + social shares -->
+    <meta name="description" content="Schwarzes Fragment live am DD.MM.YYYY im VENUE, CITY. Tickets, Facebook-Event und alle Infos.">
+    <meta name="author" content="Schwarzes Fragment">
+    <meta name="theme-color" content="#0c0c12">
+
+    <!-- Open Graph (used by Facebook, WhatsApp, Discord preview cards) -->
+    <meta property="og:type" content="event">
+    <meta property="og:site_name" content="Schwarzes Fragment">
+    <!-- REPLACE: same as <title> -->
+    <meta property="og:title" content="EVENT NAME · CITY · DD MMM YYYY – Schwarzes Fragment">
+    <!-- REPLACE: same as meta description -->
+    <meta property="og:description" content="Schwarzes Fragment live am DD.MM.YYYY im VENUE, CITY. Tickets, FB-Event und alle Infos.">
+    <!-- REPLACE: <slug> -->
+    <meta property="og:url" content="https://schwarzes-fragment.de/live/SLUG.html">
+    <!-- REPLACE: full URL of flyer or event hero image (must be absolute https://) -->
+    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/FLYER.png">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- REPLACE: canonical URL with the slug -->
+    <link rel="canonical" href="https://schwarzes-fragment.de/live/SLUG.html">
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/live.css">
+  </head>
+  <body>
+    <video class="bg-video" autoplay muted loop playsinline
+           poster="../images/band/band-picture-1920.webp"
+           aria-hidden="true">
+      <source src="../video/schwarzes-fragment-background-video.mp4" type="video/mp4">
+    </video>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../index.html#live" class="site-nav__active">Live</a>
+      <a href="../index.html#music">Music</a>
+      <a href="../index.html#releases">Releases</a>
+      <a href="../index.html#video">Video</a>
+      <a href="../index.html#about">Band</a>
+    </nav>
+
+    <main class="event-page">
+      <a href="index.html" class="event-page__back">← Alle Termine</a>
+
+      <!-- ============= HERO ============= -->
+      <header class="event-hero">
+        <div class="event-date-plate">
+          <!-- REPLACE: day (2 digits, e.g. "10") -->
+          <span class="event-date-plate__day">DD</span>
+          <!-- REPLACE: month abbreviation in German (Jan / Feb / Mär / Apr / Mai / Jun / Jul / Aug / Sep / Okt / Nov / Dez) -->
+          <span class="event-date-plate__month">MON</span>
+          <!-- REPLACE: year -->
+          <span class="event-date-plate__year">YYYY</span>
+        </div>
+        <div class="event-hero__body">
+          <!-- REPLACE: event name (the headline you'd want bookers to remember) -->
+          <h1 class="event-hero__name">EVENT NAME</h1>
+          <!-- REPLACE: lineup — comma-separated. Mark Schwarzes Fragment so it's obvious. -->
+          <p class="event-hero__lineup">Schwarzes Fragment · Other Acts</p>
+          <!-- REPLACE: venue · city (one line) -->
+          <p class="event-hero__venue">Venue Name · City</p>
+          <!--
+            Pick ONE status badge (delete the others):
+              upcoming  → blue/purple "Upcoming"
+              free      → green "Eintritt frei"
+              soldout   → red "Ausverkauft"
+              past      → grey "Vergangen"
+          -->
+          <span class="event-hero__status event-hero__status--upcoming">Upcoming</span>
+        </div>
+      </header>
+
+      <!-- ============= PRIMARY CTAs ============= -->
+      <!--
+        Show only the buttons that apply. Order suggestion: Tickets first,
+        then Facebook event (still the loudest social signal), then Maps.
+        Delete any line that doesn't apply.
+      -->
+      <div class="event-ctas">
+        <!-- REPLACE: ticket shop URL — leave the button out for free events -->
+        <a class="btn" href="https://TICKET-URL" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
+        <!-- REPLACE: facebook event URL -->
+        <a class="btn btn--ghost" href="https://www.facebook.com/events/REPLACE" target="_blank" rel="noopener noreferrer">📘 Facebook-Event</a>
+        <!-- REPLACE: maps URL (geo:lat,lng or Google Maps share link) -->
+        <a class="btn btn--ghost" href="https://maps.google.com/?q=VENUE+CITY" target="_blank" rel="noopener noreferrer">📍 Anfahrt</a>
+      </div>
+
+      <!-- ============= FLYER (optional — delete the line if no flyer yet) ============= -->
+      <!-- REPLACE: flyer image path (preferably a WebP at ~1000px wide) -->
+      <img src="../images/flyer/FLYER.webp" alt="Flyer für EVENT NAME" class="event-flyer" loading="lazy">
+
+      <!-- ============= LINEUP ============= -->
+      <section class="event-section">
+        <h2 class="event-section__title">Lineup</h2>
+        <ul class="lineup">
+          <!-- Schwarzes Fragment — keep this one as-is unless you're co-curating with a different role. -->
+          <li class="lineup__item">
+            <span class="lineup__name">Schwarzes Fragment</span>
+            <span class="lineup__role">Dark Electro / EBM</span>
+            <a class="lineup__link" href="../index.html">schwarzes-fragment.de</a>
+          </li>
+          <!-- Repeat one block per other band. Delete the link line if the act has no online presence. -->
+          <li class="lineup__item">
+            <span class="lineup__name">Other Band</span>
+            <span class="lineup__role">Genre</span>
+            <a class="lineup__link" href="https://OTHER-BAND-URL" target="_blank" rel="noopener noreferrer">website</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============= WHERE & WHEN ============= -->
+      <section class="event-section">
+        <h2 class="event-section__title">Wo &amp; Wann</h2>
+        <div class="event-section__body">
+          <!-- REPLACE: full venue address, day of week, doors/show times -->
+          <p><strong>Venue Name</strong><br>
+             Street &amp; number<br>
+             Postal code · City · Deutschland</p>
+          <p>WOCHENTAG, DD. MONAT YYYY<br>
+             Einlass HH:MM · Beginn HH:MM</p>
+        </div>
+      </section>
+
+      <!-- ============= SPREAD THE WORD / AGGREGATOR LINKS ============= -->
+      <!--
+        Drop the rows you don't have set up yet. Goal: every visitor finds
+        the platform they already use.
+      -->
+      <section class="event-section">
+        <h2 class="event-section__title">Sag's weiter</h2>
+        <div class="share-grid">
+          <!-- REPLACE: facebook event url -->
+          <a class="share-grid__item" href="https://www.facebook.com/events/REPLACE" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">📘</span> Facebook-Event
+          </a>
+          <!-- REPLACE: songkick event url — delete if not on Songkick yet -->
+          <a class="share-grid__item" href="https://www.songkick.com/concerts/REPLACE" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">🎤</span> Songkick
+          </a>
+          <!-- REPLACE: bandsintown event url — delete if not on Bandsintown -->
+          <a class="share-grid__item" href="https://www.bandsintown.com/e/REPLACE" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">🎶</span> Bandsintown
+          </a>
+          <!-- REPLACE: venue's own event page url -->
+          <a class="share-grid__item" href="https://VENUE-PAGE-URL" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">🏛️</span> Venue-Seite
+          </a>
+          <!--
+            Google Calendar add link. Fill in:
+              text   = URL-encoded event name (spaces → +)
+              dates  = YYYYMMDDTHHMMSS/YYYYMMDDTHHMMSS in UTC, T separates start/end
+              details= URL-encoded short description
+              location = URL-encoded venue+address
+          -->
+          <a class="share-grid__item" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Schwarzes+Fragment+EVENT&dates=YYYYMMDDTHHMMSS/YYYYMMDDTHHMMSS&details=Schwarzes+Fragment+live&location=Venue+Address" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">📅</span> In Kalender
+          </a>
+        </div>
+      </section>
+
+      <!-- ============= BAND BLURB (for first-time visitors arriving from QR code) ============= -->
+      <section class="event-section event-blurb">
+        <h2 class="event-section__title event-blurb__title">Wer ist Schwarzes Fragment?</h2>
+        <div class="event-section__body">
+          <p>Schwarzes Fragment ist das live-erprobte Dark-Electro-/EBM-Projekt aus München &amp; Leipzig
+             — melodisch, energetisch, tanzflächentauglich. Live-erprobt mit Supports für Kirlian Camera,
+             Das Ich und Klangstabil.</p>
+        </div>
+        <div class="event-blurb__actions">
+          <a class="btn btn--ghost" href="https://open.spotify.com/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer">🎧 Spotify</a>
+          <a class="btn btn--ghost" href="../index.html">schwarzes-fragment.de</a>
+        </div>
+      </section>
+
+      <div class="event-page__back-row">
+        <a href="index.html" class="btn btn--ghost">← Zurück zu allen Terminen</a>
+      </div>
+    </main>
+
+    <!--
+      JSON-LD MusicEvent schema. Google reads this for the band's Knowledge Panel,
+      the event carousel, and "Schwarzes Fragment tour" search results.
+      KEEP DATES + LOCATION ACCURATE.
+
+      "sameAs" tells Google "this event is the same one as on Facebook/Songkick/
+      Bandsintown" so entries get consolidated. Two ways to fill it in:
+        single URL → "sameAs": "https://www.facebook.com/events/123"
+        multiple   → "sameAs": [ "https://fb.com/...", "https://songkick.com/..." ]
+      If you don't have the Facebook URL yet, DELETE the sameAs line entirely
+      rather than leaving the REPLACE placeholder — placeholder URLs can hurt SEO.
+
+      For each guest act, add another entry to the "performer" array. Richest form:
+        { "@type": "MusicGroup", "name": "Band Name",
+          "url": "https://official-site.example",
+          "sameAs": "https://de.wikipedia.org/wiki/Band_Name_(Band)" }
+      url = official site · sameAs = Wikipedia / Wikidata / Bandcamp etc.
+      Drop "url" or "sameAs" per act if you don't have those.
+
+      "doorTime" is optional but boosts Google's event-card richness. Remove the
+      line if you don't have a stated door time.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicEvent",
+      "name": "EVENT NAME",
+      "startDate": "YYYY-MM-DDTHH:MM:00+02:00",
+      "endDate": "YYYY-MM-DDTHH:MM:00+02:00",
+      "doorTime": "YYYY-MM-DDTHH:MM:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "VENUE NAME",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Street & number",
+          "postalCode": "ZIP",
+          "addressLocality": "City",
+          "addressCountry": "DE"
+        }
+      },
+      "image": "https://schwarzes-fragment.de/images/flyer/FLYER.png",
+      "performer": [
+        { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "ORGANIZER NAME",
+        "url": "https://ORGANIZER-URL"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://TICKET-URL",
+        "price": "PRICE",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "YYYY-MM-DD"
+      },
+      "url": "https://schwarzes-fragment.de/live/SLUG.html",
+      "sameAs": "https://www.facebook.com/events/REPLACE"
+    }
+    </script>
+  </body>
+</html>

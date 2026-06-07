@@ -1,0 +1,327 @@
+/* Event page styles — used by /live/index.html and individual event pages.
+   Builds on styles.css (colors, fonts, .site-nav, .bg-video, glitch heading). */
+
+.event-page {
+	max-width: 920px;
+	margin: 0 auto;
+	padding: 32px 20px 80px;
+	position: relative;
+	z-index: 2;
+	color: #fff;
+}
+.event-page__back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: .85rem;
+	color: rgba(255,255,255,.7);
+	text-decoration: none;
+	margin-bottom: 16px;
+	transition: color .2s;
+}
+.event-page__back:hover { color: #6fdde8; }
+.event-page__back-row {
+	display: flex;
+	justify-content: center;
+	margin-top: 36px;
+}
+
+/* Hero block: date plate + title + venue line */
+.event-hero {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 24px;
+	align-items: center;
+	padding: 28px 24px;
+	background: linear-gradient(135deg, rgba(20,16,38,.85), rgba(12,12,18,.85));
+	border: 1px solid rgba(107,77,242,.4);
+	border-radius: 12px;
+	box-shadow: 0 12px 40px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04);
+	margin-bottom: 28px;
+}
+.event-date-plate {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 92px;
+	padding: 14px 18px;
+	background: rgba(0,0,0,.5);
+	border: 1px solid rgba(255,255,255,.18);
+	border-radius: 8px;
+	text-align: center;
+	line-height: 1.1;
+}
+.event-date-plate__day {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: 2.6rem;
+	font-weight: 900;
+	color: #fff;
+	letter-spacing: .02em;
+}
+.event-date-plate__month {
+	font-size: .9rem;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #6fdde8;
+	margin-top: 4px;
+}
+.event-date-plate__year {
+	font-size: .75rem;
+	color: rgba(255,255,255,.6);
+	margin-top: 2px;
+}
+.event-hero__body { min-width: 0; }
+.event-hero__name {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: clamp(1.5rem, 4vw, 2.2rem);
+	font-weight: 900;
+	margin: 0 0 8px;
+	letter-spacing: .04em;
+	line-height: 1.15;
+}
+.event-hero__lineup {
+	margin: 0 0 8px;
+	font-size: 1.05rem;
+	color: rgba(255,255,255,.92);
+}
+.event-hero__venue {
+	margin: 0;
+	font-size: .95rem;
+	color: rgba(255,255,255,.7);
+}
+.event-hero__status {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 3px 10px;
+	border-radius: 999px;
+	font-size: .72rem;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+.event-hero__status--upcoming { background: rgba(107,77,242,.25); color: #b6a4ff; border: 1px solid rgba(107,77,242,.5); }
+.event-hero__status--free     { background: rgba(0,180,120,.2); color: #6fe0a3; border: 1px solid rgba(0,180,120,.5); }
+.event-hero__status--soldout  { background: rgba(220,40,60,.25); color: #ff9aa8; border: 1px solid rgba(220,40,60,.5); }
+.event-hero__status--past     { background: rgba(255,255,255,.1); color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.2); }
+
+/* Primary CTAs row */
+.event-ctas {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 28px;
+}
+.event-ctas .btn { font-size: .95rem; }
+
+/* Flyer image */
+.event-flyer {
+	width: 100%;
+	max-width: 540px;
+	margin: 0 auto 32px;
+	display: block;
+	border-radius: 10px;
+	box-shadow: 0 12px 40px rgba(0,0,0,.55);
+}
+
+/* Generic content section */
+.event-section {
+	margin-bottom: 28px;
+	padding: 22px 24px;
+	background: rgba(12,12,18,.75);
+	border: 1px solid rgba(255,255,255,.08);
+	border-radius: 10px;
+}
+.event-section__title {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: .85rem;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	color: #6fdde8;
+	margin: 0 0 14px;
+}
+.event-section__body { font-size: .95rem; line-height: 1.6; color: rgba(255,255,255,.88); }
+.event-section__body p { margin: 0 0 10px; }
+.event-section__body p:last-child { margin-bottom: 0; }
+
+/* Lineup list */
+.lineup { list-style: none; margin: 0; padding: 0; }
+.lineup__item {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	padding: 8px 0;
+	border-bottom: 1px dashed rgba(255,255,255,.08);
+}
+.lineup__item:last-child { border-bottom: 0; }
+.lineup__name { font-weight: 600; color: #fff; }
+.lineup__role { font-size: .8rem; color: rgba(255,255,255,.55); letter-spacing: .08em; text-transform: uppercase; }
+.lineup__link { margin-left: auto; font-size: .82rem; color: #6fdde8; text-decoration: none; }
+.lineup__link:hover { text-decoration: underline; }
+
+/* Share / aggregator link grid */
+.share-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 10px;
+}
+.share-grid__item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 14px;
+	background: rgba(0,0,0,.4);
+	border: 1px solid rgba(255,255,255,.12);
+	border-radius: 8px;
+	color: #fff;
+	text-decoration: none;
+	font-size: .9rem;
+	transition: border-color .2s, background .2s, transform .15s;
+}
+.share-grid__item:hover {
+	border-color: rgba(107,77,242,.7);
+	background: rgba(107,77,242,.18);
+	transform: translateY(-1px);
+}
+.share-grid__icon { font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0; }
+
+/* Band blurb at bottom */
+.event-blurb { text-align: center; }
+.event-blurb__title { font-family: 'Orbitron', system-ui, sans-serif; letter-spacing: .12em; }
+.event-blurb__actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px; }
+
+/* Carousel — for live-photo galleries inside event pages.
+   Container is 3:2 to match the live photos, with object-fit: contain so the
+   photographer's watermark (bottom-right of each shot) stays visible. */
+.carousel {
+	position: relative;
+	width: 100%;
+	margin-top: 8px;
+	border-radius: 8px;
+	overflow: hidden;
+	background: rgba(0,0,0,.55);
+	box-shadow: 0 6px 22px rgba(0,0,0,.5);
+	aspect-ratio: 3 / 2;
+}
+.carousel__slides {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	inset: 0;
+}
+.carousel__slide {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity .8s ease-in-out;
+	pointer-events: none;
+}
+.carousel__slide--active { opacity: 1; pointer-events: auto; }
+.carousel__slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+.carousel__nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(0,0,0,.55);
+	border: 1px solid rgba(255,255,255,.3);
+	color: #fff;
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 1;
+	padding: 0 0 3px 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background .2s, border-color .2s, transform .2s;
+}
+.carousel__nav:hover, .carousel__nav:focus-visible {
+	background: rgba(107,77,242,.7);
+	border-color: rgba(255,255,255,.6);
+	transform: translateY(-50%) scale(1.08);
+	outline: none;
+}
+.carousel__nav--prev { left: 10px; }
+.carousel__nav--next { right: 10px; }
+@media (prefers-reduced-motion: reduce) {
+	.carousel__slide { transition: none; }
+}
+
+/* Index page — list of events */
+.events-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+.events-list__group-title {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: 1rem;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	color: #6fdde8;
+	margin: 28px 0 14px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(107,77,242,.3);
+}
+.events-list__item {
+	display: flex;
+	gap: 18px;
+	padding: 18px 20px;
+	background: rgba(12,12,18,.75);
+	border: 1px solid rgba(255,255,255,.08);
+	border-radius: 10px;
+	text-decoration: none;
+	color: #fff;
+	transition: border-color .2s, transform .15s, background .2s;
+}
+.events-list__item:hover {
+	border-color: rgba(107,77,242,.6);
+	background: rgba(20,16,38,.85);
+	transform: translateY(-1px);
+}
+.events-list__date {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 72px;
+	padding: 8px 10px;
+	background: rgba(0,0,0,.4);
+	border-radius: 6px;
+	line-height: 1.1;
+}
+.events-list__day { font-family: 'Orbitron', system-ui, sans-serif; font-size: 1.6rem; font-weight: 900; }
+.events-list__month { font-size: .72rem; letter-spacing: .12em; color: #6fdde8; text-transform: uppercase; margin-top: 2px; }
+.events-list__year { font-size: .65rem; color: rgba(255,255,255,.5); margin-top: 1px; }
+.events-list__body { flex: 1; min-width: 0; }
+.events-list__name { font-family: 'Orbitron', system-ui, sans-serif; font-size: 1.05rem; margin: 0 0 4px; letter-spacing: .03em; }
+.events-list__venue { margin: 0; font-size: .85rem; color: rgba(255,255,255,.7); }
+.events-list__arrow { align-self: center; color: #6fdde8; font-size: 1.4rem; }
+.events-list--past .events-list__item { opacity: .6; }
+.events-list--past .events-list__item:hover { opacity: 1; }
+
+@media (max-width: 600px) {
+	.event-page { padding: 20px 14px 60px; }
+	.event-hero { grid-template-columns: 1fr; padding: 22px 18px; gap: 16px; text-align: left; }
+	.event-date-plate { flex-direction: row; gap: 10px; min-width: 0; padding: 10px 14px; }
+	.event-date-plate__day { font-size: 1.8rem; }
+	.event-date-plate__month { font-size: .75rem; margin-top: 0; }
+	.event-date-plate__year { margin-top: 0; }
+	.event-section { padding: 18px 16px; }
+	.events-list__item { padding: 14px 14px; gap: 12px; }
+	.events-list__date { min-width: 60px; padding: 6px 8px; }
+	.events-list__day { font-size: 1.3rem; }
+}
