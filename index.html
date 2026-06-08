@@ -150,8 +150,8 @@
         {
           "@type": "MusicEvent",
           "name": "Schwarzes Fragment live @ Echoes of the Factory",
-          "startDate": "2026-11-07",
-          "endDate": "2026-11-07",
+          "startDate": "2026-11-07T20:00:00+01:00",
+          "endDate": "2026-11-07T23:30:00+01:00",
           "eventStatus": "https://schema.org/EventScheduled",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
           "location": {
@@ -166,9 +166,16 @@
             }
           },
           "image": "https://schwarzes-fragment.de/images/flyer/2026-11-07-bandhaus-leipzig.webp",
-          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
-          "offers": { "@type": "Offer", "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig", "availability": "https://schema.org/InStock" },
-          "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig"
+          "performer": [
+            { "@type": "MusicGroup", "name": "Unterschicht" },
+            { "@type": "MusicGroup", "name": "Antibody" },
+            { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
+          ],
+          "offers": [
+            { "@type": "Offer", "name": "Vorverkauf", "price": "16.50", "priceCurrency": "EUR", "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig", "availability": "https://schema.org/InStock" },
+            { "@type": "Offer", "name": "Abendkasse", "price": "22.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+          ],
+          "url": "https://schwarzes-fragment.de/live/echoes-of-the-factory.html"
         }
       ]
     }
@@ -368,7 +375,7 @@
                 <span class="gig__curator">Curated by Schwarzes Fragment</span>
               </div>
             </li>
-            <li class="gig" data-date="2026-11-07" data-event-name="Schwarzes Fragment live @ Echoes of the Factory" data-event-location="Bandhaus Leipzig, Saarländer Str. 17, 04179 Leipzig, Germany" data-event-desc="Echoes of the Factory – Schwarzes Fragment Live!">
+            <li class="gig" data-date="2026-11-07" data-href="live/echoes-of-the-factory.html" data-event-name="Schwarzes Fragment live @ Echoes of the Factory" data-event-location="Bandhaus Leipzig, Saarländer Str. 17, 04179 Leipzig, Germany" data-event-desc="Echoes of the Factory – Schwarzes Fragment Live!">
               <div class="gig__left">
                 <time class="gig__date" datetime="2026-11-07">
                   <span class="gig__day">07</span>
@@ -379,6 +386,7 @@
                   </span>
                 </time>
                 <div class="gig__cta">
+                  <a class="btn btn--ghost" href="live/echoes-of-the-factory.html">📋 Infos</a>
                   <a class="btn btn--ghost flyer-link" href="images/flyer/2026-11-07-bandhaus-leipzig.webp">📄 Flyer<span class="flyer-preview"><img src="images/flyer/2026-11-07-bandhaus-leipzig.webp" alt="Flyer preview" loading="lazy"></span></a>
                   <a class="btn btn--ghost" href="https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
                 </div>
