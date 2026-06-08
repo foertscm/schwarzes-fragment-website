@@ -14,7 +14,7 @@
     <meta property="og:title" content="Dark Affair · Leipzig · 25. Mai 2026 – Schwarzes Fragment">
     <meta property="og:description" content="Schwarzes Fragment live beim Dark Affair Festival am 25. Mai 2026 auf dem Augustusplatz, Leipzig.">
     <meta property="og:url" content="https://schwarzes-fragment.de/live/dark-affair-2026.html">
-    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/20260525-schwarzes-fragment-dark-affair.png">
+    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/2026-05-25-dark-affair-leipzig.png">
     <meta property="og:locale" content="de_DE">
 
     <link rel="canonical" href="https://schwarzes-fragment.de/live/dark-affair-2026.html">
@@ -39,7 +39,7 @@
     </nav>
 
     <main class="event-page">
-      <a href="index.html" class="event-page__back">← Alle Termine</a>
+      <a href="../index.html#live" class="event-page__back">← Startseite</a>
 
       <header class="event-hero">
         <div class="event-date-plate">
@@ -61,12 +61,26 @@
         <a class="btn btn--ghost" href="https://www.dark-affair.com" target="_blank" rel="noopener noreferrer">🏛️ Festival-Seite</a>
       </div>
 
-      <img src="../images/flyer/20260525-schwarzes-fragment-dark-affair.png" alt="Flyer für Schwarzes Fragment beim Dark Affair Festival, Leipzig, 25. Mai 2026" class="event-flyer" loading="lazy">
+      <img src="../images/flyer/2026-05-25-dark-affair-leipzig.png" alt="Flyer für Schwarzes Fragment beim Dark Affair Festival, Leipzig, 25. Mai 2026" class="event-flyer" loading="lazy">
 
       <section class="event-section">
         <h2 class="event-section__title">Über den Abend</h2>
         <div class="event-section__body">
-          <p>Open-Air-Auftritt von Schwarzes Fragment auf dem Augustusplatz im Rahmen des Dark Affair Festivals — als Teil der Leipziger Dark-Scene-Programmation.</p>
+          <p>Open-Air-Auftritt von Schwarzes Fragment auf dem Augustusplatz im Rahmen des Dark Affair Festivals — als Teil der Leipziger Dark-Scene-Programmation am Pfingstmontag des WGT-Wochenendes.</p>
+        </div>
+      </section>
+
+      <section class="event-section">
+        <h2 class="event-section__title">Festival-Lineup</h2>
+        <div class="event-section__body festival-lineup">
+          <h3>Freitag, 22. Mai 2026</h3>
+          <p>CON:TER · Graf Vlad · Francis Hunter · Mystery of Dawn · Wolfstavar</p>
+          <h3>Samstag, 23. Mai 2026</h3>
+          <p>Abyss of Hel · Ambiviolenz · Tension Control · ANTIAGE · MINUSHEART</p>
+          <h3>Sonntag, 24. Mai 2026</h3>
+          <p>Das Fortleben · urbandoned · Bad Therapy · Tilly Electronis · Shosta</p>
+          <h3>Pfingstmontag, 25. Mai 2026</h3>
+          <p>Arda Lindesti · Elende Leiber · <strong>Schwarzes Fragment</strong></p>
         </div>
       </section>
 
@@ -92,7 +106,7 @@
       </section>
 
       <div class="event-page__back-row">
-        <a href="index.html" class="btn btn--ghost">← Zurück zu allen Terminen</a>
+        <a href="../index.html#live" class="btn btn--ghost">← Zurück zur Startseite</a>
       </div>
     </main>
 
@@ -116,8 +130,25 @@
           "addressCountry": "DE"
         }
       },
-      "image": "https://schwarzes-fragment.de/images/flyer/20260525-schwarzes-fragment-dark-affair.png",
+      "image": "https://schwarzes-fragment.de/images/flyer/2026-05-25-dark-affair-leipzig.png",
       "performer": [
+        { "@type": "MusicGroup", "name": "CON:TER" },
+        { "@type": "MusicGroup", "name": "Graf Vlad" },
+        { "@type": "MusicGroup", "name": "Francis Hunter" },
+        { "@type": "MusicGroup", "name": "Mystery of Dawn" },
+        { "@type": "MusicGroup", "name": "Wolfstavar" },
+        { "@type": "MusicGroup", "name": "Abyss of Hel" },
+        { "@type": "MusicGroup", "name": "Ambiviolenz" },
+        { "@type": "MusicGroup", "name": "Tension Control" },
+        { "@type": "MusicGroup", "name": "ANTIAGE" },
+        { "@type": "MusicGroup", "name": "MINUSHEART" },
+        { "@type": "MusicGroup", "name": "Das Fortleben" },
+        { "@type": "MusicGroup", "name": "urbandoned" },
+        { "@type": "MusicGroup", "name": "Bad Therapy" },
+        { "@type": "MusicGroup", "name": "Tilly Electronis" },
+        { "@type": "MusicGroup", "name": "Shosta" },
+        { "@type": "MusicGroup", "name": "Arda Lindesti" },
+        { "@type": "MusicGroup", "name": "Elende Leiber" },
         { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
       ],
       "organizer": {
@@ -128,6 +159,34 @@
       "url": "https://schwarzes-fragment.de/live/dark-affair-2026.html",
       "sameAs": "https://www.facebook.com/events/1350820716809566"
     }
+    </script>
+    <script>
+      // Smart back: swap to "Live History" if the user actually arrived from there.
+      // Primary signal: sessionStorage flag set by live-history.html (works on file://).
+      // Fallback: document.referrer (works on http(s)://).
+      (function () {
+        let fromHistory = false;
+        try {
+          if (sessionStorage.getItem("sf-from-history") === "1") {
+            fromHistory = true;
+            sessionStorage.removeItem("sf-from-history");
+          }
+        } catch (e) {}
+        if (!fromHistory && document.referrer) {
+          try {
+            const ref = new URL(document.referrer);
+            if (ref.origin === window.location.origin &&
+                ref.pathname.endsWith("/live-history.html")) {
+              fromHistory = true;
+            }
+          } catch (e) {}
+        }
+        if (!fromHistory) return;
+        const top = document.querySelector(".event-page__back");
+        if (top) { top.textContent = "← Live History"; top.href = "../live-history.html"; }
+        const bottom = document.querySelector(".event-page__back-row .btn");
+        if (bottom) { bottom.textContent = "← Zurück zur Live History"; bottom.href = "../live-history.html"; }
+      })();
     </script>
   </body>
 </html>

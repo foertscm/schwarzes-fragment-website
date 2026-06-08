@@ -14,7 +14,7 @@
     <meta property="og:title" content="Live-Support für Kirlian Camera · Erfurt · 18. Apr 2026 – Schwarzes Fragment">
     <meta property="og:description" content="Schwarzes Fragment live als Support für Kirlian Camera am 18. April 2026 im Club From Hell, Erfurt.">
     <meta property="og:url" content="https://schwarzes-fragment.de/live/kirlian-camera-erfurt.html">
-    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/20260418-schwarzes-fragment-kirlian-camera.webp">
+    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/2026-04-18-kirlian-camera-erfurt.jpg">
     <meta property="og:locale" content="de_DE">
 
     <link rel="canonical" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt.html">
@@ -39,7 +39,7 @@
     </nav>
 
     <main class="event-page">
-      <a href="index.html" class="event-page__back">← Alle Termine</a>
+      <a href="../index.html#live" class="event-page__back">← Startseite</a>
 
       <header class="event-hero">
         <div class="event-date-plate">
@@ -61,7 +61,7 @@
         <a class="btn btn--ghost" href="https://www.clubfromhell.de/" target="_blank" rel="noopener noreferrer">🏛️ Venue</a>
       </div>
 
-      <img src="../images/flyer/20260418-schwarzes-fragment-kirlian-camera.webp" alt="Flyer: Kirlian Camera mit Schwarzes Fragment als Support, Club From Hell Erfurt, 18. April 2026" class="event-flyer" loading="lazy">
+      <img src="../images/flyer/2026-04-18-kirlian-camera-erfurt.jpg" alt="Flyer: Kirlian Camera mit Schwarzes Fragment als Support, Club From Hell Erfurt, 18. April 2026" class="event-flyer" loading="lazy">
 
       <section class="event-section">
         <h2 class="event-section__title">Der Abend</h2>
@@ -126,7 +126,7 @@
       </section>
 
       <div class="event-page__back-row">
-        <a href="index.html" class="btn btn--ghost">← Zurück zu allen Terminen</a>
+        <a href="../index.html#live" class="btn btn--ghost">← Zurück zur Startseite</a>
       </div>
     </main>
 
@@ -150,7 +150,7 @@
           "addressCountry": "DE"
         }
       },
-      "image": "https://schwarzes-fragment.de/images/flyer/20260418-schwarzes-fragment-kirlian-camera.webp",
+      "image": "https://schwarzes-fragment.de/images/flyer/2026-04-18-kirlian-camera-erfurt.jpg",
       "performer": [
         { "@type": "MusicGroup", "name": "Kirlian Camera", "url": "https://www.kirliancamera.com/" },
         { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
@@ -187,6 +187,33 @@
         carousel.addEventListener('focusout',  start);
         start();
       });
+
+      // Smart back: swap to "Live History" if the user actually arrived from there.
+      // Primary signal: sessionStorage flag set by live-history.html (works on file://).
+      // Fallback: document.referrer (works on http(s)://).
+      (function () {
+        let fromHistory = false;
+        try {
+          if (sessionStorage.getItem("sf-from-history") === "1") {
+            fromHistory = true;
+            sessionStorage.removeItem("sf-from-history");
+          }
+        } catch (e) {}
+        if (!fromHistory && document.referrer) {
+          try {
+            const ref = new URL(document.referrer);
+            if (ref.origin === window.location.origin &&
+                ref.pathname.endsWith("/live-history.html")) {
+              fromHistory = true;
+            }
+          } catch (e) {}
+        }
+        if (!fromHistory) return;
+        const top = document.querySelector(".event-page__back");
+        if (top) { top.textContent = "← Live History"; top.href = "../live-history.html"; }
+        const bottom = document.querySelector(".event-page__back-row .btn");
+        if (bottom) { bottom.textContent = "← Zurück zur Live History"; bottom.href = "../live-history.html"; }
+      })();
     </script>
   </body>
 </html>

@@ -9,6 +9,7 @@
 	z-index: 2;
 	color: #fff;
 }
+.event-page--wide { max-width: 1180px; }
 .event-page__back {
 	display: inline-flex;
 	align-items: center;
@@ -158,6 +159,18 @@
 .lineup__role { font-size: .8rem; color: rgba(255,255,255,.55); letter-spacing: .08em; text-transform: uppercase; }
 .lineup__link { margin-left: auto; font-size: .82rem; color: #6fdde8; text-decoration: none; }
 .lineup__link:hover { text-decoration: underline; }
+
+/* Multi-day festival lineup blocks */
+.festival-lineup h3 {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: .85rem;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #6fdde8;
+	margin: 16px 0 4px;
+}
+.festival-lineup h3:first-child { margin-top: 0; }
+.festival-lineup p { margin: 0 0 4px; font-size: .95rem; }
 
 /* Share / aggregator link grid */
 .share-grid {
@@ -324,4 +337,239 @@
 	.events-list__item { padding: 14px 14px; gap: 12px; }
 	.events-list__date { min-width: 60px; padding: 6px 8px; }
 	.events-list__day { font-size: 1.3rem; }
+}
+
+/* ---------- Live History page ---------- */
+
+.history-intro {
+	max-width: 820px;
+	margin: 0 auto 28px;
+	text-align: center;
+	color: rgba(255,255,255,.78);
+	font-size: 1.02rem;
+	line-height: 1.6;
+}
+.history-stats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+	margin-bottom: 32px;
+}
+.history-stat {
+	padding: 18px 20px;
+	background: rgba(12,12,18,.75);
+	border: 1px solid rgba(255,255,255,.08);
+	border-radius: 10px;
+	box-shadow: 0 6px 22px rgba(0,0,0,.4);
+}
+.history-stat__num {
+	display: block;
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: clamp(1.6rem, 3vw, 2.4rem);
+	font-weight: 900;
+	letter-spacing: .02em;
+	line-height: 1;
+	color: #fff;
+}
+.history-stat__label {
+	display: block;
+	margin-top: 6px;
+	color: rgba(255,255,255,.65);
+	font-size: .82rem;
+	letter-spacing: .04em;
+}
+
+.history-highlights {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 14px;
+}
+.history-highlight {
+	padding: 18px 20px;
+	background: rgba(0,0,0,.35);
+	border: 1px solid rgba(255,255,255,.08);
+	border-radius: 8px;
+}
+.history-highlight__title {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: .82rem;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	color: #6fdde8;
+	margin: 0 0 8px;
+}
+.history-highlight__body {
+	margin: 0;
+	color: rgba(255,255,255,.78);
+	font-size: .92rem;
+	line-height: 1.55;
+}
+
+.history-table-wrap { overflow-x: auto; margin: 0 -4px; }
+.history-table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 880px;
+	font-size: .9rem;
+}
+.history-table th, .history-table td {
+	padding: 12px 14px;
+	vertical-align: top;
+	border-bottom: 1px solid rgba(255,255,255,.06);
+	text-align: left;
+}
+.history-table th {
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: .72rem;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	color: #6fdde8;
+	background: rgba(0,0,0,.35);
+	white-space: nowrap;
+}
+.history-table tbody tr { transition: background .15s; }
+.history-table tbody tr:hover { background: rgba(107,77,242,.08); }
+.history-table tbody tr[data-href] { cursor: pointer; }
+.history-table tbody tr[data-href]:hover { background: rgba(107,77,242,.18); }
+.history-table tbody tr:last-child td { border-bottom: 0; }
+.history-table__nr    { color: rgba(255,255,255,.4); width: 38px; font-variant-numeric: tabular-nums; }
+.history-table__date  { white-space: nowrap; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }
+.history-table__city  { font-weight: 600; }
+.history-table__venue { color: #fff; }
+.history-table__ctx   { color: rgba(255,255,255,.65); font-size: .85rem; }
+.history-table__noflyer { color: rgba(255,255,255,.25); text-align: center; }
+
+/* Sortable column header */
+.history-table__sortable {
+	cursor: pointer;
+	user-select: none;
+	transition: color .15s ease, background .15s ease;
+}
+.history-table__sortable:hover,
+.history-table__sortable:focus-visible {
+	color: #fff;
+	background: rgba(107,77,242,.12);
+	outline: none;
+}
+.history-table__sort-arrow {
+	display: inline-block;
+	margin-left: 4px;
+	color: #6fdde8;
+	font-size: .9em;
+}
+
+/* Venue cell that links to a dedicated event page */
+.venue-link {
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px dashed rgba(111,221,232,.45);
+	transition: color .15s ease, border-color .15s ease;
+}
+.venue-link:hover, .venue-link:focus-visible {
+	color: #6fdde8;
+	border-bottom-color: rgba(111,221,232,1);
+	outline: none;
+}
+
+/* Inline flyer link with hover preview thumbnail */
+.flyer-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin-left: 6px;
+	padding: 1px 7px;
+	border-radius: 4px;
+	border: 1px solid rgba(111,221,232,.35);
+	background: rgba(111,221,232,.08);
+	color: #6fdde8;
+	text-decoration: none;
+	font-size: .74rem;
+	letter-spacing: .02em;
+	vertical-align: 2px;
+	position: relative;
+	cursor: zoom-in;
+	transition: background .2s, border-color .2s, color .2s;
+}
+.flyer-link:hover, .flyer-link:focus-visible {
+	background: rgba(111,221,232,.18);
+	border-color: rgba(111,221,232,.7);
+	color: #fff;
+	outline: none;
+}
+.flyer-link__icon { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* Floating hover preview — rendered at body level so it escapes the
+   table-wrap's overflow-x:auto clipping context. */
+.flyer-hover-preview {
+	position: fixed;
+	z-index: 800;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .15s ease;
+	padding: 0;
+	border-radius: 8px;
+	border: 1px solid rgba(255,255,255,.14);
+	box-shadow: 0 10px 32px rgba(0,0,0,.85);
+	background: #0a0910;
+	overflow: hidden;
+}
+.flyer-hover-preview.is-visible { opacity: 1; }
+.flyer-hover-preview img {
+	display: block;
+	width: 200px;
+	max-width: 60vw;
+	height: auto;
+	border-radius: 8px;
+}
+@media (hover: none) {
+	/* Touch devices: no hover, no preview */
+	.flyer-hover-preview { display: none; }
+}
+
+.history-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 3px 10px;
+	border-radius: 999px;
+	font-size: .72rem;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	border: 1px solid rgba(255,255,255,.14);
+	background: rgba(255,255,255,.04);
+	color: rgba(255,255,255,.7);
+}
+.history-tag::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+}
+.history-tag--live::before    { background: #6fe0a3; box-shadow: 0 0 8px #6fe0a3; }
+.history-tag--archive::before { background: #b6a4ff; box-shadow: 0 0 8px #b6a4ff; }
+.history-tag--online::before  { background: #6fdde8; box-shadow: 0 0 8px #6fdde8; }
+.history-tag--todo::before    { background: #ffd166; box-shadow: 0 0 8px #ffd166; }
+
+.history-names {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.history-name {
+	padding: 6px 12px;
+	border-radius: 999px;
+	background: rgba(255,255,255,.05);
+	border: 1px solid rgba(255,255,255,.1);
+	color: #fff;
+	font-size: .85rem;
+}
+
+.history-notes ul { margin: 8px 0 0; padding-left: 1.2rem; }
+.history-notes li { margin: .4rem 0; }
+
+/* Flyer modal styles live in styles.css (.flyer-modal*) — reused as-is. */
+
+@media (max-width: 720px) {
+	.history-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

@@ -2181,3 +2181,173 @@ html {
   color: rgba(107,77,242,.9);
   font-style: normal;
 }
+
+/* --------- STAT STRIP (shared component, used on homepage LIVE section and EPK) --------- */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 980px;
+  margin: 0 auto 18px;
+}
+.stat-strip__item {
+  padding: 18px 18px 20px;
+  background: rgba(12,12,18,.7);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  box-shadow: 0 6px 22px rgba(0,0,0,.35);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.stat-strip__num {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1;
+  color: #fff;
+}
+.stat-strip__label {
+  margin-top: 6px;
+  color: rgba(255,255,255,.72);
+  font-size: .82rem;
+  letter-spacing: .04em;
+}
+.stat-strip__sub {
+  margin-top: 8px;
+  color: rgba(255,255,255,.55);
+  font-size: .7rem;
+  line-height: 1.4;
+  letter-spacing: .01em;
+}
+.stat-strip__item--names .stat-strip__label {
+  order: -1;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.stat-strip__names {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: clamp(.78rem, 1.05vw, .95rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+.stat-strip__cta {
+  display: block;
+  max-width: 980px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: #6fdde8;
+  text-decoration: none;
+  font-size: .92rem;
+  letter-spacing: .03em;
+  transition: color .2s;
+}
+.stat-strip__cta:hover { color: #fff; }
+.stat-strip__cta-arrow { display: inline-block; transition: transform .2s; }
+.stat-strip__cta:hover .stat-strip__cta-arrow { transform: translateX(4px); }
+
+@media (max-width: 700px) {
+  .stat-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 380px) {
+  .stat-strip { grid-template-columns: 1fr; }
+}
+
+/* --------- RECENTLY PLAYED (homepage past-show teaser cards) --------- */
+.recently-played {
+  max-width: 980px;
+  margin: 36px auto 0;
+}
+.recently-played__title {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  text-align: center;
+  margin: 0 0 14px;
+}
+.recently-played__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.recently-played__card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(12,12,18,.55);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgba(255,255,255,.82);
+  opacity: .72;
+  transition: opacity .2s, border-color .2s, transform .15s, background .2s;
+}
+.recently-played__card:hover,
+.recently-played__card:focus-visible {
+  opacity: 1;
+  border-color: rgba(107,77,242,.55);
+  background: rgba(20,16,38,.75);
+  transform: translateY(-1px);
+  outline: none;
+}
+.recently-played__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+  padding: 6px 10px;
+  background: rgba(0,0,0,.4);
+  border-radius: 6px;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+.recently-played__day {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fff;
+}
+.recently-played__month {
+  font-size: .7rem;
+  letter-spacing: .1em;
+  color: #6fdde8;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.recently-played__year {
+  font-size: .62rem;
+  color: rgba(255,255,255,.5);
+  margin-top: 1px;
+}
+.recently-played__body {
+  flex: 1;
+  min-width: 0;
+}
+.recently-played__name {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: .98rem;
+  margin: 0 0 3px;
+  letter-spacing: .02em;
+  color: #fff;
+}
+.recently-played__venue {
+  margin: 0;
+  font-size: .82rem;
+  color: rgba(255,255,255,.65);
+}
+.recently-played__arrow {
+  color: #6fdde8;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+@media (max-width: 700px) {
+  .recently-played__grid { grid-template-columns: 1fr; }
+}

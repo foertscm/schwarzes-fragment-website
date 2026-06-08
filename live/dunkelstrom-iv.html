@@ -39,7 +39,7 @@
     </nav>
 
     <main class="event-page">
-      <a href="index.html" class="event-page__back">← Alle Termine</a>
+      <a href="../index.html#live" class="event-page__back">← Startseite</a>
 
       <header class="event-hero">
         <div class="event-date-plate">
@@ -88,6 +88,7 @@
              81677 München · Deutschland</p>
           <p>Samstag, 10. Oktober 2026<br>
              Einlass 19:00 · Beginn 20:00</p>
+          <p>Eintritt: 10 € · <strong>nur Abendkasse</strong> (kein Vorverkauf)</p>
         </div>
       </section>
 
@@ -120,7 +121,7 @@
       </section>
 
       <div class="event-page__back-row">
-        <a href="index.html" class="btn btn--ghost">← Zurück zu allen Terminen</a>
+        <a href="../index.html#live" class="btn btn--ghost">← Zurück zur Startseite</a>
       </div>
     </main>
 
@@ -155,9 +156,44 @@
         "@id": "https://schwarzes-fragment.de/#band",
         "name": "Schwarzes Fragment"
       },
+      "offers": {
+        "@type": "Offer",
+        "price": "10",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "availabilityStarts": "2026-10-10T19:00:00+02:00"
+      },
       "url": "https://schwarzes-fragment.de/live/dunkelstrom-iv.html",
       "sameAs": "https://www.facebook.com/events/2329711074219535"
     }
+    </script>
+    <script>
+      // Smart back: swap to "Live History" if the user actually arrived from there.
+      // Primary signal: sessionStorage flag set by live-history.html (works on file://).
+      // Fallback: document.referrer (works on http(s)://).
+      (function () {
+        let fromHistory = false;
+        try {
+          if (sessionStorage.getItem("sf-from-history") === "1") {
+            fromHistory = true;
+            sessionStorage.removeItem("sf-from-history");
+          }
+        } catch (e) {}
+        if (!fromHistory && document.referrer) {
+          try {
+            const ref = new URL(document.referrer);
+            if (ref.origin === window.location.origin &&
+                ref.pathname.endsWith("/live-history.html")) {
+              fromHistory = true;
+            }
+          } catch (e) {}
+        }
+        if (!fromHistory) return;
+        const top = document.querySelector(".event-page__back");
+        if (top) { top.textContent = "← Live History"; top.href = "../live-history.html"; }
+        const bottom = document.querySelector(".event-page__back-row .btn");
+        if (bottom) { bottom.textContent = "← Zurück zur Live History"; bottom.href = "../live-history.html"; }
+      })();
     </script>
   </body>
 </html>

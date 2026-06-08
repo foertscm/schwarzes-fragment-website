@@ -67,7 +67,7 @@ in Google search results.
     </nav>
 
     <main class="event-page">
-      <a href="index.html" class="event-page__back">← Alle Termine</a>
+      <a href="../index.html#live" class="event-page__back">← Startseite</a>
 
       <!-- ============= HERO ============= -->
       <header class="event-hero">
@@ -200,7 +200,7 @@ in Google search results.
       </section>
 
       <div class="event-page__back-row">
-        <a href="index.html" class="btn btn--ghost">← Zurück zu allen Terminen</a>
+        <a href="../index.html#live" class="btn btn--ghost">← Zurück zur Startseite</a>
       </div>
     </main>
 
@@ -267,6 +267,34 @@ in Google search results.
       "url": "https://schwarzes-fragment.de/live/SLUG.html",
       "sameAs": "https://www.facebook.com/events/REPLACE"
     }
+    </script>
+    <script>
+      // Smart back: swap to "Live History" if the user actually arrived from there.
+      // Primary signal: sessionStorage flag set by live-history.html (works on file://).
+      // Fallback: document.referrer (works on http(s)://).
+      (function () {
+        let fromHistory = false;
+        try {
+          if (sessionStorage.getItem("sf-from-history") === "1") {
+            fromHistory = true;
+            sessionStorage.removeItem("sf-from-history");
+          }
+        } catch (e) {}
+        if (!fromHistory && document.referrer) {
+          try {
+            const ref = new URL(document.referrer);
+            if (ref.origin === window.location.origin &&
+                ref.pathname.endsWith("/live-history.html")) {
+              fromHistory = true;
+            }
+          } catch (e) {}
+        }
+        if (!fromHistory) return;
+        const top = document.querySelector(".event-page__back");
+        if (top) { top.textContent = "← Live History"; top.href = "../live-history.html"; }
+        const bottom = document.querySelector(".event-page__back-row .btn");
+        if (bottom) { bottom.textContent = "← Zurück zur Live History"; bottom.href = "../live-history.html"; }
+      })();
     </script>
   </body>
 </html>
