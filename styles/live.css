@@ -351,9 +351,34 @@
 }
 .history-stats {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(5, minmax(0, 1fr));
 	gap: 14px;
 	margin-bottom: 32px;
+}
+/* Upcoming-events counter — cyan accent ties it visually to the
+   highlighted rows in the chronicle table. */
+.history-stat--upcoming {
+	border-color: rgba(111, 221, 232, .45);
+	box-shadow: 0 6px 22px rgba(0,0,0,.4), inset 0 0 0 1px rgba(111, 221, 232, .12);
+	background: linear-gradient(180deg, rgba(111,221,232,.06), rgba(12,12,18,.75));
+}
+.history-stat--upcoming .history-stat__num { color: #6fdde8; }
+.history-stat--upcoming .history-stat__label { color: rgba(111, 221, 232, .85); }
+/* Anchor variant: when the upcoming stat is wrapped as a link, restore
+   block/anchor defaults and add an interactive hover/focus lift. */
+a.history-stat {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+	transition: border-color .2s, box-shadow .2s, transform .15s;
+	/* display: flex inherited from .history-stat — don't override */
+}
+a.history-stat--upcoming:hover,
+a.history-stat--upcoming:focus-visible {
+	border-color: rgba(111, 221, 232, .75);
+	box-shadow: 0 6px 22px rgba(0,0,0,.4), 0 0 16px rgba(111, 221, 232, .35);
+	transform: translateY(-1px);
+	outline: none;
 }
 .history-stat {
 	padding: 18px 20px;
@@ -361,6 +386,11 @@
 	border: 1px solid rgba(255,255,255,.08);
 	border-radius: 10px;
 	box-shadow: 0 6px 22px rgba(0,0,0,.4);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 .history-stat__num {
 	display: block;
@@ -427,11 +457,57 @@
 	background: rgba(0,0,0,.35);
 	white-space: nowrap;
 }
-.history-table tbody tr { transition: background .15s; }
+.history-table tbody tr { transition: background .15s, box-shadow .15s; }
 .history-table tbody tr:hover { background: rgba(107,77,242,.08); }
 .history-table tbody tr[data-href] { cursor: pointer; }
-.history-table tbody tr[data-href]:hover { background: rgba(107,77,242,.18); }
+/* Clickable rows: cyan tint matches the unified interactive-card language
+   (glow on cards, tint on table rows since tr can't take box-shadow cleanly). */
+.history-table tbody tr[data-href]:hover {
+	background: rgba(111, 221, 232, .14);
+	box-shadow: inset 3px 0 0 rgba(111, 221, 232, .65);
+}
 .history-table tbody tr:last-child td { border-bottom: 0; }
+
+/* Upcoming-row treatment: cyan left border + subtle wash, with a small
+   inline "Bevorstehend" pill in the venue cell. The first td absorbs
+   the left-border (table cells don't render borders on tr). */
+.history-table tbody tr.history-table__row--upcoming { background: rgba(111,221,232,.05); }
+.history-table tbody tr.history-table__row--upcoming:hover { background: rgba(111,221,232,.12); }
+.history-table tbody tr.history-table__row--upcoming > td:first-child {
+	border-left: 3px solid #6fdde8;
+	padding-left: 11px; /* offsets the 3px border so column lines stay aligned */
+}
+.history-table tbody tr.history-table__row--upcoming .history-table__date { color: #6fdde8; }
+.history-table__badge {
+	display: inline-block;
+	margin-right: 8px;
+	padding: 2px 8px;
+	border: 1px solid rgba(111,221,232,.55);
+	border-radius: 999px;
+	background: rgba(111,221,232,.12);
+	color: #6fdde8;
+	font-family: 'Orbitron', system-ui, sans-serif;
+	font-size: .65rem;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	font-weight: 700;
+	vertical-align: middle;
+	white-space: nowrap;
+	/* All badges size up to the widest expected label so they read as a
+	   coordinated set, not independent ad-hoc labels. 9.5rem comfortably
+	   fits the current widest label (BEVORSTEHEND ≈ 140 px) with a small
+	   buffer for future ones. */
+	min-width: 9.5rem;
+	text-align: center;
+	box-sizing: border-box;
+}
+/* Purple variant for closed/invite-only events; renders inline next to
+   the cyan "Bevorstehend" pill on the same row. */
+.history-table__badge--invite {
+	border-color: rgba(107,77,242,.55);
+	background: rgba(107,77,242,.18);
+	color: #b2a3ff;
+}
 .history-table__nr    { color: rgba(255,255,255,.4); width: 38px; font-variant-numeric: tabular-nums; }
 .history-table__date  { white-space: nowrap; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }
 .history-table__city  { font-weight: 600; }

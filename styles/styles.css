@@ -344,6 +344,19 @@ body::before {
 	/* Glass */
 	 box-shadow: 0 8px 28px rgba(0,0,0,.35);
 }
+/* Whole-card-click variant: unified interactive hover (cyan glow + lift)
+   shared with .recently-played__card, .release-card and the upcoming
+   counter so every clickable card signals interactivity the same way. */
+.gig[data-href] {
+	cursor: pointer;
+	transition: border-color .2s, box-shadow .2s, transform .15s;
+}
+.gig[data-href]:hover,
+.gig[data-href]:focus-within {
+	border-color: rgba(111, 221, 232, .75);
+	box-shadow: 0 8px 28px rgba(0,0,0,.35), 0 0 18px rgba(111, 221, 232, .35);
+	transform: translateY(-1px);
+}
  @media (max-width: 640px){
 	 .gig{
 		 grid-template-columns: 80px 1fr;
@@ -1437,11 +1450,15 @@ main {
 	border-radius: 14px;
 	overflow: hidden;
 	backdrop-filter: blur(6px);
-	transition: transform .2s ease, border-color .2s ease;
+	transition: border-color .2s, box-shadow .2s, transform .15s;
 }
-.release-card:hover {
-	transform: translateY(-4px);
-	border-color: rgba(255,255,255,.2);
+/* Unified interactive-card hover: cyan glow + lift, matching .gig[data-href]
+   and the upcoming counter. */
+.release-card:hover,
+.release-card:focus-within {
+	border-color: rgba(111, 221, 232, .75);
+	box-shadow: 0 8px 28px rgba(0,0,0,.35), 0 0 18px rgba(111, 221, 232, .35);
+	transform: translateY(-1px);
 }
 .release-card__cover-wrap {
 	position: relative;
@@ -2185,10 +2202,35 @@ html {
 /* --------- STAT STRIP (shared component, used on homepage LIVE section and EPK) --------- */
 .stat-strip {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* auto-fit lets the same component handle 4 (homepage) or 5 (live-history) items. */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 14px;
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto 18px;
+}
+/* Upcoming-shows counter — cyan accent matches the highlighted rows
+   on the live-history page. */
+.stat-strip__item--upcoming {
+  border-color: rgba(111, 221, 232, .45);
+  background: linear-gradient(180deg, rgba(111,221,232,.06), rgba(12,12,18,.7));
+  box-shadow: 0 6px 22px rgba(0,0,0,.35), inset 0 0 0 1px rgba(111, 221, 232, .12);
+}
+.stat-strip__item--upcoming .stat-strip__num { color: #6fdde8; }
+.stat-strip__item--upcoming .stat-strip__label { color: rgba(111, 221, 232, .85); }
+/* When the upcoming counter is rendered as a link (homepage / EPK / live-history),
+   give it an interactive lift on hover so it reads as clickable. */
+a.stat-strip__item, a.stat-strip__item--upcoming {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+}
+a.stat-strip__item--upcoming:hover,
+a.stat-strip__item--upcoming:focus-visible {
+  border-color: rgba(111, 221, 232, .75);
+  box-shadow: 0 6px 22px rgba(0,0,0,.35), 0 0 16px rgba(111, 221, 232, .35);
+  transform: translateY(-1px);
+  outline: none;
 }
 .stat-strip__item {
   padding: 18px 18px 20px;
@@ -2200,7 +2242,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .stat-strip__num {
   font-family: 'Orbitron', system-ui, sans-serif;
@@ -2288,13 +2330,15 @@ html {
   text-decoration: none;
   color: rgba(255,255,255,.82);
   opacity: .72;
-  transition: opacity .2s, border-color .2s, transform .15s, background .2s;
+  transition: opacity .2s, border-color .2s, box-shadow .2s, transform .15s, background .2s;
 }
+/* Unified interactive-card hover: cyan glow + lift. */
 .recently-played__card:hover,
 .recently-played__card:focus-visible {
   opacity: 1;
-  border-color: rgba(107,77,242,.55);
+  border-color: rgba(111, 221, 232, .75);
   background: rgba(20,16,38,.75);
+  box-shadow: 0 6px 22px rgba(0,0,0,.35), 0 0 16px rgba(111, 221, 232, .35);
   transform: translateY(-1px);
   outline: none;
 }
