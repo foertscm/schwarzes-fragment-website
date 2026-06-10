@@ -1749,6 +1749,15 @@ a.release-card__sticker:hover {
   pointer-events: all;
   transform: translateX(-50%) translateY(0);
 }
+/* Mobile: burger sits at the left edge, so anchor the overlay to the
+   burger's left side and let it open RIGHTWARD into the viewport. The
+   default rule above centers it (left: 50% + translateX(-50%)) which
+   pushes the overlay off-screen on narrow viewports. Must come AFTER
+   the base rule so source order wins the specificity tie. */
+@media (max-width: 540px) {
+  .nav-more         { left: 0; transform: translateY(-6px); }
+  .nav-more.is-open { transform: translateY(0); }
+}
 .nav-more__item {
   color: var(--muted);
   text-decoration: none;
