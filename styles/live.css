@@ -435,7 +435,7 @@ a.history-stat--upcoming:focus-visible {
 	line-height: 1.55;
 }
 
-.history-table-wrap { overflow-x: auto; margin: 0 -4px; }
+.history-table-wrap { overflow-x: auto; }
 .history-table {
 	width: 100%;
 	border-collapse: collapse;

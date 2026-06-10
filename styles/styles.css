@@ -409,13 +409,6 @@ body::before {
 	 font-weight: bold;
 	 letter-spacing:.01em;
 }
- .gig__venue{
-	 font-weight: 600;
-	 color: #e8e6f2;
-	 opacity:.9;
-	 display: inline-block;
-	 margin-left: .35ch;
-}
  .gig__note{
 	 margin: 0;
 	 color: var(--muted);
@@ -437,19 +430,25 @@ body::before {
 	 color: #e8e6f2;
 	 opacity:.9;
 	 background: rgba(255,255,255,.03);
+	 white-space: nowrap;
 }
  .tag--new {
 	 border-color: rgba(107,77,242,.55);
 	 box-shadow: inset 0 0 14px rgba(107,77,242,.25);
 }
- .tag--sold{
-	 border-color: rgba(178,12,27,.6);
-	 color:#ffb8c0;
-}
  .tag--secret {
 	 border-color: rgba(255,200,50,.45);
 	 color: rgba(255,220,100,.9);
 	 box-shadow: inset 0 0 14px rgba(255,200,50,.12);
+	 /* "INVITE ONLY" doesn't fit single-line in the narrow date tile —
+	    let it wrap and render as a rounded rectangle (not a stretched oval). */
+	 white-space: normal;
+	 text-align: center;
+	 line-height: 1.3;
+	 padding: 4px 10px;
+	 border-radius: 12px;
+	 max-width: 100%;
+	 box-sizing: border-box;
 }
 /* CTA unterhalb Datum – vertikale Spalte */
  .gig__cta{
@@ -485,11 +484,6 @@ body::before {
 	 filter: grayscale(.6);
 }
 /* Ausverkauft – dezenter */
- .gig.is-soldout{
-	 opacity: .8;
-	 background: rgba(178,12,27,.08);
-	 border-color: rgba(178,12,27,.25);
-}
 /* ===== Mobile Polish (<= 600px) ===== */
  @media (max-width: 600px){
 	/* mehr Luft rund um Notch/Statusbar */
@@ -661,6 +655,10 @@ body::before {
 
 .layers {
   position: relative;
+  /* Clip the animated ::before / ::after layers (width:110%, left:-20px..+20px)
+     so the glitch animation can't push them past the heading box and cause
+     horizontal page scroll on narrow viewports. */
+  overflow: hidden;
 }
 
 .layers::before,
@@ -1360,29 +1358,6 @@ main {
 .flyer-link {
   overflow: visible;
 }
-.flyer-preview {
-  display: block;
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .2s ease, transform .2s ease;
-  transform: translateX(-50%) translateY(6px);
-  z-index: 500;
-}
-.flyer-link:hover .flyer-preview {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-.flyer-preview img {
-  display: block;
-  width: 160px;
-  border-radius: 8px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.8);
-  border: 1px solid rgba(255,255,255,.12);
-}
 
 /* --------- FLYER LIGHTBOX --------- */
 .flyer-modal {
@@ -1631,6 +1606,49 @@ a.release-card__sticker:hover {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
+/* At narrow mobile widths the full nav row (6 items + EPK pill + burger)
+   exceeds the viewport; tighten gap + side padding so it fits without clipping. */
+@media (max-width: 480px) {
+  .site-nav {
+    gap: 8px;
+    padding: 0 8px;
+  }
+}
+
+/* Section anchors inside the burger overlay only show up on mobile —
+   on desktop they'd be duplicates of the main nav row. */
+.nav-more__item--section { display: none; }
+
+/* Desktop only: subtle "|" separator before the language switcher.
+   Signals it's in a different "settings / preferences" zone, distinct
+   from the navigation action zone (sections + EPK + burger). */
+@media (min-width: 541px) {
+  .site-nav__lang { position: relative; }
+  .site-nav__lang::before {
+    content: '|';
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, .25);
+    font-weight: 200;
+    pointer-events: none;
+  }
+}
+
+/* Mobile layout (≤ 540 px): hide section links into the burger menu, and
+   reorder the remaining items so burger sits on the LEFT (conventional
+   mobile menu position), EPK in the middle as primary CTA, language
+   switcher on the right (thumb-reachable, natural "settings" zone). */
+@media (max-width: 540px) {
+  .site-nav { justify-content: space-between; gap: 12px; }
+  .site-nav__section-link { display: none; }
+  .site-nav .nav-more-wrap { order: 1; }
+  .site-nav__book          { order: 2; }
+  .site-nav__lang          { order: 3; }
+  /* On mobile the burger absorbs the section nav, so show those items. */
+  .nav-more__item--section { display: block; }
+}
 
 .site-nav a {
   color: var(--muted);
@@ -1654,6 +1672,21 @@ a.release-card__sticker:hover {
   padding: 5px 14px !important;
   background: rgba(107,77,242,.18);
   transition: background .2s ease, border-color .2s ease !important;
+}
+
+/* Language switcher — EPK-style pill, single toggle that shows the
+   target language. Sits between BAND and EPK in the main nav.
+   Padding matches .site-nav__book so the two pills are the same size. */
+.site-nav__lang {
+  color: var(--ink) !important;
+  border: 1px solid rgba(255,255,255,.2) !important;
+  border-radius: 6px;
+  padding: 5px 14px !important;
+  transition: background .2s ease, border-color .2s ease !important;
+}
+.site-nav__lang:hover {
+  background: rgba(107,77,242,.18) !important;
+  border-color: rgba(107,77,242,.5) !important;
 }
 
 .site-nav__book:hover {
@@ -1841,7 +1874,7 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 28px 36px;
+  gap: 22px 32px;
   margin: 0 auto;
 }
 
@@ -1850,13 +1883,13 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  width: 180px;
+  gap: 10px;
+  width: 150px;
 }
 
 .member__photo {
-  width: 180px;
-  height: 225px;
+  width: 150px;
+  height: 188px;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid rgba(107,77,242,.4);
@@ -1885,6 +1918,44 @@ html {
   line-height: 1.55;
 }
 
+/* Inline callout used inside the BAND section (DUNKELSTROM organizer note).
+   Replaces the former standalone SCENE ACTIVITY section. */
+.band-callout {
+  margin: 28px auto 0;
+  padding: 22px 26px;
+  max-width: 720px;
+  border: 1px solid rgba(107,77,242,.3);
+  border-radius: 12px;
+  background: rgba(12,12,18,.55);
+  text-align: center;
+}
+.band-callout__meta {
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin: 0 0 4px;
+}
+.band-callout__name {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: .12em;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.band-callout__desc {
+  font-size: .88rem;
+  color: rgba(255,255,255,.78);
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+.band-callout__stat {
+  font-size: .72rem;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .04em;
+  margin: 0;
+}
+
 .members__disclaimer {
   margin: 20px 0 0;
   font-size: .72rem;
@@ -1892,28 +1963,6 @@ html {
   opacity: .85;
   font-style: italic;
   text-align: center;
-}
-
-.about-press-quote {
-  margin: 1.5em 0 0;
-  padding: 14px 18px;
-  border-left: 2px solid rgba(107,77,242,.6);
-  background: rgba(107,77,242,.07);
-  border-radius: 0 8px 8px 0;
-}
-.about-press-quote p {
-  margin: 0 0 6px;
-  font-style: italic;
-  color: var(--ink);
-  font-size: .88rem;
-  line-height: 1.6;
-}
-.about-press-quote cite {
-  font-size: .68rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(107,77,242,.8);
-  font-style: normal;
 }
 
 /* --------- MUSIC LAYOUT (cover + player) --------- */
@@ -2027,150 +2076,10 @@ html {
 }
 
 /* --------- SCENE ACTIVITY SECTION --------- */
-.scene-activity-section {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-}
-
-.scene-activity-content {
-  background: rgba(12,12,18,.6);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 14px;
-  padding: 32px;
-  backdrop-filter: blur(6px);
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.scene-activity__intro {
-  margin: 0 0 10px;
-  font-size: .8rem;
-  letter-spacing: .06em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.scene-activity__name {
-  margin: 0 0 20px;
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  font-weight: 700;
-  letter-spacing: .18em;
-  color: var(--ink);
-  text-shadow: 0 0 24px rgba(107,77,242,.5);
-}
-
-.scene-activity__desc {
-  margin: 0 0 20px;
-  font-size: .9rem;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.scene-activity__stat {
-  margin: 0;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  font-size: .78rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.45);
-}
 
 /* --------- HIGHLIGHT BADGE --------- */
-.highlight-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  margin-right: 6px;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  border-radius: 999px;
-  border: 1px solid rgba(107,77,242,.6);
-  background: rgba(107,77,242,.15);
-  box-shadow: 0 0 10px rgba(107,77,242,.25);
-  color: var(--ink);
-  vertical-align: middle;
-}
 
 /* --------- LIVE HIGHLIGHTS SECTION --------- */
-.highlights-section {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-}
-
-.highlights-content {
-  background: rgba(12,12,18,.6);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 14px;
-  padding: 32px;
-  backdrop-filter: blur(6px);
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.highlights__list {
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: 36px;
-}
-
-.highlights__row {
-  display: contents;
-}
-
-.highlights__list dt,
-.highlights__list dd {
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-
-.highlights__list dt:first-of-type,
-.highlights__list dd:first-of-type {
-  padding-top: 4px;
-}
-
-.highlights__list dt:last-of-type,
-.highlights__list dd:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.highlights__list dt {
-  font-size: .68rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.35);
-  white-space: nowrap;
-  text-align: left;
-  align-self: baseline;
-}
-
-.highlights__list dd {
-  margin: 0;
-  font-size: .9rem;
-  color: var(--ink);
-  line-height: 1.5;
-  text-align: left;
-  align-self: baseline;
-}
-
-@media (max-width: 500px) {
-  .highlights__list {
-    grid-template-columns: 1fr;
-  }
-  .highlights__list dt {
-    padding-bottom: 4px;
-    border-bottom: none;
-  }
-  .highlights__list dd {
-    padding-top: 0;
-  }
-}
 
 /* --------- PRESS QUOTE STRIP --------- */
 .press-quote-strip {
@@ -2257,13 +2166,6 @@ a.stat-strip__item--upcoming:focus-visible {
   color: rgba(255,255,255,.72);
   font-size: .82rem;
   letter-spacing: .04em;
-}
-.stat-strip__sub {
-  margin-top: 8px;
-  color: rgba(255,255,255,.55);
-  font-size: .7rem;
-  line-height: 1.4;
-  letter-spacing: .01em;
 }
 .stat-strip__item--names .stat-strip__label {
   order: -1;

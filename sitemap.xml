@@ -1,35 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://schwarzes-fragment.de/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/index_de.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/"/>
   </url>
+  <url>
+    <loc>https://schwarzes-fragment.de/index_de.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/index_de.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/"/>
+  </url>
+
+  <!-- Live History -->
   <url>
     <loc>https://schwarzes-fragment.de/live-history.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live-history_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live-history.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live-history_en.html"/>
   </url>
+  <url>
+    <loc>https://schwarzes-fragment.de/live-history_en.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live-history_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live-history.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live-history_en.html"/>
+  </url>
+
+  <!-- DUNKELSTROM IV -->
   <url>
     <loc>https://schwarzes-fragment.de/live/dunkelstrom-iv.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dunkelstrom-iv.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html"/>
   </url>
+  <url>
+    <loc>https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dunkelstrom-iv.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html"/>
+  </url>
+
+  <!-- Kirlian Camera Erfurt -->
   <url>
     <loc>https://schwarzes-fragment.de/live/kirlian-camera-erfurt.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt_en.html"/>
   </url>
+  <url>
+    <loc>https://schwarzes-fragment.de/live/kirlian-camera-erfurt_en.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/kirlian-camera-erfurt_en.html"/>
+  </url>
+
+  <!-- Dark Affair 2026 -->
   <url>
     <loc>https://schwarzes-fragment.de/live/dark-affair-2026.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dark-affair-2026_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dark-affair-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dark-affair-2026_en.html"/>
   </url>
   <url>
-    <loc>https://schwarzes-fragment.de/live/echoes-of-the-factory.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <loc>https://schwarzes-fragment.de/live/dark-affair-2026_en.html</loc>
+    <lastmod>2026-06-10</lastmod>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dark-affair-2026_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dark-affair-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dark-affair-2026_en.html"/>
   </url>
+
+  <!-- Echoes of the Factory -->
+  <url>
+    <loc>https://schwarzes-fragment.de/live/echoes-of-the-factory.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/echoes-of-the-factory_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/echoes-of-the-factory.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/echoes-of-the-factory_en.html"/>
+  </url>
+  <url>
+    <loc>https://schwarzes-fragment.de/live/echoes-of-the-factory_en.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/echoes-of-the-factory_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/echoes-of-the-factory.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/echoes-of-the-factory_en.html"/>
+  </url>
+
+  <!-- Datenschutz / Privacy -->
+  <url>
+    <loc>https://schwarzes-fragment.de/datenschutz.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/datenschutz_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/datenschutz_en.html"/>
+  </url>
+  <url>
+    <loc>https://schwarzes-fragment.de/datenschutz_en.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/datenschutz_en.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/datenschutz.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/datenschutz_en.html"/>
+  </url>
+
 </urlset>
