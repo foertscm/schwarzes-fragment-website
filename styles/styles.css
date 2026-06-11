@@ -1619,11 +1619,13 @@ a.release-card__sticker:hover {
    on desktop they'd be duplicates of the main nav row. */
 .nav-more__item--section { display: none; }
 
-/* Desktop only: subtle "|" separator before the language switcher.
-   Signals it's in a different "settings / preferences" zone, distinct
-   from the navigation action zone (sections + EPK + burger). */
+/* Desktop only: subtle "|" separators creating a three-zone rhythm —
+   [section nav + burger]  |  [EPK conversion pill]  |  [language switcher].
+   Hidden on mobile where space-between distributes ☰ EPK 🇬🇧 cleanly. */
 @media (min-width: 541px) {
+  .site-nav__book,
   .site-nav__lang { position: relative; }
+  .site-nav__book::before,
   .site-nav__lang::before {
     content: '|';
     position: absolute;
