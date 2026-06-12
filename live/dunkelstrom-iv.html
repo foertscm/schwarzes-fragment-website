@@ -14,17 +14,41 @@
     <meta property="og:title" content="DUNKELSTROM IV · München · 10. Okt 2026 – Schwarzes Fragment">
     <meta property="og:description" content="Schwarzes Fragment &amp; Irrlicht live am 10. Oktober 2026 im Szenerie Theater Drehleier, München.">
     <meta property="og:url" content="https://schwarzes-fragment.de/live/dunkelstrom-iv.html">
-    <meta property="og:image" content="https://schwarzes-fragment.de/images/band/band-picture.jpg">
+    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/2026-10-10-dunkelstrom-iv-muenchen.webp">
     <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
 
+    <!-- Canonical — bilingual single-URL page. Both hreflang point here. -->
     <link rel="canonical" href="https://schwarzes-fragment.de/live/dunkelstrom-iv.html">
-    <link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html">
     <link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dunkelstrom-iv.html">
-    <link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dunkelstrom-iv_en.html">
+    <link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dunkelstrom-iv.html">
+    <link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dunkelstrom-iv.html">
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/live.css">
+    <style>
+      /* Bilingual styling for event pages — small EN portion inside a DE
+         section title, sat in lighter purple so DE reads as primary. */
+      .event-section__title .t-en,
+      .event-blurb__title .t-en {
+        color: rgba(190, 165, 255, .55);
+        font-weight: 400;
+      }
+      /* EN translation paragraph below a DE paragraph in the same block —
+         slight color de-emphasis only, NO italics (per UX audit: italic
+         hurts readability of the secondary translation, which is exactly
+         the readers who need it most). */
+      .event-section__body p[lang="en"],
+      .event-blurb p[lang="en"] {
+        color: rgba(184, 181, 200, .72);
+      }
+      /* Inline bilingual short labels ("Einlass / Doors") */
+      .lbl-en {
+        color: rgba(190, 165, 255, .55);
+        font-weight: 400;
+      }
+    </style>
   </head>
   <body>
     <video class="bg-video" autoplay muted loop playsinline
@@ -40,7 +64,7 @@
       <a class="site-nav__section-link" href="../index_de.html#releases">Releases</a>
       <a class="site-nav__section-link" href="../index_de.html#about">Band</a>
       <div class="nav-more-wrap">
-        <button class="site-nav__burger" aria-label="Mehr" aria-expanded="false" aria-controls="nav-more-overlay">
+        <button class="site-nav__burger" aria-label="Mehr / More" aria-expanded="false" aria-controls="nav-more-overlay">
           <span></span><span></span><span></span>
         </button>
         <div id="nav-more-overlay" class="nav-more" aria-hidden="true">
@@ -54,11 +78,12 @@
         </div>
       </div>
       <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
-      <a href="dunkelstrom-iv_en.html" class="site-nav__lang" hreflang="en" lang="en">🇬🇧 EN</a>
+      <!-- Bilingual page — language switcher links to the EN homepage. -->
+      <a href="../index.html" class="site-nav__lang" hreflang="en" lang="en">🇬🇧 EN</a>
     </nav>
 
     <main class="event-page">
-      <a href="../index_de.html#live" class="event-page__back">← Startseite</a>
+      <a href="../index_de.html#live" class="event-page__back">← Startseite / Home</a>
 
       <header class="event-hero">
         <div class="event-date-plate">
@@ -69,16 +94,18 @@
         <div class="event-hero__body">
           <h1 class="event-hero__name">DUNKELSTROM IV</h1>
           <p class="event-hero__lineup">Schwarzes Fragment · Irrlicht</p>
-          <p class="event-hero__venue">Szenerie Theater Drehleier · München</p>
+          <p class="event-hero__venue">Szenerie Theater Drehleier · München / Munich</p>
           <span class="event-hero__status event-hero__status--upcoming">Upcoming</span>
         </div>
       </header>
 
       <div class="event-ctas">
         <!-- TODO: add ticket URL when tickets go on sale -->
-        <a class="btn btn--ghost" href="https://www.facebook.com/events/2329711074219535" target="_blank" rel="noopener noreferrer">📘 Facebook-Event</a>
-        <a class="btn btn--ghost" href="https://maps.google.com/?q=Szenerie+Theater+Drehleier+Rosenheimer+Str+123+München" target="_blank" rel="noopener noreferrer">📍 Anfahrt</a>
+        <a class="btn btn--ghost" href="https://www.facebook.com/events/2329711074219535" target="_blank" rel="noopener noreferrer">📘 Facebook Event</a>
+        <a class="btn btn--ghost" href="https://maps.google.com/?q=Szenerie+Theater+Drehleier+Rosenheimer+Str+123+München" target="_blank" rel="noopener noreferrer">📍 Anfahrt / Directions</a>
       </div>
+
+      <img src="../images/flyer/2026-10-10-dunkelstrom-iv-muenchen.webp" alt="Flyer für DUNKELSTROM IV am 10. Oktober 2026 in der Szenerie Theater Drehleier, München — Irrlicht &amp; Schwarzes Fragment, kuratiert von Schwarzes Fragment / Flyer for DUNKELSTROM IV on 10 October 2026 at Szenerie Theater Drehleier, Munich — Irrlicht &amp; Schwarzes Fragment, curated by Schwarzes Fragment" class="event-flyer" loading="lazy">
 
       <section class="event-section">
         <h2 class="event-section__title">Lineup</h2>
@@ -95,43 +122,46 @@
           </li>
         </ul>
         <p class="event-section__body" style="margin-top:14px; font-size:.85rem; color: rgba(255,255,255,.55);">
-          Kuratiert von Schwarzes Fragment.
+          Kuratiert von Schwarzes Fragment. <span class="lbl-en">/ Curated by Schwarzes Fragment.</span>
         </p>
       </section>
 
       <section class="event-section">
-        <h2 class="event-section__title">Wo &amp; Wann</h2>
+        <h2 class="event-section__title">Wo &amp; Wann <span class="t-en">/ Where &amp; When</span></h2>
         <div class="event-section__body">
           <p><strong>Szenerie Theater Drehleier</strong><br>
              Rosenheimer Str. 123<br>
-             81677 München · Deutschland</p>
-          <p>Samstag, 10. Oktober 2026<br>
-             Einlass 19:00 · Beginn 20:00</p>
-          <p>Eintritt: 10 € · <strong>nur Abendkasse</strong> (kein Vorverkauf)</p>
+             81677 München · Deutschland / Germany</p>
+          <p>Samstag, 10. Oktober 2026 <span class="lbl-en">/ Saturday, 10 October 2026</span><br>
+             Einlass <span class="lbl-en">/ Doors</span> 19:00 · Beginn <span class="lbl-en">/ Show</span> 20:00</p>
+          <p>Eintritt <span class="lbl-en">/ Admission</span>: 10 € · <strong>nur Abendkasse / cash at door only</strong> (kein Vorverkauf / no advance sale)</p>
         </div>
       </section>
 
       <section class="event-section">
-        <h2 class="event-section__title">Sag's weiter</h2>
+        <h2 class="event-section__title">Sag's weiter <span class="t-en">/ Spread the word</span></h2>
         <div class="share-grid">
           <a class="share-grid__item" href="https://www.facebook.com/events/2329711074219535" target="_blank" rel="noopener noreferrer">
-            <span class="share-grid__icon">📘</span> Facebook-Event
+            <span class="share-grid__icon">📘</span> Facebook Event
           </a>
           <a class="share-grid__item" href="https://maps.google.com/?q=Szenerie+Theater+Drehleier+Rosenheimer+Str+123+München" target="_blank" rel="noopener noreferrer">
             <span class="share-grid__icon">📍</span> Google Maps
           </a>
           <a class="share-grid__item" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Schwarzes+Fragment+%E2%80%93+DUNKELSTROM+IV&dates=20261010T190000/20261010T230000&details=Schwarzes+Fragment+%26+Irrlicht+live+%E2%80%93+kuratiert+von+Schwarzes+Fragment.&location=Szenerie+Theater+Drehleier%2C+Rosenheimer+Str.+123%2C+81677+M%C3%BCnchen" target="_blank" rel="noopener noreferrer">
-            <span class="share-grid__icon">📅</span> In Kalender
+            <span class="share-grid__icon">📅</span> In Kalender / Add to Calendar
           </a>
         </div>
       </section>
 
       <section class="event-section event-blurb">
-        <h2 class="event-section__title event-blurb__title">Wer ist Schwarzes Fragment?</h2>
+        <h2 class="event-section__title event-blurb__title">Wer ist Schwarzes Fragment? <span class="t-en">/ Who is Schwarzes Fragment?</span></h2>
         <div class="event-section__body">
           <p>Schwarzes Fragment ist das live-erprobte Dark-Electro-/EBM-Projekt aus München &amp; Leipzig
              — melodisch, energetisch, tanzflächentauglich. Support-Slots u.a. für
              Kirlian Camera, Das Ich und Klangstabil.</p>
+          <p lang="en">Schwarzes Fragment is the live-proven Dark Electro / EBM project from
+             Munich &amp; Leipzig — melodic, high-energy, dancefloor-ready. Support slots for
+             Kirlian Camera, Das Ich, and Klangstabil, among others.</p>
         </div>
         <div class="event-blurb__actions">
           <a class="btn btn--ghost" href="https://open.spotify.com/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer">🎧 Spotify</a>
@@ -140,7 +170,7 @@
       </section>
 
       <div class="event-page__back-row">
-        <a href="../index_de.html#live" class="btn btn--ghost">← Zurück zur Startseite</a>
+        <a href="../index_de.html#live" class="btn btn--ghost">← Zurück zur Startseite / Back to homepage</a>
       </div>
     </main>
 
@@ -170,7 +200,7 @@
           "addressCountry": "DE"
         }
       },
-      "image": "https://schwarzes-fragment.de/images/band/band-picture.jpg",
+      "image": "https://schwarzes-fragment.de/images/flyer/2026-10-10-dunkelstrom-iv-muenchen.webp",
       "performer": [
         { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
         { "@type": "MusicGroup", "name": "Irrlicht", "url": "https://www.irrlicht.ch/", "sameAs": "https://de.wikipedia.org/wiki/Irrlicht_(Band)" }
@@ -193,8 +223,6 @@
     </script>
     <script>
       // Smart back: swap to "Live History" if the user actually arrived from there.
-      // Primary signal: sessionStorage flag set by live-history.html (works on file://).
-      // Fallback: document.referrer (works on http(s)://).
       (function () {
         let fromHistory = false;
         try {
@@ -216,36 +244,12 @@
         const top = document.querySelector(".event-page__back");
         if (top) { top.textContent = "← Live History"; top.href = "../live-history.html"; }
         const bottom = document.querySelector(".event-page__back-row .btn");
-        if (bottom) { bottom.textContent = "← Zurück zur Live History"; bottom.href = "../live-history.html"; }
+        if (bottom) { bottom.textContent = "← Zurück zur Live History / Back to Live History"; bottom.href = "../live-history.html"; }
       })();
     </script>
-  
+
     <script>
-      // Silent browser-language detection — runs once per visitor.
-      // If the visitor's preferred language doesn't match this page's language
-      // AND a counterpart exists via hreflang, redirect once. Subsequent visits
-      // and any manual switcher click respect the user's URL choice.
-      (function () {
-        try {
-          if (localStorage.getItem('sf-lang-detected') === '1') return;
-          localStorage.setItem('sf-lang-detected', '1');
-          var prefersDE = (navigator.language || '').toLowerCase().indexOf('de') === 0;
-          var currentLang = document.documentElement.lang;
-          var targetLang = prefersDE ? 'de' : 'en';
-          if (currentLang === targetLang) return;
-          var alt = document.querySelector('link[rel="alternate"][hreflang="' + targetLang + '"]');
-          if (!alt || !alt.href) return;
-          // Only redirect within the same origin — prevents localhost / staging previews
-          // from bouncing visitors to the production canonical URL.
-          var altUrl = new URL(alt.href, location.href);
-          if (altUrl.origin !== location.origin) return;
-          if (altUrl.href !== location.href) location.replace(altUrl.href);
-        } catch (e) { /* localStorage may be blocked — fail silent */ }
-      })();
-    </script>
-  
-    <script>
-      // Burger toggle (added for mobile section-link overlay)
+      // Burger toggle (mobile section-link overlay)
       (function () {
         var burger  = document.querySelector('.site-nav__burger');
         var overlay = document.getElementById('nav-more-overlay');

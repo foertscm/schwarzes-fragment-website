@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 =====================================================================
-EVENT-PAGE TEMPLATE — Schwarzes Fragment
+EVENT-PAGE TEMPLATE — Schwarzes Fragment (bilingual single-page)
 =====================================================================
 HOW TO USE:
   1. Copy this file to /live/<event-slug>.html
@@ -10,8 +10,19 @@ HOW TO USE:
   2. Search for "REPLACE:" and fill in every spot
   3. Delete sections that don't apply for this gig
      (e.g. no Songkick page → delete that share-grid item)
-  4. Add the new page to /live/index.html under Anstehend/Vergangen
+  4. Add an entry to live-history.html (DE) + live-history_en.html (EN)
   5. QR code on flyer → https://schwarzes-fragment.de/live/<slug>
+
+BILINGUAL CONVENTIONS (see DUNKELSTROM IV / Echoes for reference):
+  - <html lang="de"> — German primary, English embedded via lang="en"
+  - Section titles bilingual via <span class="t-en">/ English part</span>
+  - Inline labels bilingual via <span class="lbl-en">/ English</span>
+  - Prose blocks: DE paragraph upright, then EN paragraph upright with
+    lang="en" attribute (slight color de-emphasis, NO italics)
+  - Both hreflang tags point to the same URL — page is bilingual
+  - lang switcher in nav links to ../index.html (EN homepage)
+  - Universal data (names, addresses, dates) stays as-is — no need to
+    translate "Schwarzes Fragment · Irrlicht" or "Rosenheimer Str. 123"
 
 KEEP THE JSON-LD AT THE BOTTOM ACCURATE — Google reads it for the
 Knowledge Panel and event carousel. Wrong dates here = wrong dates
@@ -39,17 +50,42 @@ in Google search results.
     <meta property="og:description" content="Schwarzes Fragment live am DD.MM.YYYY im VENUE, CITY. Tickets, FB-Event und alle Infos.">
     <!-- REPLACE: <slug> -->
     <meta property="og:url" content="https://schwarzes-fragment.de/live/SLUG.html">
-    <!-- REPLACE: full URL of flyer or event hero image (must be absolute https://) -->
-    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/FLYER.png">
+    <!-- REPLACE: full URL of flyer or event hero image (preferably WebP, must be absolute https://) -->
+    <meta property="og:image" content="https://schwarzes-fragment.de/images/flyer/FLYER.webp">
     <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
 
-    <!-- REPLACE: canonical URL with the slug -->
+    <!-- Canonical — bilingual single-URL page. Both hreflang point here. -->
+    <!-- REPLACE: <slug> in all four lines below -->
     <link rel="canonical" href="https://schwarzes-fragment.de/live/SLUG.html">
+    <link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/SLUG.html">
+    <link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/SLUG.html">
+    <link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/SLUG.html">
 
     <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/live.css">
+    <style>
+      /* Bilingual styling — small EN portion inside a DE section title,
+         in lighter purple so DE reads as primary. */
+      .event-section__title .t-en,
+      .event-blurb__title .t-en {
+        color: rgba(190, 165, 255, .55);
+        font-weight: 400;
+      }
+      /* EN translation paragraph below a DE paragraph — slight color
+         de-emphasis only, NO italics (per UX audit). */
+      .event-section__body p[lang="en"],
+      .event-blurb p[lang="en"] {
+        color: rgba(184, 181, 200, .72);
+      }
+      /* Inline bilingual short labels — "Einlass / Doors", "Vorverkauf / Advance" */
+      .lbl-en {
+        color: rgba(190, 165, 255, .55);
+        font-weight: 400;
+      }
+    </style>
   </head>
   <body>
     <video class="bg-video" autoplay muted loop playsinline
@@ -59,39 +95,57 @@ in Google search results.
     </video>
 
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="../index.html#live" class="site-nav__active">Live</a>
-      <a href="../index.html#music">Music</a>
-      <a href="../index.html#releases">Releases</a>
-      <a href="../index.html#video">Video</a>
-      <a href="../index.html#about">Band</a>
+      <a href="../index_de.html#live" class="site-nav__active site-nav__section-link">Live</a>
+      <a class="site-nav__section-link" href="../index_de.html#music">Musik</a>
+      <a class="site-nav__section-link" href="../index_de.html#video">Video</a>
+      <a class="site-nav__section-link" href="../index_de.html#releases">Releases</a>
+      <a class="site-nav__section-link" href="../index_de.html#about">Band</a>
+      <div class="nav-more-wrap">
+        <button class="site-nav__burger" aria-label="Mehr / More" aria-expanded="false" aria-controls="nav-more-overlay">
+          <span></span><span></span><span></span>
+        </button>
+        <div id="nav-more-overlay" class="nav-more" aria-hidden="true">
+          <a href="../index_de.html#live"     class="nav-more__item nav-more__item--section">Live</a>
+          <a href="../index_de.html#music"    class="nav-more__item nav-more__item--section">Musik</a>
+          <a href="../index_de.html#video"    class="nav-more__item nav-more__item--section">Video</a>
+          <a href="../index_de.html#releases" class="nav-more__item nav-more__item--section">Releases</a>
+          <a href="../index_de.html#about"    class="nav-more__item nav-more__item--section">Band</a>
+          <a href="../goth-and-gaga.html" class="nav-more__item">Comics</a>
+          <a href="../impressum.html"  class="nav-more__item">Impressum</a>
+        </div>
+      </div>
+      <a href="https://epk.schwarzes-fragment.de/" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
+      <!-- Bilingual page — language switcher links to the EN homepage. -->
+      <a href="../index.html" class="site-nav__lang" hreflang="en" lang="en">🇬🇧 EN</a>
     </nav>
 
     <main class="event-page">
-      <a href="../index.html#live" class="event-page__back">← Startseite</a>
+      <a href="../index_de.html#live" class="event-page__back">← Startseite / Home</a>
 
       <!-- ============= HERO ============= -->
       <header class="event-hero">
         <div class="event-date-plate">
           <!-- REPLACE: day (2 digits, e.g. "10") -->
           <span class="event-date-plate__day">DD</span>
-          <!-- REPLACE: month abbreviation in German (Jan / Feb / Mär / Apr / Mai / Jun / Jul / Aug / Sep / Okt / Nov / Dez) -->
+          <!-- REPLACE: month abbreviation in German (Jan / Feb / Mär / Apr / Mai / Jun / Jul / Aug / Sep / Okt / Nov / Dez)
+               These short forms work as-is in English too — no translation needed. -->
           <span class="event-date-plate__month">MON</span>
           <!-- REPLACE: year -->
           <span class="event-date-plate__year">YYYY</span>
         </div>
         <div class="event-hero__body">
-          <!-- REPLACE: event name (the headline you'd want bookers to remember) -->
+          <!-- REPLACE: event name (universal — keep as-is unless German-specific) -->
           <h1 class="event-hero__name">EVENT NAME</h1>
-          <!-- REPLACE: lineup — comma-separated. Mark Schwarzes Fragment so it's obvious. -->
+          <!-- REPLACE: lineup — comma-separated band names (universal) -->
           <p class="event-hero__lineup">Schwarzes Fragment · Other Acts</p>
-          <!-- REPLACE: venue · city (one line) -->
+          <!-- REPLACE: venue · city. If city has a German-specific name, add EN: e.g. "München / Munich" -->
           <p class="event-hero__venue">Venue Name · City</p>
           <!--
-            Pick ONE status badge (delete the others):
-              upcoming  → blue/purple "Upcoming"
-              free      → green "Eintritt frei"
-              soldout   → red "Ausverkauft"
-              past      → grey "Vergangen"
+            Pick ONE status badge (delete the others). Bilingual labels:
+              upcoming  → "Upcoming"        (already universal)
+              free      → "Eintritt frei / Free entry"
+              soldout   → "Ausverkauft / Sold out"
+              past      → "Vergangen / Past"
           -->
           <span class="event-hero__status event-hero__status--upcoming">Upcoming</span>
         </div>
@@ -104,19 +158,21 @@ in Google search results.
         Delete any line that doesn't apply.
       -->
       <div class="event-ctas">
-        <!-- REPLACE: ticket shop URL — leave the button out for free events -->
+        <!-- REPLACE: ticket shop URL — leave the button out for free events.
+             "Tickets" is universal — no translation needed. -->
         <a class="btn" href="https://TICKET-URL" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
         <!-- REPLACE: facebook event URL -->
-        <a class="btn btn--ghost" href="https://www.facebook.com/events/REPLACE" target="_blank" rel="noopener noreferrer">📘 Facebook-Event</a>
+        <a class="btn btn--ghost" href="https://www.facebook.com/events/REPLACE" target="_blank" rel="noopener noreferrer">📘 Facebook Event</a>
         <!-- REPLACE: maps URL (geo:lat,lng or Google Maps share link) -->
-        <a class="btn btn--ghost" href="https://maps.google.com/?q=VENUE+CITY" target="_blank" rel="noopener noreferrer">📍 Anfahrt</a>
+        <a class="btn btn--ghost" href="https://maps.google.com/?q=VENUE+CITY" target="_blank" rel="noopener noreferrer">📍 Anfahrt / Directions</a>
       </div>
 
       <!-- ============= FLYER (optional — delete the line if no flyer yet) ============= -->
       <!-- REPLACE: flyer image path (preferably a WebP at ~1000px wide) -->
-      <img src="../images/flyer/FLYER.webp" alt="Flyer für EVENT NAME" class="event-flyer" loading="lazy">
+      <img src="../images/flyer/FLYER.webp" alt="Flyer für EVENT NAME / Flyer for EVENT NAME" class="event-flyer" loading="lazy">
 
       <!-- ============= LINEUP ============= -->
+      <!-- "Lineup" is universal — no translation needed. -->
       <section class="event-section">
         <h2 class="event-section__title">Lineup</h2>
         <ul class="lineup">
@@ -124,7 +180,7 @@ in Google search results.
           <li class="lineup__item">
             <span class="lineup__name">Schwarzes Fragment</span>
             <span class="lineup__role">Dark Electro / EBM</span>
-            <a class="lineup__link" href="../index.html">schwarzes-fragment.de</a>
+            <a class="lineup__link" href="../index_de.html">schwarzes-fragment.de</a>
           </li>
           <!-- Repeat one block per other band. Delete the link line if the act has no online presence. -->
           <li class="lineup__item">
@@ -137,14 +193,18 @@ in Google search results.
 
       <!-- ============= WHERE & WHEN ============= -->
       <section class="event-section">
-        <h2 class="event-section__title">Wo &amp; Wann</h2>
+        <h2 class="event-section__title">Wo &amp; Wann <span class="t-en">/ Where &amp; When</span></h2>
         <div class="event-section__body">
-          <!-- REPLACE: full venue address, day of week, doors/show times -->
+          <!-- REPLACE: full venue address (universal — street + city stay as-is) -->
           <p><strong>Venue Name</strong><br>
              Street &amp; number<br>
-             Postal code · City · Deutschland</p>
-          <p>WOCHENTAG, DD. MONAT YYYY<br>
-             Einlass HH:MM · Beginn HH:MM</p>
+             Postal code · City · Deutschland / Germany</p>
+          <!-- REPLACE: weekday + date, doors + show times.
+               German weekday + month go before "/" — English equivalent after. -->
+          <p>WOCHENTAG, DD. MONAT YYYY <span class="lbl-en">/ WEEKDAY, DD MONTH YYYY</span><br>
+             Einlass <span class="lbl-en">/ Doors</span> HH:MM · Beginn <span class="lbl-en">/ Show</span> HH:MM</p>
+          <!-- Optional pricing line. Delete if free or unknown. -->
+          <p>Vorverkauf <span class="lbl-en">/ Advance</span>: <strong>X,XX €</strong> · Abendkasse <span class="lbl-en">/ Box office</span>: <strong>X,XX €</strong></p>
         </div>
       </section>
 
@@ -154,11 +214,11 @@ in Google search results.
         the platform they already use.
       -->
       <section class="event-section">
-        <h2 class="event-section__title">Sag's weiter</h2>
+        <h2 class="event-section__title">Sag's weiter <span class="t-en">/ Spread the word</span></h2>
         <div class="share-grid">
           <!-- REPLACE: facebook event url -->
           <a class="share-grid__item" href="https://www.facebook.com/events/REPLACE" target="_blank" rel="noopener noreferrer">
-            <span class="share-grid__icon">📘</span> Facebook-Event
+            <span class="share-grid__icon">📘</span> Facebook Event
           </a>
           <!-- REPLACE: songkick event url — delete if not on Songkick yet -->
           <a class="share-grid__item" href="https://www.songkick.com/concerts/REPLACE" target="_blank" rel="noopener noreferrer">
@@ -170,7 +230,7 @@ in Google search results.
           </a>
           <!-- REPLACE: venue's own event page url -->
           <a class="share-grid__item" href="https://VENUE-PAGE-URL" target="_blank" rel="noopener noreferrer">
-            <span class="share-grid__icon">🏛️</span> Venue-Seite
+            <span class="share-grid__icon">🏛️</span> Venue-Seite / Venue site
           </a>
           <!--
             Google Calendar add link. Fill in:
@@ -180,29 +240,39 @@ in Google search results.
               location = URL-encoded venue+address
           -->
           <a class="share-grid__item" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Schwarzes+Fragment+EVENT&dates=YYYYMMDDTHHMMSS/YYYYMMDDTHHMMSS&details=Schwarzes+Fragment+live&location=Venue+Address" target="_blank" rel="noopener noreferrer">
-            <span class="share-grid__icon">📅</span> In Kalender
+            <span class="share-grid__icon">📅</span> In Kalender / Add to Calendar
           </a>
         </div>
       </section>
 
       <!-- ============= BAND BLURB (for first-time visitors arriving from QR code) ============= -->
+      <!-- This is the only paragraph that genuinely needs translating per event.
+           Keep both versions if the per-event blurb differs from the standard one. -->
       <section class="event-section event-blurb">
-        <h2 class="event-section__title event-blurb__title">Wer ist Schwarzes Fragment?</h2>
+        <h2 class="event-section__title event-blurb__title">Wer ist Schwarzes Fragment? <span class="t-en">/ Who is Schwarzes Fragment?</span></h2>
         <div class="event-section__body">
           <p>Schwarzes Fragment ist das live-erprobte Dark-Electro-/EBM-Projekt aus München &amp; Leipzig
              — melodisch, energetisch, tanzflächentauglich. Live-erprobt mit Supports für Kirlian Camera,
              Das Ich und Klangstabil.</p>
+          <p lang="en">Schwarzes Fragment is the live-proven Dark Electro / EBM project from
+             Munich &amp; Leipzig — melodic, high-energy, dancefloor-ready. Support slots for
+             Kirlian Camera, Das Ich, and Klangstabil, among others.</p>
         </div>
         <div class="event-blurb__actions">
           <a class="btn btn--ghost" href="https://open.spotify.com/artist/2CYaMn9mq2qRp8szPdnGcf" target="_blank" rel="noopener noreferrer">🎧 Spotify</a>
-          <a class="btn btn--ghost" href="../index.html">schwarzes-fragment.de</a>
+          <a class="btn btn--ghost" href="../index_de.html">schwarzes-fragment.de</a>
         </div>
       </section>
 
       <div class="event-page__back-row">
-        <a href="../index.html#live" class="btn btn--ghost">← Zurück zur Startseite</a>
+        <a href="../index_de.html#live" class="btn btn--ghost">← Zurück zur Startseite / Back to homepage</a>
       </div>
     </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Schwarzes Fragment. Alle Rechte vorbehalten. / All rights reserved.</p>
+      <p class="site-footer__impressum"><a href="../impressum.html">Impressum / Legal Notice</a> &middot; <a href="../datenschutz.html">Datenschutz / Privacy Policy</a></p>
+    </footer>
 
     <!--
       JSON-LD MusicEvent schema. Google reads this for the band's Knowledge Panel,
@@ -225,6 +295,8 @@ in Google search results.
 
       "doorTime" is optional but boosts Google's event-card richness. Remove the
       line if you don't have a stated door time.
+
+      "image" should point to the event flyer (WebP preferred) — same URL as og:image.
     -->
     <script type="application/ld+json">
     {
@@ -247,7 +319,7 @@ in Google search results.
           "addressCountry": "DE"
         }
       },
-      "image": "https://schwarzes-fragment.de/images/flyer/FLYER.png",
+      "image": "https://schwarzes-fragment.de/images/flyer/FLYER.webp",
       "performer": [
         { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
       ],
@@ -268,10 +340,9 @@ in Google search results.
       "sameAs": "https://www.facebook.com/events/REPLACE"
     }
     </script>
+
     <script>
       // Smart back: swap to "Live History" if the user actually arrived from there.
-      // Primary signal: sessionStorage flag set by live-history.html (works on file://).
-      // Fallback: document.referrer (works on http(s)://).
       (function () {
         let fromHistory = false;
         try {
@@ -293,7 +364,34 @@ in Google search results.
         const top = document.querySelector(".event-page__back");
         if (top) { top.textContent = "← Live History"; top.href = "../live-history.html"; }
         const bottom = document.querySelector(".event-page__back-row .btn");
-        if (bottom) { bottom.textContent = "← Zurück zur Live History"; bottom.href = "../live-history.html"; }
+        if (bottom) { bottom.textContent = "← Zurück zur Live History / Back to Live History"; bottom.href = "../live-history.html"; }
+      })();
+    </script>
+
+    <script>
+      // Burger toggle (mobile section-link overlay)
+      (function () {
+        var burger  = document.querySelector('.site-nav__burger');
+        var overlay = document.getElementById('nav-more-overlay');
+        if (!burger || !overlay) return;
+        burger.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = overlay.classList.toggle('is-open');
+          burger.setAttribute('aria-expanded', open);
+          overlay.setAttribute('aria-hidden', !open);
+        });
+        document.addEventListener('click', function () {
+          overlay.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          overlay.setAttribute('aria-hidden', 'true');
+        });
+        overlay.querySelectorAll('.nav-more__item').forEach(function (a) {
+          a.addEventListener('click', function () {
+            overlay.classList.remove('is-open');
+            burger.setAttribute('aria-expanded', 'false');
+            overlay.setAttribute('aria-hidden', 'true');
+          });
+        });
       })();
     </script>
   </body>
