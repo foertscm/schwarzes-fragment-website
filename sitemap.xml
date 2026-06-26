@@ -42,6 +42,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live-history_en.html"/>
   </url>
 
+  <!-- 2DCAT @ Szenerie -->
+  <url>
+    <loc>https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html"/>
+  </url>
   <!-- DUNKELSTROM IV -->
   <url>
     <loc>https://schwarzes-fragment.de/live/dunkelstrom-iv.html</loc>
