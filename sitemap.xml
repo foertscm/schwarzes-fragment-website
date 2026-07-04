@@ -91,6 +91,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/echoes-of-the-factory.html"/>
   </url>
 
+  <!-- First Contact · Berlin @ Galerie ZeitZone -->
+  <url>
+    <loc>https://schwarzes-fragment.de/live/berlin-zeitzone.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/berlin-zeitzone.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/berlin-zeitzone.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/berlin-zeitzone.html"/>
+  </url>
+
   <!-- Datenschutz / Privacy -->
   <url>
     <loc>https://schwarzes-fragment.de/datenschutz.html</loc>
