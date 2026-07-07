@@ -91,6 +91,7 @@
         {
           "@type": "MusicEvent",
           "name": "Schwarzes Fragment @ World Goth Day Online Festival",
+          "description": "Schwarzes Fragment beim World Goth Day Online Festival 2026 mit einem pre-recorded Live-Set. Kostenloses globales Online-Event.",
           "startDate": "2026-05-23",
           "endDate": "2026-05-23",
           "eventStatus": "https://schema.org/EventScheduled",
@@ -101,13 +102,15 @@
           },
           "image": "https://schwarzes-fragment.de/images/band/band-picture.jpg",
           "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
+          "organizer": { "@type": "Organization", "name": "World Goth Day Online Festival" },
           "isAccessibleForFree": true,
-          "offers": { "@type": "Offer", "url": "https://www.facebook.com/events/1270582395047847/", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" },
+          "offers": { "@type": "Offer", "url": "https://www.facebook.com/events/1270582395047847/", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": "2026-04-01T00:00:00+02:00" },
           "url": "https://www.facebook.com/events/1270582395047847/"
         },
         {
           "@type": "MusicEvent",
           "name": "Schwarzes Fragment live @ Dark Affair",
+          "description": "Schwarzes Fragment live beim Dark Affair Festival am Augustusplatz in Leipzig.",
           "startDate": "2026-05-25",
           "endDate": "2026-05-25",
           "eventStatus": "https://schema.org/EventScheduled",
@@ -124,11 +127,14 @@
             }
           },
           "image": "https://schwarzes-fragment.de/images/flyer/2026-05-25-dark-affair-leipzig.webp",
-          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
+          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
+          "organizer": { "@type": "Organization", "name": "Dark Affair Festival", "url": "https://www.dark-affair.com" },
+          "offers": { "@type": "Offer", "url": "https://www.dark-affair.com", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/SoldOut", "validFrom": "2026-03-01T00:00:00+01:00" }
         },
         {
           "@type": "MusicEvent",
           "name": "DUNKELSTROM Special #1: 2DCAT",
+          "description": "DUNKELSTROM Special #1: 2DCAT (Washington D.C.) live · Support: Schwarzes Fragment · kuratiert von Schwarzes Fragment im Szenerie Theater Drehleier, München.",
           "startDate": "2026-07-30T20:00:00+02:00",
           "endDate": "2026-07-30T23:00:00+02:00",
           "doorTime": "2026-07-30T19:00:00+02:00",
@@ -158,13 +164,14 @@
           "url": "https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html",
           "sameAs": "https://www.facebook.com/events/1635388620870901",
           "offers": [
-            { "@type": "Offer", "name": "VVK / Advance tickets (Tixforgigs, incl. booking fees)", "url": "https://www.tixforgigs.com/Event/75486", "price": "11.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "availabilityStarts": "2026-06-27T00:00:00+02:00", "validThrough": "2026-07-30T19:00:00+02:00" },
-            { "@type": "Offer", "name": "Abendkasse / Box office", "price": "10", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "availabilityStarts": "2026-07-30T19:00:00+02:00", "validThrough": "2026-07-30T20:00:00+02:00" }
+            { "@type": "Offer", "name": "VVK / Advance tickets (Tixforgigs, incl. booking fees)", "url": "https://www.tixforgigs.com/Event/75486", "price": "11.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": "2026-06-27T00:00:00+02:00", "validThrough": "2026-07-30T19:00:00+02:00" },
+            { "@type": "Offer", "name": "Abendkasse / Box office", "url": "https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html", "price": "10", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": "2026-07-30T19:00:00+02:00", "validThrough": "2026-07-30T20:00:00+02:00" }
           ]
         },
                 {
           "@type": "MusicEvent",
           "name": "Schwarzes Fragment live @ DUNKELSTROM IV",
+          "description": "Schwarzes Fragment und Irrlicht live bei DUNKELSTROM IV — Double Concert Night im Szenerie Theater Drehleier, München. Kuratiert von Schwarzes Fragment.",
           "startDate": "2026-10-10T20:00:00+02:00",
           "endDate": "2026-10-10T23:00:00+02:00",
           "doorTime": "2026-10-10T19:00:00+02:00",
@@ -182,13 +189,18 @@
             }
           },
           "image": "https://schwarzes-fragment.de/images/flyer/2026-10-10-dunkelstrom-iv-muenchen.webp",
-          "performer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
-          "offers": { "@type": "Offer", "price": "10", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "availabilityStarts": "2026-10-10T19:00:00+02:00" },
+          "performer": [
+            { "@type": "MusicGroup", "name": "Irrlicht", "url": "https://www.irrlicht.ch/" },
+            { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
+          ],
+          "organizer": { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" },
+          "offers": { "@type": "Offer", "url": "https://schwarzes-fragment.de/live/dunkelstrom-iv.html", "price": "10", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": "2026-08-01T00:00:00+02:00" },
           "url": "https://schwarzes-fragment.de/live/dunkelstrom-iv.html"
         },
         {
           "@type": "MusicEvent",
           "name": "Schwarzes Fragment · First Contact Berlin",
+          "description": "Schwarzes Fragment live in Berlin — First Contact @ Galerie ZeitZone. Erste Schwarzes-Fragment-Show in Berlin.",
           "startDate": "2026-10-24",
           "eventStatus": "https://schema.org/EventScheduled",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -211,6 +223,7 @@
         {
           "@type": "MusicEvent",
           "name": "Schwarzes Fragment live @ Echoes of the Factory",
+          "description": "Schwarzes Fragment als Opener bei Echoes of the Factory — Unterschicht + Antibody live im Bandhaus Leipzig.",
           "startDate": "2026-11-07T20:00:00+01:00",
           "endDate": "2026-11-07T23:30:00+01:00",
           "eventStatus": "https://schema.org/EventScheduled",
@@ -232,9 +245,10 @@
             { "@type": "MusicGroup", "name": "Antibody" },
             { "@type": "MusicGroup", "@id": "https://schwarzes-fragment.de/#band", "name": "Schwarzes Fragment" }
           ],
+          "organizer": { "@type": "Organization", "name": "Bandhaus Leipzig", "url": "https://bandhaus-leipzig.de/" },
           "offers": [
-            { "@type": "Offer", "name": "Vorverkauf", "price": "16.50", "priceCurrency": "EUR", "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig", "availability": "https://schema.org/InStock" },
-            { "@type": "Offer", "name": "Abendkasse", "price": "22.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+            { "@type": "Offer", "name": "Vorverkauf", "price": "16.50", "priceCurrency": "EUR", "url": "https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig", "availability": "https://schema.org/InStock", "validFrom": "2026-06-01T00:00:00+02:00" },
+            { "@type": "Offer", "name": "Abendkasse", "url": "https://schwarzes-fragment.de/live/echoes-of-the-factory.html", "price": "22.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": "2026-11-07T19:00:00+01:00" }
           ],
           "url": "https://schwarzes-fragment.de/live/echoes-of-the-factory.html"
         }
@@ -425,7 +439,7 @@
               </div>
             </li>
 
-            <li class="gig" data-date="2026-08-01" data-event-name="Schwarzes Fragment Live – Thüringer Gotik Treffen" data-event-location="Ort auf Anfrage — Thüringen, Deutschland" data-event-desc="Veranstaltung nur mit Einladung in Thüringen, Deutschland. Ort auf Anfrage — Kontakt info@schwarzes-fragment.de.">
+            <li class="gig" data-date="2026-08-01" data-event-name="Schwarzes Fragment Live – Thüringer Gotik Treffen" data-event-location="Ort auf Anfrage — Saalfeld, Deutschland" data-event-desc="Veranstaltung nur mit Einladung in Saalfeld, Deutschland. Ort auf Anfrage — Kontakt info@schwarzes-fragment.de.">
               <div class="gig__left">
                 <time class="gig__date" datetime="2026-08-01">
                   <span class="gig__day">01</span>
@@ -441,7 +455,7 @@
               </div>
               <div class="gig__meta">
                 <h3 class="gig__name">Thüringer Gotik Treffen</h3>
-                <p class="gig__note"><a href="mailto:info@schwarzes-fragment.de?subject=Th%C3%BCringer%20Gotik%20Treffen%20%E2%80%94%20Ort%20auf%20Anfrage" style="color: #6fdde8; text-decoration: underline; text-decoration-style: dotted;">Ort auf Anfrage</a> &middot; Thüringen &middot; Deutschland</p>
+                <p class="gig__note"><a href="mailto:info@schwarzes-fragment.de?subject=Th%C3%BCringer%20Gotik%20Treffen%20%E2%80%94%20Ort%20auf%20Anfrage" style="color: #6fdde8; text-decoration: underline; text-decoration-style: dotted;">Ort auf Anfrage</a> &middot; Saalfeld &middot; Deutschland</p>
               </div>
             </li>
 
