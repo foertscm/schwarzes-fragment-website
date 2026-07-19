@@ -100,7 +100,7 @@
       </header>
 
       <div class="event-ctas">
-        <!-- TODO: add ticket URL when tickets go on sale -->
+        <a class="btn btn--ghost" href="https://www.tixforgigs.com/Event/75714" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
         <a class="btn btn--ghost" href="https://www.facebook.com/events/2329711074219535" target="_blank" rel="noopener noreferrer">📘 Facebook Event</a>
         <a class="btn btn--ghost" href="https://maps.google.com/?q=Szenerie+Theater+Drehleier+Rosenheimer+Str+123+München" target="_blank" rel="noopener noreferrer">📍 Anfahrt / Directions</a>
       </div>
@@ -134,13 +134,16 @@
              81677 München · Deutschland / Germany</p>
           <p>Samstag, 10. Oktober 2026 <span class="lbl-en">/ Saturday, 10 October 2026</span><br>
              Einlass <span class="lbl-en">/ Doors</span> 19:00 · Beginn <span class="lbl-en">/ Show</span> 20:00</p>
-          <p>Eintritt <span class="lbl-en">/ Admission</span>: 10 € · <strong>nur Abendkasse / cash at door only</strong> (kein Vorverkauf / no advance sale)</p>
+          <p>Eintritt <span class="lbl-en">/ Admission</span>: <strong>10&nbsp;€</strong> an der Abendkasse <span class="lbl-en">/ at the box office</span> · <a href="https://www.tixforgigs.com/Event/75714" target="_blank" rel="noopener noreferrer">VVK über Tixforgigs: 10&nbsp;€ zzgl. Vorverkaufsgebühr <span class="lbl-en">/ advance tickets via Tixforgigs: €10 plus booking fee</span></a></p>
         </div>
       </section>
 
       <section class="event-section">
         <h2 class="event-section__title">Sag's weiter <span class="t-en">/ Spread the word</span></h2>
         <div class="share-grid">
+          <a class="share-grid__item" href="https://www.tixforgigs.com/Event/75714" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">🎟️</span> Tickets
+          </a>
           <a class="share-grid__item" href="https://www.facebook.com/events/2329711074219535" target="_blank" rel="noopener noreferrer">
             <span class="share-grid__icon">📘</span> Facebook Event
           </a>
@@ -211,14 +214,28 @@
         "@id": "https://schwarzes-fragment.de/#band",
         "name": "Schwarzes Fragment"
       },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://schwarzes-fragment.de/live/dunkelstrom-iv.html",
-        "price": "10",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "validFrom": "2026-08-01T00:00:00+02:00"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "VVK / Advance tickets (Tixforgigs, plus booking fee)",
+          "url": "https://www.tixforgigs.com/Event/75714",
+          "price": "10",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2026-07-19T00:00:00+02:00",
+          "validThrough": "2026-10-10T19:00:00+02:00"
+        },
+        {
+          "@type": "Offer",
+          "name": "Abendkasse / Box office",
+          "url": "https://schwarzes-fragment.de/live/dunkelstrom-iv.html",
+          "price": "10",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2026-10-10T19:00:00+02:00",
+          "validThrough": "2026-10-10T20:00:00+02:00"
+        }
+      ],
       "url": "https://schwarzes-fragment.de/live/dunkelstrom-iv.html",
       "sameAs": "https://www.facebook.com/events/2329711074219535"
     }
