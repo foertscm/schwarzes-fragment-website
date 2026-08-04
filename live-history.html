@@ -265,6 +265,53 @@
     <div class="flyer-hover-preview" id="flyer-hover-preview" aria-hidden="true"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
 
     <script>
+      // Auto-downgrade "upcoming" rows once their date has passed, and keep the
+      // header stats (Live-Termine / Bevorstehend) in sync — so the table never
+      // shows a past show as "Bevorstehend" just because nobody edited the HTML.
+      (function () {
+        const tbody = document.querySelector('.history-table tbody');
+        if (!tbody) return;
+
+        const now = new Date();
+        const todayStr = now.getFullYear() + '-' +
+          String(now.getMonth() + 1).padStart(2, '0') + '-' +
+          String(now.getDate()).padStart(2, '0');
+
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        rows.forEach(row => {
+          if (!row.classList.contains('history-table__row--upcoming')) return;
+          if ((row.dataset.date || '') >= todayStr) return;
+          row.classList.remove('history-table__row--upcoming');
+          row.removeAttribute('id');
+          row.querySelectorAll('.history-table__badge').forEach(badge => {
+            if (!badge.classList.contains('history-table__badge--invite')) badge.remove();
+          });
+        });
+
+        // Re-anchor #upcoming to whichever upcoming row now sits furthest in the
+        // future (it's the one that visually leads the upcoming block once sorted).
+        const stillUpcoming = rows.filter(r => r.classList.contains('history-table__row--upcoming'));
+        const newest = stillUpcoming.length
+          ? stillUpcoming.reduce((a, b) => (b.dataset.date > a.dataset.date ? b : a))
+          : null;
+        document.querySelectorAll('#upcoming').forEach(el => { if (el !== newest) el.removeAttribute('id'); });
+        if (newest) newest.id = 'upcoming';
+
+        const pastCount = rows.filter(r =>
+          r.querySelector('.history-table__nr') && !r.classList.contains('history-table__row--upcoming')
+        ).length;
+        const upcomingCount = stillUpcoming.length;
+
+        const totalStat = document.querySelector('.history-stats .history-stat:first-child .history-stat__num');
+        if (totalStat) totalStat.textContent = String(pastCount);
+
+        const upcomingBlock = document.querySelector('.history-stat--upcoming');
+        const upcomingStat  = upcomingBlock && upcomingBlock.querySelector('.history-stat__num');
+        if (upcomingStat) upcomingStat.textContent = '+' + upcomingCount;
+        if (upcomingBlock) upcomingBlock.style.display = upcomingCount === 0 ? 'none' : '';
+      })();
+
       // Flyer lightbox — same implementation as index.html
       (function () {
         const flyerModal    = document.getElementById('flyer-modal');
