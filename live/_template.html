@@ -151,6 +151,24 @@ in Google search results.
         </div>
       </header>
 
+      <!-- ============= COUNTDOWN ============= -->
+      <!-- REPLACE: data-countdown value — must exactly match the JSON-LD "startDate"
+           below (the Beginn/show time, not doors). data-countdown-end must match
+           JSON-LD "endDate" — without it the widget can't tell "live" from "over"
+           and will claim the show is live forever. Delete this whole <section> for
+           past events instead of leaving a stale countdown on the page. -->
+      <section class="event-countdown" data-countdown="YYYY-MM-DDTHH:MM:00+02:00" data-countdown-end="YYYY-MM-DDTHH:MM:00+02:00" aria-live="polite">
+        <p class="event-countdown__eyebrow">Es geht los in <span class="t-en">/ Countdown</span></p>
+        <div class="event-countdown__grid">
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="d">–</span><span class="event-countdown__label">Tage <span class="lbl-en">/ Days</span></span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="h">–</span><span class="event-countdown__label">Std. <span class="lbl-en">/ Hrs</span></span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="m">–</span><span class="event-countdown__label">Min.</span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="s">–</span><span class="event-countdown__label">Sek. <span class="lbl-en">/ Sec</span></span></div>
+        </div>
+        <p class="event-countdown__live" hidden>🔴 Live jetzt <span class="t-en">/ Live now</span></p>
+        <p class="event-countdown__missed" hidden>😉 Leider verpasst <span class="t-en">/ Missed it</span></p>
+      </section>
+
       <!-- ============= PRIMARY CTAs ============= -->
       <!--
         Show only the buttons that apply. Order suggestion: Tickets first,
@@ -394,5 +412,6 @@ in Google search results.
         });
       })();
     </script>
+    <script src="../js/countdown.js" defer></script>
   </body>
 </html>

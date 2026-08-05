@@ -94,7 +94,20 @@
         </div>
       </header>
 
+      <section class="event-countdown" data-countdown="2026-10-24T20:00:00+02:00" data-countdown-end="2026-10-24T23:00:00+02:00" aria-live="polite">
+        <p class="event-countdown__eyebrow">Es geht los in <span class="t-en">/ Countdown</span></p>
+        <div class="event-countdown__grid">
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="d">–</span><span class="event-countdown__label">Tage <span class="lbl-en">/ Days</span></span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="h">–</span><span class="event-countdown__label">Std. <span class="lbl-en">/ Hrs</span></span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="m">–</span><span class="event-countdown__label">Min.</span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="s">–</span><span class="event-countdown__label">Sek. <span class="lbl-en">/ Sec</span></span></div>
+        </div>
+        <p class="event-countdown__live" hidden>🔴 Live jetzt <span class="t-en">/ Live now</span></p>
+        <p class="event-countdown__missed" hidden>😉 Leider verpasst <span class="t-en">/ Missed it</span></p>
+      </section>
+
       <div class="event-ctas">
+        <a class="btn" href="https://www.galeriezeitzone.com/events/schwarzes-fragment-support" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
         <!-- TODO: add Facebook Event URL when FB page is live -->
         <a class="btn btn--ghost" href="https://maps.google.com/?q=Galerie+ZeitZone+Adalbertstra%C3%9Fe+79+10997+Berlin" target="_blank" rel="noopener noreferrer">📍 Anfahrt / Directions</a>
       </div>
@@ -130,6 +143,9 @@
       <section class="event-section">
         <h2 class="event-section__title">Sag's weiter <span class="t-en">/ Spread the word</span></h2>
         <div class="share-grid">
+          <a class="share-grid__item" href="https://www.galeriezeitzone.com/events/schwarzes-fragment-support" target="_blank" rel="noopener noreferrer">
+            <span class="share-grid__icon">🎟️</span> Tickets
+          </a>
           <a class="share-grid__item" href="https://maps.google.com/?q=Galerie+ZeitZone+Adalbertstra%C3%9Fe+79+10997+Berlin" target="_blank" rel="noopener noreferrer">
             <span class="share-grid__icon">📍</span> Google Maps
           </a>
@@ -195,6 +211,12 @@
         "@type": "Organization",
         "name": "Galerie ZeitZone"
       },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.galeriezeitzone.com/events/schwarzes-fragment-support",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-08-05"
+      },
       "url": "https://schwarzes-fragment.de/live/berlin-zeitzone.html"
     }
     </script>
@@ -250,5 +272,6 @@
         });
       })();
     </script>
+    <script src="../js/countdown.js" defer></script>
   </body>
 </html>

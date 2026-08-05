@@ -91,6 +91,18 @@
         </div>
       </header>
 
+      <section class="event-countdown" data-countdown="2026-11-07T20:00:00+01:00" data-countdown-end="2026-11-07T23:30:00+01:00" aria-live="polite">
+        <p class="event-countdown__eyebrow">Es geht los in <span class="t-en">/ Countdown</span></p>
+        <div class="event-countdown__grid">
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="d">–</span><span class="event-countdown__label">Tage <span class="lbl-en">/ Days</span></span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="h">–</span><span class="event-countdown__label">Std. <span class="lbl-en">/ Hrs</span></span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="m">–</span><span class="event-countdown__label">Min.</span></div>
+          <div class="event-countdown__tile event-countdown__tile--pulse"><span class="event-countdown__value" data-unit="s">–</span><span class="event-countdown__label">Sek. <span class="lbl-en">/ Sec</span></span></div>
+        </div>
+        <p class="event-countdown__live" hidden>🔴 Live jetzt <span class="t-en">/ Live now</span></p>
+        <p class="event-countdown__missed" hidden>😉 Leider verpasst <span class="t-en">/ Missed it</span></p>
+      </section>
+
       <div class="event-ctas">
         <a class="btn" href="https://www.tixforgigs.com/Event/73038/unterschicht-antibody-schwarzes-fragment-bandhaus-leipzig" target="_blank" rel="noopener noreferrer">🎟️ Tickets</a>
         <a class="btn btn--ghost" href="https://maps.google.com/?q=Bandhaus+Leipzig+Saarl%C3%A4nder+Str+17+04179+Leipzig" target="_blank" rel="noopener noreferrer">📍 Anfahrt / Directions</a>
@@ -267,5 +279,6 @@
         });
       })();
     </script>
+    <script src="../js/countdown.js" defer></script>
   </body>
 </html>
