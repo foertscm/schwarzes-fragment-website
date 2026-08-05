@@ -385,7 +385,7 @@
 
           <ul class="gigs__list" id="upcoming">
 
-            <li class="gig" data-date="2026-05-23" data-short-name="World Goth Day Online Festival" data-short-venue="Online" data-event-name="Schwarzes Fragment @ World Goth Day Online Festival" data-event-location="Online" data-event-desc="Schwarzes Fragment – Prerecorded Live! Kostenloses Online-Event.">
+            <li class="gig" data-date="2026-05-23" data-archived="true" data-short-name="World Goth Day Online Festival" data-short-venue="Online" data-event-name="Schwarzes Fragment @ World Goth Day Online Festival" data-event-location="Online" data-event-desc="Schwarzes Fragment – Prerecorded Live! Kostenloses Online-Event.">
               <div class="gig__left">
                 <time class="gig__date" datetime="2026-05-23">
                   <span class="gig__day">23</span>
@@ -404,7 +404,7 @@
                 <p class="gig__note">Schwarzes Fragment<br/>Prerecorded Live!</p>
               </div>
             </li>
-            <li class="gig" data-date="2026-05-25" data-short-name="Dark Affair" data-short-venue="Augustusplatz · Leipzig" data-event-name="Schwarzes Fragment live @ Dark Affair" data-event-location="Augustusplatz, 04109 Leipzig, Germany" data-event-desc="Dark Affair Festival – Schwarzes Fragment Live!">
+            <li class="gig" data-date="2026-05-25" data-archived="true" data-short-name="Dark Affair" data-short-venue="Augustusplatz · Leipzig" data-event-name="Schwarzes Fragment live @ Dark Affair" data-event-location="Augustusplatz, 04109 Leipzig, Germany" data-event-desc="Dark Affair Festival – Schwarzes Fragment Live!">
               <div class="gig__left">
                 <time class="gig__date" datetime="2026-05-25">
                   <span class="gig__day">25</span>
@@ -803,10 +803,12 @@
       <p class="site-footer__impressum"><a href="impressum.html">Impressum / Legal Notice</a> &middot; <a href="datenschutz.html">Datenschutz / Privacy Policy</a></p>
     </footer>
     <script>
-      // Past gig auto-fade
+      // Hide gig cards once their date has passed — "Zuletzt gespielt" below
+      // covers what a fade-out used to signal, so past shows disappear
+      // immediately instead of lingering greyed out for a week.
       const today = new Date().toISOString().slice(0, 10);
       document.querySelectorAll('.gig[data-date]').forEach(gig => {
-        if (gig.dataset.date < today) gig.classList.add('is-past');
+        if (gig.dataset.date < today) gig.hidden = true;
       });
 
       // Whole-gig-card click → event page (for cards with data-href).
@@ -899,31 +901,20 @@
         return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name)}&dates=${d}/${d}&location=${encodeURIComponent(location)}&details=${encodeURIComponent(desc)}`;
       }
 
-      // Hide gig cards more than 7 days past their event date
-      const oneWeekAgo = new Date();
-      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-      document.querySelectorAll('.gig[data-date]').forEach(gig => {
-        if (new Date(gig.dataset.date) < oneWeekAgo) gig.hidden = true;
-      });
-
-      // Keep the "Bevorstehend" stat honest: only count gigs that are neither
-      // past nor hidden. Gigs that already happened but are still shown
-      // (faded, within the 7-day grace window) drop their "NEU" tag and get
-      // folded into the "Live-Auftritte" total until someone archives them
-      // properly in live-history.html.
+      // Keep the "Bevorstehend" / "Live-Auftritte" stats honest. "Archived"
+      // gigs are ones already baked into the static total below by hand —
+      // only past gigs WITHOUT that marker get added, so shows aren't
+      // double-counted once someone manually folds them into the static
+      // number later.
       (function () {
         const gigs = Array.from(document.querySelectorAll('.gig[data-date]'));
-        const upcoming = gigs.filter(g => !g.classList.contains('is-past') && !g.hidden);
-        const recentlyPast = gigs.filter(g => g.classList.contains('is-past') && !g.hidden);
-
-        recentlyPast.forEach(g => {
-          g.querySelectorAll('.tag--new').forEach(tag => tag.remove());
-        });
+        const upcoming = gigs.filter(g => g.dataset.date >= today);
+        const pastNotArchived = gigs.filter(g => g.dataset.date < today && g.dataset.archived !== 'true');
 
         const totalStat = document.querySelector('.stat-strip__item:first-child .stat-strip__num');
         if (totalStat) {
           const base = parseInt(totalStat.textContent, 10) || 0;
-          totalStat.textContent = String(base + recentlyPast.length);
+          totalStat.textContent = String(base + pastNotArchived.length);
         }
 
         const upcomingStat = document.querySelector('.stat-strip__item--upcoming .stat-strip__num');
@@ -934,11 +925,12 @@
       // happened. Gig-teaser entries that turned past take priority; the
       // static fallback cards below cover shows already dropped from the
       // teaser list (e.g. once superseded), and drop out themselves once
-      // two newer shows exist.
+      // newer shows exist.
       (function () {
         const grid = document.querySelector('.recently-played__grid');
         if (!grid) return;
 
+        const MAX_RECENT = 4;
         const MONTHS = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
         const today = new Date().toISOString().slice(0, 10);
         const byDate = new Map();
@@ -955,18 +947,26 @@
 
         grid.querySelectorAll('.recently-played__card[data-date]').forEach(card => {
           const date = card.dataset.date;
-          if (byDate.has(date)) return;
+          const href = card.tagName === 'A' ? card.getAttribute('href') : null;
+          const existing = byDate.get(date);
+          if (existing) {
+            // Teaser entries sometimes have no data-href (e.g. their CTA
+            // pointed at an external ticket site while upcoming) — backfill
+            // the recap link from the static card if it has one.
+            if (!existing.href && href) existing.href = href;
+            return;
+          }
           byDate.set(date, {
             date,
             name: card.querySelector('.recently-played__name').textContent,
             venue: card.querySelector('.recently-played__venue').textContent,
-            href: card.tagName === 'A' ? card.getAttribute('href') : null,
+            href,
           });
         });
 
-        const top2 = Array.from(byDate.values()).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2);
+        const topShows = Array.from(byDate.values()).sort((a, b) => b.date.localeCompare(a.date)).slice(0, MAX_RECENT);
 
-        grid.innerHTML = top2.map(show => {
+        grid.innerHTML = topShows.map(show => {
           const [y, m, d] = show.date.split('-').map(Number);
           const tag = show.href ? 'a' : 'div';
           const hrefAttr = show.href ? ` href="${show.href}"` : '';
