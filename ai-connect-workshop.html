@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Connect Workshop – Links</title>
+    <meta name="description" content="All links for the AI Connect Workshop in one place — no QR codes required.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://schwarzes-fragment.de/ai-connect-workshop.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+      .workshop-section {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 80px 24px 120px;
+      }
+      .workshop-section h1 {
+        font-size: 1.9rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin: 0 0 8px;
+      }
+      .workshop-tagline {
+        font-size: .78rem;
+        color: rgba(190,165,255,.85);
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+      }
+      .workshop-intro {
+        font-size: .9rem;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 60ch;
+        margin: 0 0 48px;
+      }
+      .workshop-group {
+        margin: 0 0 44px;
+      }
+      .workshop-group h2 {
+        font-size: .85rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: rgba(190,165,255,.9);
+        margin: 0 0 16px;
+        border-bottom: 1px solid rgba(107,77,242,.25);
+        padding-bottom: 8px;
+      }
+      .link-grid {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .link-card {
+        position: relative;
+        display: block;
+        padding: 16px 18px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        text-decoration: none;
+        color: var(--ink);
+        backdrop-filter: blur(4px);
+        transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+        overflow: hidden;
+      }
+      .link-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(178,12,27,.16), rgba(107,77,242,.2));
+        opacity: 0;
+        transition: opacity .25s ease;
+      }
+      .link-card:hover,
+      .link-card:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(107,77,242,.55);
+        box-shadow: 0 10px 32px rgba(0,0,0,.45);
+      }
+      .link-card:hover::before,
+      .link-card:focus-visible::before {
+        opacity: 1;
+      }
+      .link-card__label {
+        position: relative;
+        display: block;
+        font-size: .95rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+        margin: 0 0 4px;
+      }
+      .link-card__desc {
+        position: relative;
+        display: block;
+        font-size: .78rem;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+      .workshop-back {
+        display: inline-block;
+        margin-bottom: 40px;
+        font-size: .75rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        border: 1px solid rgba(107,77,242,.35);
+        border-radius: 999px;
+        padding: 6px 16px;
+        transition: color .2s, border-color .2s;
+      }
+      .workshop-back:hover {
+        color: var(--ink);
+        border-color: rgba(107,77,242,.7);
+      }
+    </style>
+  </head>
+  <body>
+    <video class="bg-video" autoplay muted loop playsinline
+           poster="images/band/band-picture-1920.webp"
+           aria-hidden="true">
+      <source src="video/schwarzes-fragment-background-video.mp4" type="video/mp4">
+    </video>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="site-nav__section-link" href="index.html#live">Live</a>
+      <a class="site-nav__section-link" href="index.html#music">Music</a>
+      <a class="site-nav__section-link" href="index.html#video">Video</a>
+      <a class="site-nav__section-link" href="index.html#releases">Releases</a>
+      <a class="site-nav__section-link" href="index.html#about">Band</a>
+      <div class="nav-more-wrap">
+        <button class="site-nav__burger" aria-label="More" aria-expanded="false" aria-controls="nav-more-overlay">
+          <span></span><span></span><span></span>
+        </button>
+        <div id="nav-more-overlay" class="nav-more" aria-hidden="true">
+          <a href="index.html#live"     class="nav-more__item nav-more__item--section">Live</a>
+          <a href="index.html#music"    class="nav-more__item nav-more__item--section">Music</a>
+          <a href="index.html#video"    class="nav-more__item nav-more__item--section">Video</a>
+          <a href="index.html#releases" class="nav-more__item nav-more__item--section">Releases</a>
+          <a href="index.html#about"    class="nav-more__item nav-more__item--section">Band</a>
+          <a href="impressum.html"  class="nav-more__item">Legal Notice</a>
+        </div>
+      </div>
+      <a href="https://epk.schwarzes-fragment.de/index_en.html" target="_blank" rel="noopener noreferrer" class="site-nav__book">EPK</a>
+    </nav>
+
+    <main>
+      <section class="workshop-section">
+        <a href="index.html" class="workshop-back">&larr; Home</a>
+
+        <h1>AI Connect Workshop</h1>
+        <p class="workshop-tagline">All Links, No QR Codes Needed</p>
+        <p class="workshop-intro">
+          Everything you need for today's session lives here — click through
+          instead of scanning. Bookmark this page now.
+        </p>
+
+        <div class="workshop-group">
+          <h2>AI Tools</h2>
+          <ul class="link-grid">
+            <li>
+              <a class="link-card" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Duck.AI</span>
+                <span class="link-card__desc">Write your lyrics & generate the cover image</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://suno.com/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Suno.ai</span>
+                <span class="link-card__desc">Turn your lyrics into a full song</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="http://videoc-albae-xgcokpd7ej6e-1218025831.eu-central-1.elb.amazonaws.com/projects/cmsu3lcks00016c2076q2jbx7/shots" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Video Creator</span>
+                <span class="link-card__desc">Scenes & shots — animate your track</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="workshop-group">
+          <h2>Workshop Resources</h2>
+          <ul class="link-grid">
+            <li>
+              <a class="link-card" href="https://fileshare.tngtech.com/d/10749d8d3d29461ea2d4/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Main Resource Point</span>
+                <span class="link-card__desc">Start here if you need anything else</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://fileshare.tngtech.com/d/1564c0935f634481b1af/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Route Prompts</span>
+                <span class="link-card__desc">All four route prompts in one folder</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://fileshare.tngtech.com/d/e4008932f68c4f0687e4/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Fallback: Lyrics</span>
+                <span class="link-card__desc">No usable result? Grab the prepared lyrics for your route</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://fileshare.tngtech.com/d/95173fea6ca14ac89b95/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Fallback: Songs</span>
+                <span class="link-card__desc">No usable result? Grab the prepared song for your route</span>
+              </a>
+            </li>
+            <li>
+              <a class="link-card" href="https://fileshare.tngtech.com/d/f951f715cfb54aefb2ca/" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Fallback: Images</span>
+                <span class="link-card__desc">Pick one of three prepared 16:9 images</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="workshop-group">
+          <h2>Bonus</h2>
+          <ul class="link-grid">
+            <li>
+              <a class="link-card" href="https://www.youtube.com/watch?v=fxqRcgbXAHY" target="_blank" rel="noopener noreferrer">
+                <span class="link-card__label">Generative AI Talk</span>
+                <span class="link-card__desc">60 seconds wasn't enough? Full talk on diffusion models (English)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Schwarzes Fragment. All rights reserved.</p>
+      <p class="site-footer__impressum"><a href="impressum.html">Impressum / Legal Notice</a> &middot; <a href="datenschutz.html">Datenschutz / Privacy Policy</a></p>
+    </footer>
+
+    <script>
+      const burger  = document.querySelector('.site-nav__burger');
+      const overlay = document.getElementById('nav-more-overlay');
+      burger.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = overlay.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', open);
+        overlay.setAttribute('aria-hidden', !open);
+      });
+      document.addEventListener('click', () => {
+        overlay.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        overlay.setAttribute('aria-hidden', 'true');
+      });
+      overlay.querySelectorAll('.nav-more__item').forEach(a => {
+        a.addEventListener('click', () => {
+          overlay.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          overlay.setAttribute('aria-hidden', 'true');
+        });
+      });
+    </script>
+  </body>
+</html>
