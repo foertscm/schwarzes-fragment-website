@@ -120,7 +120,7 @@
           <span class="history-stat__label">Erstes Konzert</span>
         </div>
         <div class="history-stat">
-          <span class="history-stat__num">13</span>
+          <span class="history-stat__num">14</span>
           <span class="history-stat__label">Städte bespielt</span>
         </div>
         <div class="history-stat">
@@ -310,6 +310,21 @@
         const upcomingStat  = upcomingBlock && upcomingBlock.querySelector('.history-stat__num');
         if (upcomingStat) upcomingStat.textContent = '+' + upcomingCount;
         if (upcomingBlock) upcomingBlock.style.display = upcomingCount === 0 ? 'none' : '';
+
+        // "Städte bespielt" — distinct real-world cities among past rows (Online
+        // festival slots don't count as a city). Derived here rather than hand-
+        // maintained so it never drifts once a new city's date rolls into the past.
+        const cities = new Set(
+          rows
+            .filter(r => r.querySelector('.history-table__nr') && !r.classList.contains('history-table__row--upcoming'))
+            .map(r => (r.querySelector('.history-table__city') || {}).textContent || '')
+            .map(c => c.trim())
+            .filter(c => c && c.toLowerCase() !== 'online')
+        );
+        const cityStatLabel = Array.from(document.querySelectorAll('.history-stat__label'))
+          .find(el => /Städte bespielt/i.test(el.textContent));
+        const cityStatNum = cityStatLabel && cityStatLabel.previousElementSibling;
+        if (cityStatNum) cityStatNum.textContent = String(cities.size);
       })();
 
       // Flyer lightbox — same implementation as index.html
