@@ -91,6 +91,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/echoes-of-the-factory.html"/>
   </url>
 
+  <!-- Aggrotech Night Vol. 2 (Time Devils presents) @ Club From Hell, Erfurt -->
+  <url>
+    <loc>https://schwarzes-fragment.de/live/aggrotech-night-vol2-erfurt.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/aggrotech-night-vol2-erfurt.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/aggrotech-night-vol2-erfurt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/aggrotech-night-vol2-erfurt.html"/>
+  </url>
+
   <!-- First Contact · Berlin @ Galerie ZeitZone -->
   <url>
     <loc>https://schwarzes-fragment.de/live/berlin-zeitzone.html</loc>
@@ -99,6 +109,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/berlin-zeitzone.html"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/berlin-zeitzone.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/berlin-zeitzone.html"/>
+  </url>
+
+  <!-- Kult41, Bonn -->
+  <url>
+    <loc>https://schwarzes-fragment.de/live/kult41-bonn.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/kult41-bonn.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/kult41-bonn.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/kult41-bonn.html"/>
   </url>
 
   <!-- Datenschutz / Privacy -->
