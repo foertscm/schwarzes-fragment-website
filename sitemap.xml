@@ -51,6 +51,15 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/dunkelstrom-special-1-2dcat.html"/>
   </url>
+  <!-- GRENDEL & SYSTEM NOIRE Anniversary Tour 2026 @ Golden Nugget -->
+  <url>
+    <loc>https://schwarzes-fragment.de/live/golden-nugget-nuernberg.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://schwarzes-fragment.de/live/golden-nugget-nuernberg.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://schwarzes-fragment.de/live/golden-nugget-nuernberg.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://schwarzes-fragment.de/live/golden-nugget-nuernberg.html"/>
+  </url>
   <!-- DUNKELSTROM IV -->
   <url>
     <loc>https://schwarzes-fragment.de/live/dunkelstrom-iv.html</loc>
