@@ -34,8 +34,8 @@
 	gap: 24px;
 	align-items: center;
 	padding: 28px 24px;
-	background: linear-gradient(135deg, rgba(20,16,38,.85), rgba(12,12,18,.85));
-	border: 1px solid rgba(107,77,242,.4);
+	background: var(--live-featured-bg);
+	border: 1px solid var(--live-featured-border);
 	border-radius: 12px;
 	box-shadow: 0 12px 40px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04);
 	margin-bottom: 28px;
@@ -110,8 +110,8 @@
 .event-countdown {
 	text-align: center;
 	padding: 20px 24px 22px;
-	background: linear-gradient(135deg, rgba(20,16,38,.85), rgba(12,12,18,.85));
-	border: 1px solid rgba(107,77,242,.4);
+	background: var(--live-featured-bg);
+	border: 1px solid var(--live-featured-border);
 	border-radius: 12px;
 	box-shadow: 0 12px 40px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04);
 	margin-bottom: 28px;
@@ -222,8 +222,8 @@
 .event-section {
 	margin-bottom: 28px;
 	padding: 22px 24px;
-	background: rgba(12,12,18,.75);
-	border: 1px solid rgba(255,255,255,.08);
+	background: var(--live-panel-bg);
+	border: 1px solid var(--live-panel-border);
 	border-radius: 10px;
 }
 .event-section__title {

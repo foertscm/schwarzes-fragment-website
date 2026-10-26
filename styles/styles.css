@@ -14,6 +14,10 @@
 	 --overlay-2: radial-gradient(900px 600px at 80% 30%, rgba(107,77,242,.18), transparent 60%), radial-gradient(700px 500px at 15% 80%, rgba(178,12,27,.22), transparent 60%);
 	 --ink: #e8e6f2;
 	 --muted:#b8b5c8;
+	 --live-panel-bg: rgba(12,12,18,.75);
+	 --live-panel-border: rgba(255,255,255,.08);
+	 --live-featured-bg: linear-gradient(135deg, rgba(20,16,38,.85), rgba(12,12,18,.85));
+	 --live-featured-border: rgba(107,77,242,.4);
 }
  * {
 	 box-sizing: border-box
