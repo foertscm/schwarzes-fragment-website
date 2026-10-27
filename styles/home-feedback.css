@@ -1,0 +1,78 @@
+.audience-feedback {
+  position: relative;
+  padding: 12px 20px 24px;
+  scroll-margin-top: 88px;
+}
+
+.audience-feedback__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--live-featured-border);
+  border-radius: 12px;
+  background: var(--live-featured-bg);
+}
+
+.audience-feedback__header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.audience-feedback__eyebrow {
+  margin: 0 0 12px;
+  color: #6fdde8;
+  font-family: system-ui, sans-serif;
+  font-size: .8125rem;
+  letter-spacing: .1em;
+}
+
+.audience-feedback__title {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.audience-feedback__subtitle {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.audience-feedback__quotes {
+  display: grid;
+  gap: 12px;
+}
+
+.audience-feedback__quote {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--live-panel-border);
+  border-radius: 8px;
+  background: var(--live-panel-bg);
+  font-family: system-ui, sans-serif;
+  text-align: left;
+}
+
+.audience-feedback__quote blockquote {
+  margin: 0;
+}
+
+.audience-feedback__quote p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.audience-feedback__quote figcaption {
+  margin-top: 10px;
+  color: #6fdde8;
+  font-size: .9375rem;
+  line-height: 1.5;
+}
